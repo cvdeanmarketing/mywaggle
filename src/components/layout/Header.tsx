@@ -170,7 +170,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            className="ml-auto mr-2 hidden h-10 w-64 items-center gap-2.5 rounded-full border border-line bg-sand/60 px-4 text-left text-[14px] text-muted transition-colors hover:border-ink/30 lg:flex xl:w-[26rem]"
+            className="mx-2 hidden h-10 min-w-0 flex-1 items-center gap-2.5 rounded-full border border-line bg-sand/60 px-4 text-left text-[14px] text-muted transition-colors hover:border-ink/30 lg:flex"
           >
             <Search className="size-[18px]" aria-hidden />
             Search
