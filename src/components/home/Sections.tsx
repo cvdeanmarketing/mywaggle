@@ -11,7 +11,6 @@ import {
   House,
   MapPin,
   Mountain,
-  PlayCircle,
   Radio,
   Shield,
   Sun,
@@ -168,31 +167,9 @@ export function Ecosystem() {
               <Layer key={l.title} {...l} align="left" />
             ))}
           </ul>
-          <div className="relative mx-auto w-[260px]" aria-hidden>
-            <div className="rounded-[44px] border-[10px] border-ink bg-ink shadow-2xl">
-              <div className="overflow-hidden rounded-[34px] bg-sand">
-                <div className="flex items-center justify-between bg-paper px-5 pb-3 pt-6">
-                  <span className="font-display text-lg font-semibold">waggle</span>
-                  <span className="size-2 rounded-full bg-mint" />
-                </div>
-                <div className="space-y-3 p-4">
-                  <div className="rounded-2xl bg-paper p-4">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Pet Monitor Pro+</p>
-                    <p className="mt-1 font-display text-4xl font-semibold">72°F</p>
-                    <p className="text-xs text-muted">45% humidity · Power on · 4G</p>
-                  </div>
-                  <div className="relative aspect-video overflow-hidden rounded-2xl bg-[#d9cfc2]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#e9dfd2] to-[#c8b9a6]" />
-                    <PlayCircle className="absolute left-1/2 top-1/2 size-9 -translate-x-1/2 -translate-y-1/2 text-paper" />
-                    <span className="absolute bottom-2 left-2 rounded-full bg-ink/70 px-2 py-0.5 text-[10px] font-bold text-paper">Live · Living room</span>
-                  </div>
-                  <div className="flex items-center gap-2 rounded-2xl bg-paper p-3">
-                    <Activity className="size-4 text-mint" />
-                    <span className="text-xs font-bold">Talk to Waggle Vet</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="relative mx-auto w-[260px] sm:w-[280px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/app-home.webp" alt="The Waggle app home screen showing temperature, humidity and a live pet camera view" width={640} height={1324} loading="lazy" className="w-full drop-shadow-2xl" />
           </div>
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {SERVICE_LAYERS.map((l) => (
