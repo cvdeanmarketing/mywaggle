@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { bestsellers } from "@/lib/catalog";
+import { devices, getProduct, type Product } from "@/lib/catalog";
 import { HOME_FAQS } from "@/lib/content/faqs";
-import { FamilySection } from "@/components/home/Family";
 import { Hero } from "@/components/home/Hero";
+import { ProductRail } from "@/components/home/ProductRail";
 import { Ecosystem, Education, Lifestyles, SocialProof, WhyWaggle } from "@/components/home/Sections";
-import { ProductCard } from "@/components/product/ProductCard";
-import { ViewItemList } from "@/components/product/ViewItemList";
 import { BundleBuilder } from "@/components/shop/BundleBuilder";
 import { CompareTable } from "@/components/shop/CompareTable";
 import { Quiz } from "@/components/shop/Quiz";
@@ -22,11 +20,18 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const best = bestsellers(4);
+  // Lead with the four products the live homepage features, then the rest of the family.
+  const lead = ["pet-monitor-pro-plus", "rv-4g-mini-camera", "rv-observation-system", "rv-wifi-mini-cam"];
+  const railProducts = [
+    ...lead.map(getProduct).filter((p): p is Product => Boolean(p)),
+    ...devices()
+      .filter((p) => !lead.includes(p.handle))
+      .sort((a, b) => a.merchRank - b.merchRank),
+  ];
   return (
     <>
       <Hero />
-      <FamilySection />
+      <ProductRail products={railProducts} title="What's keeping your pet safe today?" listName="home_featured" />
       <Lifestyles />
 
       <section className="py-20 sm:py-28" aria-labelledby="quiz-title" id="find-your-waggle">
@@ -40,25 +45,6 @@ export default function HomePage() {
             />
           </div>
           <Quiz variant="embedded" />
-        </div>
-      </section>
-
-      <section className="bg-sand py-20 sm:py-28" aria-labelledby="best-title">
-        <div className="container-page">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading id="best-title" eyebrow="Bestsellers" title="Most-loved by pet parents." />
-            <Link href="/shop" className="inline-flex shrink-0 items-center gap-1.5 font-bold hover:text-signal">
-              Shop all <ArrowRight className="size-4" aria-hidden />
-            </Link>
-          </div>
-          <ViewItemList listName="home_bestsellers" handles={best.map((p) => p.handle)} />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {best.map((p, i) => (
-              <li key={p.handle}>
-                <ProductCard product={p} listName="home_bestsellers" index={i} className="h-full" />
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

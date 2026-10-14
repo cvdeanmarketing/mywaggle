@@ -29,7 +29,7 @@ export default function LivePage() {
         <ul className="grid gap-4 md:grid-cols-3">
           {WHY.map(({ icon: Icon, t, d }) => (
             <li key={t} className="rounded-[var(--radius-card)] bg-sand p-6">
-              <Icon className="size-6 text-clay-700" aria-hidden />
+              <Icon className="size-6 text-signal-700" aria-hidden />
               <h2 className="mt-4 text-lg font-semibold">{t}</h2>
               <p className="mt-1 text-sm text-muted">{d}</p>
             </li>
@@ -43,7 +43,7 @@ export default function LivePage() {
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {LIVE_SESSIONS.map((s) => (
               <li key={s.title} className="flex flex-col rounded-[var(--radius-card)] border border-line p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-clay-700">
+                <p className="text-xs font-bold uppercase tracking-wider text-signal-700">
                   {s.topic === "rv" ? "RV" : s.topic === "behavior" ? "Training & behavior" : s.topic === "travel" ? "Travel" : "Well-being"}
                   {s.minutes ? ` · ${s.minutes} min` : ""}
                 </p>

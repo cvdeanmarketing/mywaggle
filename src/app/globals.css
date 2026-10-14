@@ -22,9 +22,9 @@
   --color-clay: #b46c44;
   --color-clay-700: #93532f;
   --color-clay-50: #f8eee7;
-  --color-signal: #0b6bd8;
-  --color-signal-700: #0954ab;
-  --color-signal-50: #eaf3fd;
+  --color-signal: #007bf9;
+  --color-signal-700: #0060c7;
+  --color-signal-50: #ebf5fe;
   --color-mint: #1d7f55;
   --color-mint-50: #e7f4ee;
   --color-alert: #c2410c;
@@ -59,7 +59,7 @@
     outline-offset: 2px;
     border-radius: 6px;
   }
-  ::selection { background: var(--color-clay-50); color: var(--color-ink); }
+  ::selection { background: var(--color-signal-50); color: var(--color-ink); }
   summary { cursor: pointer; }
   summary::-webkit-details-marker { display: none; }
 }
@@ -77,7 +77,7 @@
   @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
 }
 @utility eyebrow {
-  @apply font-sans text-xs font-bold uppercase tracking-[0.16em] text-clay-700;
+  @apply font-sans text-xs font-bold uppercase tracking-[0.16em] text-signal-700;
 }
 @utility btn {
   @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold transition-[background,color,transform,box-shadow] duration-200 ease-out disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98];
@@ -95,7 +95,7 @@
   @apply btn border border-white/25 text-paper hover:bg-white/10;
 }
 @utility link {
-  @apply font-bold text-signal underline-offset-4 hover:underline;
+  @apply font-bold text-signal-700 underline-offset-4 hover:underline;
 }
 @utility chip {
   @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-bold text-ink;

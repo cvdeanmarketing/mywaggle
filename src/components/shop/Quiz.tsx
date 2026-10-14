@@ -66,7 +66,7 @@ export function Quiz({ variant = "page" }: { variant?: "page" | "embedded" }) {
             )}
           </div>
           <div className="mt-3 h-1 overflow-hidden rounded-full bg-sand" aria-hidden>
-            <motion.div className="h-full rounded-full bg-clay" initial={false} animate={{ width: `${(step / QUIZ.length) * 100}%` }} transition={{ duration: 0.4 }} />
+            <motion.div className="h-full rounded-full bg-signal" initial={false} animate={{ width: `${(step / QUIZ.length) * 100}%` }} transition={{ duration: 0.4 }} />
           </div>
           <AnimatePresence mode="wait">
             <motion.fieldset

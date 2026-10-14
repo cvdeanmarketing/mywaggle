@@ -141,7 +141,7 @@ export function Header() {
             >
               <ShoppingBag className="size-5" />
               {totals.itemCount > 0 && (
-                <span className="absolute right-0.5 top-0.5 flex min-w-[18px] items-center justify-center rounded-full bg-clay px-1 text-[10px] font-bold leading-[18px] text-paper">
+                <span className="absolute right-0.5 top-0.5 flex min-w-[18px] items-center justify-center rounded-full bg-signal px-1 text-[10px] font-bold leading-[18px] text-paper">
                   {totals.itemCount}
                 </span>
               )}
@@ -160,7 +160,7 @@ export function Header() {
                         href={item.href}
                         className={cn(
                           "rounded-full px-3 py-2 text-[14px] font-bold transition-colors",
-                          current ? "text-ink" : "text-ink/75 hover:text-ink",
+                          current ? "text-signal-700" : "text-ink/75 hover:text-ink",
                           isActive && "bg-sand text-ink",
                         )}
                         aria-current={current ? "page" : undefined}
@@ -184,7 +184,7 @@ export function Header() {
               <li>
                 <Link
                   href="/find-your-waggle"
-                  className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-clay-50 px-3.5 py-2 text-[14px] font-bold text-clay-700 hover:bg-clay hover:text-paper"
+                  className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-signal px-4 py-2 text-[14px] font-bold text-paper transition-colors hover:bg-signal-700"
                 >
                   <Sparkles className="size-4" aria-hidden />
                   Find Your Waggle
@@ -207,7 +207,7 @@ export function Header() {
             >
               <div className="container-page grid grid-cols-[260px_1fr] gap-10 py-8">
                 <div className="flex flex-col">
-                  <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal">
+                  <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal-700">
                     View all {activeItem.label === "Shop All" ? "products" : activeItem.label}
                     <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                   </Link>
@@ -215,7 +215,7 @@ export function Header() {
                   <div className="mt-auto rounded-2xl bg-sand p-4">
                     <p className="text-sm font-bold">Not sure where to start?</p>
                     <p className="mt-1 text-xs text-muted">Four questions, one recommendation.</p>
-                    <Link href="/find-your-waggle" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-clay-700 hover:underline">
+                    <Link href="/find-your-waggle" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-signal-700 hover:underline">
                       Find Your Waggle <ArrowRight className="size-4" aria-hidden />
                     </Link>
                   </div>
@@ -307,10 +307,10 @@ function MobileNav({ open, onClose, onSearch }: { open: boolean; onClose: () => 
               >
                 <Search className="size-4" aria-hidden /> Search products
               </button>
-              <Link href="/find-your-waggle" className="mt-4 flex items-center justify-between rounded-2xl bg-ink p-4 text-paper">
+              <Link href="/find-your-waggle" className="mt-4 flex items-center justify-between rounded-2xl bg-signal p-4 text-paper">
                 <span>
                   <span className="block font-display text-lg font-semibold">Find Your Waggle</span>
-                  <span className="text-sm text-white/70">Four questions. One clear recommendation.</span>
+                  <span className="text-sm text-white/80">Four questions. One clear recommendation.</span>
                 </span>
                 <ArrowRight className="size-5" aria-hidden />
               </Link>

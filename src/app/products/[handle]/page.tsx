@@ -157,7 +157,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
               const I = Icon as typeof Truck;
               return (
                 <li key={label as string} className="flex items-center gap-2 rounded-xl bg-sand px-3 py-2.5">
-                  <I className="size-4 text-clay-700" aria-hidden />
+                  <I className="size-4 text-signal-700" aria-hidden />
                   {label as string}
                 </li>
               );
@@ -166,7 +166,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
           <Link href="/find-your-waggle" className="mt-5 flex items-center justify-between rounded-2xl bg-ink px-5 py-4 text-paper">
             <span className="text-sm font-bold">Not sure this is the right Waggle?</span>
-            <span className="inline-flex items-center gap-1 text-sm font-bold text-clay">
+            <span className="inline-flex items-center gap-1 text-sm font-bold text-[#5aa8ff]">
               Find Your Waggle <ArrowRight className="size-4" aria-hidden />
             </span>
           </Link>
@@ -184,7 +184,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
               return (
                 <li key={key} className={cn("rounded-2xl p-5", on ? "bg-ink text-paper" : "bg-paper text-ink/60")}>
                   <div className="flex items-center justify-between">
-                    <Icon className={cn("size-6", on ? "text-clay" : "")} aria-hidden />
+                    <Icon className={cn("size-6", on ? "text-[#5aa8ff]" : "")} aria-hidden />
                     {on && <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold">This device</span>}
                   </div>
                   <p className="mt-4 font-display text-lg font-semibold">{title}</p>

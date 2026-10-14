@@ -11,30 +11,30 @@ const WHAT_WE_SELL = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
-      <div className="container-page grid items-center gap-10 pb-14 pt-10 sm:pt-14 lg:min-h-[620px] lg:grid-cols-[1.02fr_1fr] lg:gap-6 lg:pb-20 lg:pt-16">
-        <div className="relative z-10 max-w-xl animate-fade-up">
+      <div className="container-page grid items-center gap-8 pb-8 pt-8 sm:pt-10 lg:grid-cols-[1.25fr_1fr] lg:gap-8 lg:pb-8 lg:pt-8">
+        <div className="relative z-10 max-w-2xl animate-fade-up">
           <p className="eyebrow">Connected pet safety</p>
-          <h1 id="hero-title" className="mt-4 text-[44px] font-semibold leading-[1.02] sm:text-6xl lg:text-[68px]">
+          <h1 id="hero-title" className="mt-3 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
             Protect what matters.
-            <span className="block text-clay-700">Wherever life takes you.</span>
+            <span className="block text-signal">Wherever life takes you.</span>
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted sm:text-xl">
+          <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-muted">
             Smart cameras, temperature monitors and connected safety tech that protect your pets, home and adventures. From your living room to the open
             road, Waggle keeps you connected to what matters most.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/find-your-waggle" className="btn-primary px-7 py-3.5 text-base">
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/find-your-waggle" className="btn-accent px-7 py-3.5 text-base">
               Find Your Waggle <ArrowRight className="size-4" aria-hidden />
             </Link>
             <Link href="/shop" className="btn-secondary px-7 py-3.5 text-base">
               Shop All Products
             </Link>
           </div>
-          <ul className="mt-10 grid gap-2 sm:flex sm:flex-wrap sm:gap-x-6" aria-label="What Waggle makes">
+          <ul className="mt-5 grid gap-2 sm:flex sm:flex-wrap sm:gap-x-6" aria-label="What Waggle makes">
             {WHAT_WE_SELL.map(({ icon: Icon, label, href }) => (
               <li key={label}>
                 <Link href={href} className="inline-flex items-center gap-2 text-sm font-bold text-ink/80 hover:text-ink">
-                  <Icon className="size-4 text-clay" aria-hidden />
+                  <Icon className="size-4 text-signal" aria-hidden />
                   {label}
                 </Link>
               </li>
@@ -42,7 +42,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto aspect-[1/0.92] w-full max-w-[600px]" aria-hidden>
+        <div className="relative mx-auto aspect-[1/0.72] w-full max-w-[470px]" aria-hidden>
           <div className="absolute inset-[6%] rounded-[44px] bg-paper shadow-[var(--shadow-lift)]" />
           <div className="absolute inset-x-[6%] bottom-[6%] top-[52%] rounded-b-[44px] bg-gradient-to-t from-sand-2/80 to-transparent" />
           {/* Device family lineup */}
@@ -53,14 +53,14 @@ export function Hero() {
             <ProductArt art="wifi-mini-cam" title="" className="-ml-[16%] w-[34%] animate-fade-up [animation-delay:360ms]" />
           </div>
           {/* App alert cards */}
-          <div className="absolute left-0 top-[10%] w-[58%] max-w-[300px] animate-fade-up rounded-2xl bg-ink p-4 text-paper shadow-2xl [animation-delay:500ms] sm:p-5">
-            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-clay">
+          <div className="absolute -left-[2%] top-[3%] w-[60%] max-w-[290px] animate-fade-up rounded-2xl bg-ink p-3.5 text-paper shadow-2xl [animation-delay:500ms] sm:p-4">
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#5aa8ff]">
               <BellRing className="size-3.5" /> Alert · RV living room
             </div>
-            <p className="mt-2 font-display text-lg font-semibold leading-snug sm:text-xl">Temperature rising: 86°F</p>
+            <p className="mt-1.5 font-display text-base font-semibold leading-snug sm:text-lg">Temperature rising: 86°F</p>
             <p className="mt-1 text-xs text-muted-dark">Shore power lost 2 min ago. Sent by app, text and email.</p>
           </div>
-          <div className="absolute right-0 top-[30%] w-[44%] max-w-[230px] animate-fade-up rounded-2xl border border-line bg-paper p-3.5 shadow-xl [animation-delay:650ms] sm:p-4">
+          <div className="absolute -right-[3%] top-[26%] w-[44%] max-w-[230px] animate-fade-up rounded-2xl border border-line bg-paper p-3.5 shadow-xl [animation-delay:650ms] sm:p-4">
             <p className="text-[11px] font-bold uppercase tracking-wider text-muted">Home · Kitchen cam</p>
             <p className="mt-1.5 flex items-center gap-2 text-sm font-bold">
               <span className="size-2 rounded-full bg-mint" /> Biscuit is napping

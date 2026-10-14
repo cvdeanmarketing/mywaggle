@@ -107,7 +107,7 @@ export function WhyWaggle() {
         <ul className="grid gap-px overflow-hidden rounded-[var(--radius-card)] bg-line-dark sm:grid-cols-2">
           {WHY.map(({ icon: Icon, title, body }) => (
             <li key={title} className="bg-ink-2 p-7">
-              <Icon className="size-6 text-clay" aria-hidden />
+              <Icon className="size-6 text-[#5aa8ff]" aria-hidden />
               <h3 className="mt-5 text-xl font-semibold">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-dark">{body}</p>
             </li>
@@ -136,8 +136,8 @@ const SERVICE_LAYERS = [
 function Layer({ icon: Icon, title, body, align }: { icon: typeof Thermometer; title: string; body: string; align: "left" | "right" }) {
   return (
     <li className={cn("relative flex items-center gap-4 rounded-2xl border border-line bg-paper p-4", align === "left" ? "lg:flex-row-reverse lg:text-right" : "")}>
-      <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-sand">
-        <Icon className="size-5 text-clay-700" aria-hidden />
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-signal-50">
+        <Icon className="size-5 text-signal-700" aria-hidden />
       </span>
       <span>
         <span className="block font-bold">{title}</span>
@@ -317,7 +317,7 @@ export function Education() {
           <ul className="grid gap-px bg-line sm:grid-cols-2">
             {LIVE_SESSIONS.slice(0, 4).map((s) => (
               <li key={s.title} className="bg-paper p-5">
-                <p className="text-xs font-bold text-clay-700">{s.minutes ? `${s.minutes} min · ` : ""}Replay</p>
+                <p className="text-xs font-bold text-signal-700">{s.minutes ? `${s.minutes} min · ` : ""}Replay</p>
                 <p className="mt-1 font-bold leading-snug">{s.title}</p>
                 <p className="mt-1 text-xs text-muted">
                   {s.speaker}, {s.credential}
