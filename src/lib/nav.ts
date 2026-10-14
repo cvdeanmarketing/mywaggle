@@ -71,6 +71,7 @@ export const PRIMARY_NAV: NavItem[] = [
         href: "/saves-lives",
       },
       { label: "Pet Travel Videos", href: "/videos" },
+      { label: "Waggle Alpha Program", href: "/alpha" },
     ],
   },
   {
