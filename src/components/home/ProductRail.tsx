@@ -1,11 +1,10 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { priceOf, type Product } from "@/lib/catalog";
 import { cn, money } from "@/lib/format";
-import { AddToCartButton } from "@/components/product/AddToCartButton";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { TrackedLink } from "@/components/product/TrackedLink";
 import { ViewItemList } from "@/components/product/ViewItemList";
@@ -55,7 +54,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   className="aspect-[1/0.9] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-clay-700" : "text-muted")}>
+                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-signal-700" : "text-muted")}>
                     {p.badge ?? (p.connectivity.includes("wifi") ? "WiFi" : p.connectivity.includes("cellular") ? "Built-in 4G" : "No app needed")}
                   </p>
                   <h3 className="mt-1.5 text-lg font-semibold leading-snug">
@@ -74,7 +73,13 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                     <p className="font-display text-lg font-semibold">
                       {money(priceOf(p))}
                     </p>
-                    <AddToCartButton handle={p.handle} compact label="Add" className="relative z-10" />
+                    <Link
+                      href={`/products/${p.handle}`}
+                      className="btn-primary relative z-10 gap-1.5 px-4 py-2 text-sm"
+                      aria-label={`Learn more about ${p.name}`}
+                    >
+                      Learn more <ArrowRight className="size-4" aria-hidden />
+                    </Link>
                   </div>
                 </div>
               </article>
