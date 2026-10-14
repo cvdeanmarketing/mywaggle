@@ -28,7 +28,10 @@ export const SUITE = [
 /** Homepage teaser for the Waggle Pet Suite (Vet, Vault, Places). */
 export function PetSuite() {
   return (
-    <section className="bg-paper py-16 sm:py-20" aria-labelledby="suite-title">
+    <section
+      className="bg-paper pb-12 pt-0 sm:pb-20 sm:pt-4"
+      aria-labelledby="suite-title"
+    >
       <div className="container-page">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow text-signal">Waggle Pet Suite</p>

@@ -57,7 +57,7 @@ export default function HomePage() {
       <Lifestyles />
 
       <section
-        className="py-16 sm:py-20"
+        className="py-12 sm:py-20"
         aria-labelledby="quiz-title"
         id="find-your-waggle"
       >
@@ -116,7 +116,7 @@ export default function HomePage() {
       <CustomerReviews />
 
       <section
-        className="bg-sand py-16 sm:py-20"
+        className="bg-sand py-12 sm:py-20"
         aria-labelledby="bundle-title"
         id="build-a-bundle"
       >
@@ -137,7 +137,7 @@ export default function HomePage() {
 
       <Education />
 
-      <section className="bg-sand py-16 sm:py-20" aria-labelledby="faq-title">
+      <section className="bg-sand py-12 sm:py-20" aria-labelledby="faq-title">
         <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.6fr]">
           <SectionHeading
             id="faq-title"

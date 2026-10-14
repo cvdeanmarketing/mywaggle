@@ -91,7 +91,7 @@ const LIFESTYLES: {
 
 export function Lifestyles() {
   return (
-    <section className="bg-sand py-16 sm:py-20" aria-labelledby="life-title">
+    <section className="bg-sand py-12 sm:py-20" aria-labelledby="life-title">
       <div className="container-page">
         <SectionHeading
           id="life-title"
@@ -183,14 +183,14 @@ export function WhyWaggle() {
           title="Built for the moments you can't be there."
         />
       </div>
-      <div className="container-page mt-14 grid gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
-        <div>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-dark">
+      <div className="container-page mt-8 grid gap-10 lg:mt-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
+        <div className="max-lg:text-center">
+          <p className="max-w-md text-lg leading-relaxed text-muted-dark max-lg:mx-auto lg:mt-5">
             Most pet tech gives you one thing: a camera, a tracker or a
             thermometer. Waggle connects them, and keeps them connected when the
             WiFi or the power doesn&apos;t cooperate.
           </p>
-          <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-line-dark pt-8">
+          <dl className="mt-8 grid max-w-md grid-cols-3 gap-4 max-lg:mx-auto lg:mt-10 border-t border-line-dark pt-8">
             {SITE.stats.slice(0, 3).map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
@@ -294,7 +294,7 @@ function Layer({
 
 export function Ecosystem() {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="eco-title">
+    <section className="py-12 sm:py-20" aria-labelledby="eco-title">
       <div className="container-page">
         <SectionHeading
           id="eco-title"
@@ -369,7 +369,7 @@ const REVIEWS = [
 export function SocialProof() {
   return (
     <section
-      className="border-y border-line bg-paper py-16 sm:py-20"
+      className="border-y border-line bg-paper py-12 sm:py-20"
       aria-labelledby="proof-title"
     >
       <div className="container-page">
@@ -455,7 +455,7 @@ export function Education() {
     "rving-with-pets",
   ].map((s) => ARTICLES.find((a) => a.slug === s)!);
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="learn-title">
+    <section className="py-12 sm:py-20" aria-labelledby="learn-title">
       <div className="container-page">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading

@@ -32,13 +32,15 @@ export function PageHeader({
               : "mt-8 max-w-3xl"
           }
         >
-          <div className={image ? "max-w-3xl" : undefined}>
+          <div className={`max-lg:text-center ${image ? "max-w-3xl" : ""}`}>
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
             <h1 className="mt-3 text-4xl font-semibold leading-[1.05] sm:text-[56px]">
               {title}
             </h1>
             {intro && (
-              <p className="mt-5 text-lg leading-relaxed text-muted">{intro}</p>
+              <p className="mt-5 text-lg leading-relaxed text-muted max-lg:mx-auto max-lg:max-w-xl">
+                {intro}
+              </p>
             )}
             {image ? children : null}
           </div>

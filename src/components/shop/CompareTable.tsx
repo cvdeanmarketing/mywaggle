@@ -127,14 +127,17 @@ export function CompareTable({
         </fieldset>
       )}
 
+      <p className="mb-2 text-center text-xs font-semibold text-muted sm:hidden">
+        Swipe to compare →
+      </p>
       <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-        <table className="w-full min-w-[640px] border-separate border-spacing-0 text-sm">
+        <table className="w-full min-w-[620px] border-separate border-spacing-0 text-sm">
           <caption className="sr-only">Waggle device comparison</caption>
           <thead>
             <tr>
               <th
                 scope="col"
-                className="sticky left-0 z-10 w-44 bg-paper p-3 text-left align-bottom text-xs font-bold uppercase tracking-wider text-muted"
+                className="sticky left-0 z-20 w-[92px] border-r border-line bg-paper p-2 text-left align-middle text-[10px] sm:w-44 sm:border-r-0 sm:p-3 sm:align-bottom sm:text-xs font-bold uppercase tracking-wider text-muted"
               >
                 Feature
               </th>
@@ -142,17 +145,17 @@ export function CompareTable({
                 <th
                   key={p.handle}
                   scope="col"
-                  className="p-3 text-left align-bottom"
+                  className="min-w-[150px] p-3 text-center align-bottom sm:text-left"
                 >
                   <Link href={`/products/${p.handle}`} className="group block">
-                    <span className="block aspect-square w-full max-w-[140px] overflow-hidden rounded-2xl bg-sand">
+                    <span className="mx-auto block aspect-square w-full max-w-[112px] overflow-hidden rounded-2xl bg-sand sm:mx-0 sm:max-w-[140px]">
                       <ProductArt
                         art={p.art}
                         title=""
                         className="size-full transition-transform group-hover:scale-105"
                       />
                     </span>
-                    <span className="mt-3 block font-display text-base font-semibold group-hover:underline">
+                    <span className="mt-3 block font-display text-sm font-semibold leading-tight group-hover:underline sm:text-base">
                       {p.name}
                     </span>
                     <span className="mt-0.5 block font-bold">
@@ -167,12 +170,15 @@ export function CompareTable({
             <tr>
               <th
                 scope="row"
-                className="sticky left-0 z-10 border-t border-line bg-paper p-3 text-left font-bold"
+                className="sticky left-0 z-20 border-r border-t border-line bg-paper p-2 text-left text-xs sm:border-r-0 sm:p-3 sm:text-sm font-bold"
               >
                 Connects via
               </th>
               {cols.map((p) => (
-                <td key={p.handle} className="border-t border-line p-3">
+                <td
+                  key={p.handle}
+                  className="border-t border-line p-3 text-center text-[13px] sm:text-left sm:text-sm"
+                >
                   {p.connectivity
                     .map((c) => CONNECTIVITY_LABELS[c])
                     .join(" + ")}
@@ -182,12 +188,15 @@ export function CompareTable({
             <tr>
               <th
                 scope="row"
-                className="sticky left-0 z-10 border-t border-line bg-paper p-3 text-left font-bold"
+                className="sticky left-0 z-20 border-r border-t border-line bg-paper p-2 text-left text-xs sm:border-r-0 sm:p-3 sm:text-sm font-bold"
               >
                 Works without WiFi
               </th>
               {cols.map((p) => (
-                <td key={p.handle} className="border-t border-line p-3">
+                <td
+                  key={p.handle}
+                  className="border-t border-line p-3 text-center text-[13px] sm:text-left sm:text-sm"
+                >
                   {p.connectivity.includes("wifi") ? (
                     <span className="text-muted">No</span>
                   ) : (
@@ -199,12 +208,15 @@ export function CompareTable({
             <tr>
               <th
                 scope="row"
-                className="sticky left-0 z-10 border-t border-line bg-paper p-3 text-left font-bold"
+                className="sticky left-0 z-20 border-r border-t border-line bg-paper p-2 text-left text-xs sm:border-r-0 sm:p-3 sm:text-sm font-bold"
               >
                 Plan
               </th>
               {cols.map((p) => (
-                <td key={p.handle} className="border-t border-line p-3">
+                <td
+                  key={p.handle}
+                  className="border-t border-line p-3 text-center text-[13px] sm:text-left sm:text-sm"
+                >
                   <PlanCell p={p} />
                 </td>
               ))}
@@ -215,16 +227,25 @@ export function CompareTable({
               <tr key={r}>
                 <th
                   scope="row"
-                  className="sticky left-0 z-10 border-t border-line bg-paper p-3 text-left font-normal text-muted"
+                  className="sticky left-0 z-20 border-r border-t border-line bg-paper p-2 text-left text-xs sm:border-r-0 sm:p-3 sm:text-sm font-normal text-muted"
                 >
                   {CAPABILITY_LABELS[r]}
                 </th>
                 {cols.map((p) => (
-                  <td key={p.handle} className="border-t border-line p-3">
+                  <td
+                    key={p.handle}
+                    className="border-t border-line p-3 text-center text-[13px] sm:text-left sm:text-sm"
+                  >
                     {p.capabilities.includes(r) ? (
-                      <Check className="size-5 text-ink" aria-label="Yes" />
+                      <Check
+                        className="mx-auto size-5 text-ink sm:mx-0"
+                        aria-label="Yes"
+                      />
                     ) : (
-                      <Minus className="size-5 text-line" aria-label="No" />
+                      <Minus
+                        className="mx-auto size-5 text-line sm:mx-0"
+                        aria-label="No"
+                      />
                     )}
                   </td>
                 ))}

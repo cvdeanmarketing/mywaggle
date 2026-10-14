@@ -44,13 +44,13 @@ export function CategoryHero({
           <Breadcrumbs items={crumbs} />
         </div>
         <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
-          <div>
+          <div className="max-lg:text-center">
             <p className={`eyebrow ${t ? "text-signal" : ""}`}>{eyebrow}</p>
             <h1 className="mt-3 text-4xl font-semibold leading-[1.05] sm:text-[54px]">
               {title}
             </h1>
             <p
-              className={`mt-5 max-w-xl text-lg leading-relaxed ${t ? "text-white/75" : "text-muted"}`}
+              className={`mt-5 max-w-xl max-lg:mx-auto text-lg leading-relaxed ${t ? "text-white/75" : "text-muted"}`}
             >
               {intro}
             </p>

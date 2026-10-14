@@ -37,7 +37,10 @@ export function CustomerReviews() {
     ...(REVIEWS["pet-monitor-pro-plus"] ?? []),
   ].slice(0, 6);
   return (
-    <section className="bg-clay-50 py-16 sm:py-20" aria-labelledby="home-reviews">
+    <section
+      className="bg-clay-50 py-12 sm:py-20"
+      aria-labelledby="home-reviews"
+    >
       <div className="container-page">
         <SectionHeading
           id="home-reviews"
