@@ -37,14 +37,14 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 
 export function StatsBand() {
   return (
-    <section className="border-b border-line bg-paper" aria-label="Waggle by the numbers">
-      <ul className="container-page grid grid-cols-2 gap-y-5 py-6 sm:grid-cols-4 sm:py-7">
+    <section className="bg-clay-700 text-paper" aria-label="Waggle by the numbers">
+      <ul className="container-page grid grid-cols-2 gap-y-4 py-5 sm:grid-cols-4 sm:py-5">
         {STATS.map((s) => (
           <li key={s.label} className="text-center">
-            <p className="font-display text-3xl font-semibold leading-none tabular-nums text-ink sm:text-4xl">
+            <p className="font-display text-2xl font-semibold leading-none tabular-nums text-paper sm:text-3xl">
               <Counter to={s.to} suffix={s.suffix} />
             </p>
-            <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-muted">{s.label}</p>
+            <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-paper/85">{s.label}</p>
           </li>
         ))}
       </ul>
