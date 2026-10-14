@@ -37,7 +37,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 
 export function StatsBand() {
   return (
-    <section className="bg-clay-700 text-paper" aria-label="Waggle by the numbers">
+    <section className="bg-ink text-paper" aria-label="Waggle by the numbers">
       <ul className="container-page grid grid-cols-2 gap-y-4 py-5 sm:grid-cols-4 sm:py-5">
         {STATS.map((s) => (
           <li key={s.label} className="text-center">
