@@ -34,6 +34,8 @@ import { ProductMedia } from "@/components/product/ProductMedia";
 import { PurchasePanel } from "@/components/product/PurchasePanel";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { ReviewsBlock } from "@/components/product/ReviewsBlock";
+import { RATINGS, REVIEWS } from "@/lib/catalog/reviews";
 import { Faq } from "@/components/ui/Faq";
 
 export function generateStaticParams() {
@@ -95,6 +97,15 @@ export default async function ProductPage({
   const { handle } = await params;
   const p = getProduct(handle);
   if (!p) notFound();
+  const rv =
+    RATINGS[p.handle] ??
+    (p.reviews
+      ? {
+          rating: p.reviews.rating,
+          count: p.reviews.count,
+          url: p.reviews.sourceUrl,
+        }
+      : undefined);
 
   const included = (p.includes ?? [])
     .map(getProduct)
@@ -208,7 +219,7 @@ export default async function ProductPage({
           <p className="mt-3 text-lg leading-relaxed text-muted">
             {p.headline}
           </p>
-          {p.reviews && (
+          {rv && (
             <a
               href="#reviews"
               className="mt-3 inline-flex items-center gap-2 text-sm"
@@ -219,15 +230,15 @@ export default async function ProductPage({
                     key={i}
                     className={cn(
                       "size-4",
-                      i <= Math.round(p.reviews!.rating)
+                      i <= Math.round(rv.rating)
                         ? "fill-[#e8a33d] text-[#e8a33d]"
                         : "text-line",
                     )}
                   />
                 ))}
               </span>
-              <span className="font-bold">{p.reviews.rating.toFixed(1)}</span>
-              <span className="text-muted">({p.reviews.count} reviews)</span>
+              <span className="font-bold">{rv.rating.toFixed(1)}</span>
+              <span className="text-muted">({rv.count} reviews)</span>
             </a>
           )}
           <Price product={p} size="lg" className="mt-5" />
@@ -432,33 +443,14 @@ export default async function ProductPage({
       )}
 
       {/* Reviews */}
-      {p.reviews && (
-        <section
-          id="reviews"
-          className="border-t border-line py-16"
-          aria-labelledby="rev-title"
-        >
-          <div className="container-page flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 id="rev-title" className="text-3xl font-semibold">
-                Customer reviews
-              </h2>
-              <p className="mt-2 text-muted">
-                {p.reviews.rating.toFixed(1)} out of 5 from {p.reviews.count}{" "}
-                {p.reviews.source.toLowerCase()}.
-              </p>
-            </div>
-            <a
-              href={p.reviews.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              Read all reviews{" "}
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </div>
-        </section>
+      {rv && (
+        <ReviewsBlock
+          name={p.name}
+          rating={rv.rating}
+          count={rv.count}
+          url={rv.url}
+          reviews={REVIEWS[p.handle] ?? []}
+        />
       )}
 
       {/* FAQ */}
