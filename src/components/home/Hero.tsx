@@ -10,18 +10,18 @@ const WHAT_WE_SELL = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
-      <div className="container-page grid items-center gap-8 pb-6 pt-6 sm:pt-8 lg:grid-cols-[1.3fr_1fr] lg:gap-8 lg:pb-0 lg:pt-6">
+      <div className="container-page grid items-center gap-8 pb-12 pt-10 sm:pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:pb-16 lg:pt-16">
         <div className="relative z-10 max-w-2xl animate-fade-up">
           <p className="eyebrow">Connected pet safety</p>
-          <h1 id="hero-title" className="mt-3 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
+          <h1 id="hero-title" className="mt-4 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
             Keep your pets safe.
             <span className="block text-clay">At home or on the road.</span>
           </h1>
-          <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
             Smart cameras, temperature monitors and connected safety tech that protect your pets, home and adventures. From your living room to the open
             road, Waggle keeps you connected to what matters most.
           </p>
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/find-your-waggle" className="btn-accent px-7 py-3.5 text-base">
               Find Your Waggle <ArrowRight className="size-4" aria-hidden />
             </Link>
@@ -29,7 +29,7 @@ export function Hero() {
               Shop All Products
             </Link>
           </div>
-          <ul className="mt-5 grid gap-2 sm:flex sm:flex-wrap sm:gap-x-6" aria-label="What Waggle makes">
+          <ul className="mt-8 grid gap-2 sm:flex sm:flex-wrap sm:gap-x-6" aria-label="What Waggle makes">
             {WHAT_WE_SELL.map(({ icon: Icon, label, href }) => (
               <li key={label}>
                 <Link href={href} className="inline-flex items-center gap-2 text-sm font-bold text-ink/80 hover:text-ink">
@@ -41,7 +41,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[440px] animate-fade-up" aria-hidden>
+        <div className="relative mx-auto w-full max-w-[480px] animate-fade-up" aria-hidden>
           <div className="absolute inset-x-[6%] bottom-0 h-[18%] rounded-full bg-ink/10 blur-2xl" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/hero-lineup.webp" alt="" width={619} height={374} className="relative w-full" fetchPriority="high" />

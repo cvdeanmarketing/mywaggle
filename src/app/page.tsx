@@ -35,16 +35,16 @@ export default function HomePage() {
       <Lifestyles />
 
       <section className="py-20 sm:py-28" aria-labelledby="quiz-title" id="find-your-waggle">
-        <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.6fr] lg:items-start lg:gap-14">
-          <div className="lg:sticky lg:top-36">
-            <SectionHeading
-              id="quiz-title"
-              eyebrow="Find Your Waggle"
-              title="Four questions. One clear answer."
-              intro="Tell us what you're protecting and where. We'll match you with a device that works with your connectivity, and show the plan cost up front."
-            />
+        <div className="container-page">
+          <SectionHeading
+            id="quiz-title"
+            eyebrow="Find Your Waggle"
+            title="Four questions. One clear answer."
+            intro="Tell us what you're protecting and where. We'll match you with a device that works with your connectivity, and show the plan cost up front."
+          />
+          <div className="mt-12">
+            <Quiz variant="embedded" />
           </div>
-          <Quiz variant="embedded" />
         </div>
       </section>
 

@@ -34,7 +34,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
   };
 
   return (
-    <section className="pb-16 pt-10 sm:pb-20 sm:pt-12" aria-labelledby="rail-title">
+    <section className="pb-16 pt-14 sm:pb-20 sm:pt-16" aria-labelledby="rail-title">
       <ViewItemList listName={listName} handles={products.map((p) => p.handle)} />
       <div className="container-page">
         <h2 id="rail-title" className="text-center text-3xl font-semibold sm:text-[36px]">{title}</h2>

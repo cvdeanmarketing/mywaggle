@@ -84,9 +84,11 @@ const WHY = [
 export function WhyWaggle() {
   return (
     <section className="bg-ink py-20 text-paper sm:py-28" aria-labelledby="why-title">
-      <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
+      <div className="container-page">
+        <SectionHeading id="why-title" tone="dark" eyebrow="Why Waggle" title={<>Safety that doesn&apos;t depend on luck.</>} />
+      </div>
+      <div className="container-page mt-14 grid gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
         <div>
-          <SectionHeading id="why-title" tone="dark" eyebrow="Why Waggle" title={<>Safety that doesn&apos;t depend on luck.</>} />
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-dark">
             Most pet tech gives you one thing: a camera, a tracker or a thermometer. Waggle connects them, and keeps them connected when the WiFi or the power
             doesn&apos;t cooperate.
@@ -218,10 +220,10 @@ export function SocialProof() {
   return (
     <section className="border-y border-line bg-paper py-20 sm:py-24" aria-labelledby="proof-title">
       <div className="container-page">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+        <SectionHeading id="proof-title" eyebrow="Reviews & press" title="Tested by people who test things." />
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <div>
-            <SectionHeading id="proof-title" eyebrow="Reviews & press" title="Tested by people who test things." />
-            <p className="mt-4 text-muted">
+            <p className="text-muted">
               Independent reviewers have put Waggle through real trips and real summers. Read their full, unedited takes.
             </p>
             <a
