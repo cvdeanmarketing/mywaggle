@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lato, Lexend } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/layout/Footer";
+import { ChatLauncher } from "@/components/layout/ChatLauncher";
 import { Header } from "@/components/layout/Header";
 import { Providers } from "@/components/layout/Providers";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <ChatLauncher />
         </Providers>
         <JsonLd data={organizationLd()} />
         {GA_ID ? (
