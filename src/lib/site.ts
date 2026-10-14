@@ -18,6 +18,7 @@ export const SITE = {
     { value: "100K+", label: "Pet parents" },
     { value: "1,700+", label: "Amazon ratings" },
     { value: "20+", label: "Years of protection" },
+    { value: "9M+", label: "Social family" },
   ],
   amazonStore: "https://www.amazon.com/stores/Waggle/page/A049B7DE-7865-43EB-B361-F520DB0AF5A6",
   press: ["Dogster", "Catster", "Dog Gear Review", "The Wayward Home", "The Dyrt", "Harvest Hosts", "FMCA"],

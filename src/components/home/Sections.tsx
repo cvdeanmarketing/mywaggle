@@ -93,7 +93,7 @@ export function WhyWaggle() {
             doesn&apos;t cooperate.
           </p>
           <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-line-dark pt-8">
-            {SITE.stats.map((s) => (
+            {SITE.stats.slice(0, 3).map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
                 <dd className="font-display text-3xl font-semibold">{s.value}</dd>
