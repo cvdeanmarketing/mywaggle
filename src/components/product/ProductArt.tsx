@@ -14,7 +14,7 @@ export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: num
   "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 137, h: 232 },
   "camera-4g": { src: "/images/products/rv-4g-camera.webp", w: 425, h: 517 },
   "travelcam": { src: "/images/products/waggle-4g-travelcam.webp", w: 504, h: 648 },
-  "observation-system": { src: "/images/products/rv-observation-system.webp", w: 900, h: 720 },
+  "observation-system": { src: "/images/products/rv-observation-system.webp", w: 813, h: 650 },
   "solar-panel": { src: "/images/products/accessory-solar-panel.webp", w: 268, h: 364 },
   "tripod": { src: "/images/products/accessory-tripod.webp", w: 350, h: 384 },
   "vacuum-mount": { src: "/images/products/accessory-vacuum-mount.webp", w: 392, h: 232 },
