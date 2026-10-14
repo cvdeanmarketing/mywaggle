@@ -16,6 +16,7 @@ import {
 import { BundleBuilder } from "@/components/shop/BundleBuilder";
 import { CompareTable } from "@/components/shop/CompareTable";
 import { Quiz } from "@/components/shop/Quiz";
+import { CustomerReviews } from "@/components/home/CustomerReviews";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { Faq } from "@/components/ui/Faq";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -110,6 +111,7 @@ export default function HomePage() {
       </section>
 
       <SocialProof />
+      <CustomerReviews />
 
       <section
         className="bg-sand py-16 sm:py-20"
