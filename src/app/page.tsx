@@ -42,7 +42,7 @@ export default function HomePage() {
             id="quiz-title"
             eyebrow="Find Your Waggle"
             title="Four questions. One clear answer."
-            intro="Tell us what you're protecting and where. We'll match you with a device that works with your connectivity, and show the plan cost up front."
+            intro="Tell us what you're protecting and where. We'll show you the plan we recommend as the best fit for you, with the right device and the cost up front."
           />
           <div className="mt-12">
             <Quiz variant="embedded" />

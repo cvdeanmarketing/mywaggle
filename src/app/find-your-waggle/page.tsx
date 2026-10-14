@@ -17,7 +17,7 @@ export default function FindYourWagglePage() {
           <p className="eyebrow">Find Your Waggle</p>
           <h1 className="mt-3 text-4xl font-semibold sm:text-[56px] sm:leading-[1.05]">Four questions. One clear answer.</h1>
           <p className="mt-4 text-lg text-muted">
-            Pets at home, a road trip, an RV, a cabin with no WiFi: tell us what you&apos;re protecting and we&apos;ll match you with a device that works there.
+            Pets at home, a road trip, an RV, a cabin with no WiFi: tell us what you&apos;re protecting and we&apos;ll show you the plan we recommend as the best fit for you, with the right device.
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-5xl">
