@@ -1,4 +1,4 @@
-import { ArrowRight, Radio, Thermometer, Video } from "lucide-react";
+import { ArrowRight, Radio, ShieldCheck, Thermometer, Video } from "lucide-react";
 import Link from "next/link";
 
 const WHAT_WE_SELL = [
@@ -40,10 +40,14 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[480px] animate-fade-up" aria-hidden>
+        <div className="relative mx-auto w-full max-w-[480px] animate-fade-up">
           <div className="absolute inset-x-[6%] bottom-0 h-[18%] rounded-full bg-ink/10 blur-2xl" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero-lineup.webp" alt="" width={619} height={374} className="relative w-full" fetchPriority="high" />
+          <img src="/images/hero-lineup.webp" alt="Waggle pet cameras and temperature monitors" width={619} height={374} className="relative w-full" fetchPriority="high" />
+          <p className="relative mt-5 flex items-center justify-center gap-2 text-center font-display text-base font-semibold text-ink sm:text-lg">
+            <ShieldCheck className="size-5 shrink-0 text-clay" aria-hidden />
+            Your pet&apos;s safety is our #1 priority.
+          </p>
           <div className="absolute -left-[4%] top-[6%] flex animate-fade-up items-center gap-3 rounded-2xl border border-line bg-paper py-3 pl-3 pr-5 shadow-xl [animation-delay:500ms]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/pug.webp" alt="" width={64} height={64} className="size-16 rounded-full object-cover ring-[3px] ring-clay" />
