@@ -31,6 +31,13 @@ export const PRIMARY_NAV: NavItem[] = [
     blurb: "WiFi and 4G cameras to see and talk to your pet.",
   },
   {
+    label: "RV Solutions",
+    short: "RV",
+    href: "/shop/rv-solutions",
+    category: "rv-solutions",
+    blurb: "Pet safety, cameras and driving visibility for your rig.",
+  },
+  {
     label: "Travel & Adventure",
     short: "Travel",
     href: "/shop/travel-adventure",
@@ -43,13 +50,6 @@ export const PRIMARY_NAV: NavItem[] = [
     href: "/shop/home-property",
     category: "home-property",
     blurb: "Indoor cameras and no-WiFi options for cabins and property.",
-  },
-  {
-    label: "RV Solutions",
-    short: "RV",
-    href: "/shop/rv-solutions",
-    category: "rv-solutions",
-    blurb: "Pet safety, cameras and driving visibility for your rig.",
   },
   {
     label: "Bundles",

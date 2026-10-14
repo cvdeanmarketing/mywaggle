@@ -71,7 +71,7 @@ export default async function CategoryPage({
           {c.guidance.map((g) => (
             <li
               key={g}
-              className="flex gap-2.5 rounded-2xl bg-paper p-4 text-sm leading-snug"
+              className="flex gap-2.5 rounded-2xl bg-paper p-4 text-sm leading-snug text-ink"
             >
               <Check className="mt-0.5 size-4 shrink-0 text-mint" aria-hidden />
               {g}

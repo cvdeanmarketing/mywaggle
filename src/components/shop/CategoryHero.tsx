@@ -112,14 +112,14 @@ export const HERO_THEMES: Record<string, HeroTheme> = {
     blob: "bg-signal/20",
   },
   "rv-solutions": {
-    photo: "/images/lifestyle/rv-4g-camera-on-rv.webp",
+    photo: "/images/partners/ab-sect-2.webp",
     products: ["rv-4g-camera", "rv-observation-system"],
     bg: "bg-ink",
     dark: true,
     blob: "bg-signal/30",
   },
   "no-wifi": {
-    photo: "/images/partners/ab-sect-2.webp",
+    photo: "/images/partners/ab-sec-5-1.webp",
     products: ["rv-4g-mini-camera", "pet-monitor-lite-plus"],
     bg: "bg-signal-50",
     blob: "bg-clay/25",
