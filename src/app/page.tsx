@@ -54,7 +54,7 @@ export default function HomePage() {
       <section className="bg-sand py-20 sm:py-28" aria-labelledby="compare-title">
         <div className="container-page">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading id="compare-title" eyebrow="Compare" title="Side by side, in plain English." intro="What each device does, how it connects, and what it costs to run." />
+            <SectionHeading id="compare-title" eyebrow="Compare" title="Find the Waggle that fits." intro="See how each device connects, what it can do, and what the plan costs, side by side." />
             <Link href="/compare" className="inline-flex shrink-0 items-center gap-1.5 font-bold hover:text-signal">
               Full comparison <ArrowRight className="size-4" aria-hidden />
             </Link>

@@ -9,7 +9,7 @@ import { Faq } from "@/components/ui/Faq";
 
 export const metadata: Metadata = {
   title: "Waggle Subscription Plans Explained",
-  description: "What Waggle plans cost, what they include, and which devices need one. Yearly, monthly and per-day pricing shown in plain English.",
+  description: "What Waggle plans cost, what they include, and which devices need one. Yearly, monthly and per-day pricing.",
   alternates: { canonical: "/plans" },
 };
 

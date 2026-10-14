@@ -34,7 +34,7 @@ export const SECTIONS: Record<ArticleSection, { name: string; blurb: string }> =
   "rving-with-pets": { name: "RVing with Pets", blurb: "Checklists and know-how for life on the road with pets." },
   heatstroke: { name: "Heatstroke in Pets", blurb: "Recognize, prevent and respond to heat danger." },
   "pet-guides": { name: "Pet Guides", blurb: "Everyday care for pets at home and away." },
-  "buying-guides": { name: "Buying Guides", blurb: "Plain-English help choosing the right setup." },
+  "buying-guides": { name: "Buying Guides", blurb: "Help choosing the right setup." },
 };
 
 export const ARTICLES: Article[] = [

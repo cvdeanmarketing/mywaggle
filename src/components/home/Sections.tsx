@@ -35,9 +35,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const LIFESTYLES: { title: string; line: string; href: string; icon: typeof House; art: ArtKey; tone: string }[] = [
   { title: "Home all day", line: "Check in, talk, toss a treat.", href: "/shop/pet-cameras", icon: House, art: "wagglecam-pro", tone: "bg-[#efe6dc]" },
   { title: "Heat waves & outages", line: "Know the moment the AC or power fails.", href: "/shop/pet-safety", icon: Sun, art: "monitor-lite", tone: "bg-[#f4e3d6]" },
-  { title: "Road trips", line: "Safety that rides along.", href: "/shop/travel-adventure", icon: Route, art: "monitor-pro", tone: "bg-[#e5ecf4]" },
+  { title: "Road trips", line: "Safety that rides along.", href: "/shop/travel-adventure", icon: Route, art: "travelcam", tone: "bg-[#e5ecf4]" },
   { title: "RV life", line: "Campsite to hitch, covered.", href: "/shop/rv-solutions", icon: Caravan, art: "observation-system", tone: "bg-[#e9ece4]" },
-  { title: "Off-grid & no WiFi", line: "Built-in 4G and satellite backup.", href: "/shop/no-wifi", icon: WifiOff, art: "monitor-satellite", tone: "bg-[#e6e7ea]" },
+  { title: "Off-grid & no WiFi", line: "Built-in 4G and satellite backup.", href: "/shop/no-wifi", icon: WifiOff, art: "camera-4g", tone: "bg-[#e6e7ea]" },
   { title: "Cabin & property", line: "Battery and solar cameras.", href: "/shop/home-property", icon: Mountain, art: "mini-cam-4g", tone: "bg-[#ece7df]" },
 ];
 
@@ -45,24 +45,22 @@ export function Lifestyles() {
   return (
     <section className="bg-sand py-20 sm:py-28" aria-labelledby="life-title">
       <div className="container-page">
-        <SectionHeading id="life-title" eyebrow="Shop by lifestyle" title="Wherever your pet spends the day." intro="Start with where life happens, and we'll show you what fits." />
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+        <SectionHeading id="life-title" align="center" eyebrow="Shop by lifestyle" title="Wherever your pet spends the day." intro="Start with where life happens, and we'll show you what fits." />
+        <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
           {LIFESTYLES.map(({ title, line, href, icon: Icon, art, tone }) => (
             <li key={title}>
-              <Link href={href} className={cn("group relative flex aspect-[4/3.6] flex-col overflow-hidden rounded-[var(--radius-card)] p-4 sm:aspect-[16/11] sm:p-6", tone)}>
-                <span className="relative z-10 inline-flex size-9 items-center justify-center rounded-full bg-paper/80">
-                  <Icon className="size-4" aria-hidden />
+              <Link href={href} className={cn("group flex h-full flex-col rounded-[var(--radius-card)] p-5 sm:p-7", tone)}>
+                <span className="flex size-10 shrink-0 items-center justify-center self-start rounded-full bg-paper/80">
+                  <Icon className="size-[18px]" aria-hidden />
                 </span>
-                <span className="relative z-10 mt-3 max-w-[70%]">
+                <span className="mt-4 block">
                   <span className="block font-display text-lg font-semibold leading-tight sm:text-2xl">{title}</span>
-                  <span className="mt-1 hidden text-sm text-ink/70 sm:block">{line}</span>
+                  <span className="mt-1.5 block text-sm leading-snug text-ink/70">{line}</span>
                 </span>
-                <ProductArt
-                  art={art}
-                  title=""
-                  className="absolute -bottom-[8%] -right-[6%] h-[72%] w-auto transition-transform duration-500 ease-out group-hover:-translate-y-2 sm:h-[82%]"
-                />
-                <span className="relative z-10 mt-auto inline-flex items-center gap-1 text-sm font-bold">
+                <span className="mt-5 flex h-36 items-end justify-center sm:h-48">
+                  <ProductArt art={art} title="" className="h-full w-auto transition-transform duration-500 ease-out group-hover:-translate-y-1" />
+                </span>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold">
                   Shop <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
                 </span>
               </Link>
@@ -226,10 +224,20 @@ export function SocialProof() {
             <p className="mt-4 text-muted">
               Independent reviewers have put Waggle through real trips and real summers. Read their full, unedited takes.
             </p>
-            <div className="mt-8 rounded-2xl bg-sand p-5">
-              <p className="font-display text-3xl font-semibold">{SITE.stats[1]!.value}</p>
-              <p className="text-sm text-muted">{SITE.stats[1]!.label}, as reported by Waggle</p>
-            </div>
+            <a
+              href={SITE.amazonStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 flex aspect-square w-52 flex-col justify-end rounded-md bg-signal p-6 text-paper shadow-[var(--shadow-lift)] transition-colors hover:bg-signal-700"
+            >
+              <p className="font-display text-4xl font-semibold leading-none">{SITE.stats[1]!.value}</p>
+              <p className="mt-3 text-sm font-bold leading-snug">{SITE.stats[1]!.label}</p>
+              <p className="mt-1 text-xs text-white/80">As reported by Waggle</p>
+              <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold">
+                See Waggle on Amazon <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
+                <span className="sr-only">(opens in a new tab)</span>
+              </span>
+            </a>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {REVIEWS.map((r) => (

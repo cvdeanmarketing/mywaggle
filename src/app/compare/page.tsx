@@ -14,8 +14,8 @@ export default function ComparePage() {
       <PageHeader
         crumbs={[{ name: "Compare", path: "/compare" }]}
         eyebrow="Compare"
-        title="Find the difference that matters."
-        intro="Pick up to four devices. Every row is in plain English, including whether it needs WiFi and what the plan costs."
+        title="Compare Waggle devices."
+        intro="Choose up to four devices to compare how they connect, whether they need WiFi, what they can do, and what the plan costs."
       />
       <div className="container-page py-12">
         <CompareTable />

@@ -15,7 +15,7 @@ export default function LearnPage() {
   const [lead, ...rest] = ARTICLES;
   return (
     <>
-      <PageHeader crumbs={[{ name: "Wag Reads", path: "/learn" }]} eyebrow="Wag Reads" title="Know more. Worry less." intro="Pet safety, travel know-how and plain-English buying guides from the Waggle team.">
+      <PageHeader crumbs={[{ name: "Wag Reads", path: "/learn" }]} eyebrow="Wag Reads" title="Know more. Worry less." intro="Pet safety, travel know-how and buying guides from the Waggle team.">
         <nav aria-label="Wag Reads sections" className="mt-8 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
           <Link href="/learn" className="chip shrink-0 border-ink bg-ink px-4 py-2 text-sm text-paper">All guides</Link>
           {(Object.keys(SECTIONS) as ArticleSection[]).map((s) => (
