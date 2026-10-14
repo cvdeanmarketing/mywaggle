@@ -34,6 +34,11 @@
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
+  --animate-marquee-l: marquee-l 60s linear infinite;
+  --animate-marquee-r: marquee-r 70s linear infinite;
+  @keyframes marquee-l { to { transform: translateX(-50%); } }
+  @keyframes marquee-r { from { transform: translateX(-50%); } to { transform: none; } }
+
   --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(12px); }

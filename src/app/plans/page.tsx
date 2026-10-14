@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PlansPage() {
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/about/how-waggle-3.webp"
         crumbs={[{ name: "Subscription plans", path: "/plans" }]}
         eyebrow="Plans"
         title="The connection is the protection."

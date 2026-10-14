@@ -19,7 +19,7 @@ const WHY = [
 export default function LivePage() {
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/partners/ab-sec-5-3.webp"
         crumbs={[{ name: "Wag Reads", path: "/learn" }, { name: "Waggle Live", path: "/live" }]}
         eyebrow="Waggle Live"
         title="Real experts. Real answers. Free."

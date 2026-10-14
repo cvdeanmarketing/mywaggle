@@ -17,7 +17,7 @@ export default function SupportPage() {
   ];
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/about/why-what-2.webp"
         crumbs={[{ name: "Support", path: "/support" }]}
         eyebrow="Support"
         title="We're here to help."

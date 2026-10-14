@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ReturnsPage() {
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/about/how-waggle-4.webp"
         crumbs={[{ name: "Return Policy", path: "/returns" }]}
         eyebrow="Return policy"
         title="21-day returns."

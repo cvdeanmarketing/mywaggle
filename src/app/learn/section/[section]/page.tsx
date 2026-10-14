@@ -6,7 +6,6 @@ import {
   Clock,
   Compass,
   Dog,
-  ExternalLink,
   Heart,
   Route,
   Sun,
@@ -20,7 +19,6 @@ import { PetGuidesHero } from "@/components/guides/PetGuidesHero";
 import { RvingGuide } from "@/components/guides/RvingGuide";
 import {
   ARTICLES,
-  ORIGINAL_PAGES,
   SECTIONS,
   type ArticleSection,
 } from "@/lib/content/articles";
@@ -118,9 +116,6 @@ export default async function SectionPage({
   const list = ARTICLES.filter((a) => a.section === section);
   const [lead, ...rest] = list;
   const minutes = list.reduce((sum, a) => sum + a.readMinutes, 0);
-  const original = t.original
-    ? ORIGINAL_PAGES.find((o) => o.label === t.original)
-    : undefined;
   const gear = t.gear.map(getProduct).filter((p): p is Product => Boolean(p));
 
   return (
@@ -179,18 +174,6 @@ export default async function SectionPage({
                   >
                     Start reading <ArrowRight className="size-4" aria-hidden />
                   </a>
-                  {original && (
-                    <a
-                      href={original.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:underline"
-                    >
-                      See the original page{" "}
-                      <ExternalLink className="size-4" aria-hidden />
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
-                  )}
                 </div>
               </div>
 

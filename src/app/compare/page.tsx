@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ComparePage() {
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/about/how-waggle-1.webp"
         crumbs={[{ name: "Compare", path: "/compare" }]}
         eyebrow="Compare"
         title="Compare Waggle devices."
