@@ -16,11 +16,11 @@ export function Footer() {
   return (
     <footer className="bg-ink text-paper">
       <div className="border-b border-line-dark">
-        <ul className="container-page grid grid-cols-2 gap-x-4 gap-y-5 py-6 text-sm font-bold md:grid-cols-4">
+        <ul className="container-page grid grid-cols-2 gap-x-4 gap-y-6 py-7 text-[13px] font-bold leading-snug md:grid-cols-4 md:text-sm">
           {TRUST.map(({ icon: Icon, label }) => (
             <li
               key={label}
-              className="flex items-center justify-center gap-2.5 text-center md:border-l md:border-line-dark md:first:border-l-0"
+              className="flex flex-col items-center justify-start gap-2 text-center md:flex-row md:justify-center md:gap-2.5 md:border-l md:border-line-dark md:first:border-l-0"
             >
               <Icon className="size-5 shrink-0 text-clay" aria-hidden />
               {label}
