@@ -15,6 +15,8 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, type ArtKey, type Product } from "@/lib/catalog";
+import { HeatstrokeGuide } from "@/components/guides/HeatstrokeGuide";
+import { PetGuidesHero } from "@/components/guides/PetGuidesHero";
 import { RvingGuide } from "@/components/guides/RvingGuide";
 import {
   ARTICLES,
@@ -125,6 +127,10 @@ export default async function SectionPage({
     <>
       {key === "rving-with-pets" ? (
         <RvingGuide />
+      ) : key === "heatstroke" ? (
+        <HeatstrokeGuide />
+      ) : key === "pet-guides" ? (
+        <PetGuidesHero />
       ) : (
         <header className={`relative overflow-hidden ${t.bg}`}>
           <div
@@ -214,19 +220,6 @@ export default async function SectionPage({
                     ))}
                   </div>
                 </div>
-                {key === "pet-guides" && (
-                  <div className="absolute -left-4 -top-5 flex items-center gap-3 rounded-2xl border border-line bg-paper py-2.5 pl-2.5 pr-5 shadow-xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/pug.webp"
-                      alt=""
-                      width={44}
-                      height={44}
-                      className="size-11 rounded-full object-cover ring-2 ring-clay"
-                    />
-                    <span className="text-sm font-bold">Biscuit approves</span>
-                  </div>
-                )}
               </div>
             </div>
           </div>
