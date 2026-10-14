@@ -19,7 +19,7 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn(align === "center" && "mx-auto text-center", "max-w-4xl", className)}>
-      {eyebrow && <p className={cn("eyebrow", tone === "dark" && "text-clay")}>{eyebrow}</p>}
+      {eyebrow && <p className={cn("eyebrow", tone === "dark" && "text-signal")}>{eyebrow}</p>}
       <h2 id={id} className={cn("mt-3 text-[28px] font-semibold leading-[1.15] sm:text-[38px]", tone === "dark" && "text-paper")}>
         {title}
       </h2>

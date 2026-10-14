@@ -84,7 +84,7 @@ export function WhyWaggle() {
   return (
     <section className="bg-ink py-20 text-paper sm:py-28" aria-labelledby="why-title">
       <div className="container-page">
-        <SectionHeading id="why-title" tone="dark" eyebrow="Why Waggle" title={<>Safety that doesn&apos;t depend on luck.</>} />
+        <SectionHeading id="why-title" tone="dark" eyebrow="Why Waggle" title="Built for the moments you can't be there." />
       </div>
       <div className="container-page mt-14 grid gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
         <div>
@@ -106,7 +106,7 @@ export function WhyWaggle() {
         <ul className="grid gap-px overflow-hidden rounded-[var(--radius-card)] bg-line-dark sm:grid-cols-2">
           {WHY.map(({ icon: Icon, title, body }) => (
             <li key={title} className="bg-ink-2 p-7">
-              <Icon className="size-6 text-clay" aria-hidden />
+              <Icon className="size-6 text-signal" aria-hidden />
               <h3 className="mt-5 text-xl font-semibold">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-dark">{body}</p>
             </li>
