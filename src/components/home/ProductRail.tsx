@@ -3,8 +3,8 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { priceOf, type Product } from "@/lib/catalog";
-import { cn, money } from "@/lib/format";
+import type { Product } from "@/lib/catalog";
+import { cn } from "@/lib/format";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { TrackedLink } from "@/components/product/TrackedLink";
 import { ViewItemList } from "@/components/product/ViewItemList";
@@ -69,10 +69,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                     </TrackedLink>
                   </h3>
                   <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{p.tagline}</p>
-                  <div className="mt-auto flex items-center justify-between pt-4">
-                    <p className="font-display text-lg font-semibold">
-                      {money(priceOf(p))}
-                    </p>
+                  <div className="mt-auto flex items-center pt-4">
                     <Link
                       href={`/products/${p.handle}`}
                       className="group/shop relative z-10 inline-flex items-center gap-1 text-sm font-bold text-signal-700 hover:underline"
