@@ -18,12 +18,38 @@ export function SectionHeading({
   id?: string;
 }) {
   return (
-    <div className={cn(align === "center" && "mx-auto text-center", "max-w-4xl", className)}>
-      {eyebrow && <p className={cn("eyebrow", tone === "dark" && "text-signal")}>{eyebrow}</p>}
-      <h2 id={id} className={cn("mt-3 text-[28px] font-semibold leading-[1.15] sm:text-[38px]", tone === "dark" && "text-paper")}>
+    <div
+      className={cn(
+        align === "center" && "mx-auto text-center",
+        "max-w-4xl",
+        className,
+      )}
+    >
+      {eyebrow && (
+        <p className={cn("eyebrow", tone === "dark" && "text-signal")}>
+          {eyebrow}
+        </p>
+      )}
+      <h2
+        id={id}
+        className={cn(
+          "mt-3 text-[28px] font-semibold leading-[1.15] sm:text-[38px]",
+          tone === "dark" && "text-paper",
+        )}
+      >
         {title}
       </h2>
-      {intro && <p className={cn("mt-4 max-w-2xl text-lg leading-relaxed", align === "center" && "mx-auto", tone === "dark" ? "text-muted-dark" : "text-muted")}>{intro}</p>}
+      {intro && (
+        <p
+          className={cn(
+            "mt-4 max-w-2xl text-lg leading-relaxed",
+            align === "center" && "mx-auto",
+            tone === "dark" ? "text-muted-dark" : "text-muted",
+          )}
+        >
+          {intro}
+        </p>
+      )}
     </div>
   );
 }

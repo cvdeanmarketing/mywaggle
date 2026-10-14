@@ -16,13 +16,21 @@ export function PurchasePanel({ product }: { product: Product }) {
   const price = priceOf(product);
 
   useEffect(() => {
-    track("view_item", { currency: "USD", value: price, items: [toGa4Item(product)] });
+    track("view_item", {
+      currency: "USD",
+      value: price,
+      items: [toGa4Item(product)],
+    });
   }, [product, price]);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setShowSticky(!e!.isIntersecting && e!.boundingClientRect.top < 0), { threshold: 0 });
+    const io = new IntersectionObserver(
+      ([e]) =>
+        setShowSticky(!e!.isIntersecting && e!.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -36,16 +44,36 @@ export function PurchasePanel({ product }: { product: Product }) {
   return (
     <>
       <div ref={ref} className="flex gap-3">
-        <div className="inline-flex items-center rounded-full border border-line" role="group" aria-label="Quantity">
-          <button type="button" onClick={() => setQty((q) => Math.max(1, q - 1))} className="inline-flex size-12 items-center justify-center rounded-full hover:bg-sand" aria-label="Decrease quantity">
+        <div
+          className="inline-flex items-center rounded-full border border-line"
+          role="group"
+          aria-label="Quantity"
+        >
+          <button
+            type="button"
+            onClick={() => setQty((q) => Math.max(1, q - 1))}
+            className="inline-flex size-12 items-center justify-center rounded-full hover:bg-sand"
+            aria-label="Decrease quantity"
+          >
             <Minus className="size-4" />
           </button>
-          <span className="w-8 text-center font-bold" aria-live="polite">{qty}</span>
-          <button type="button" onClick={() => setQty((q) => Math.min(10, q + 1))} className="inline-flex size-12 items-center justify-center rounded-full hover:bg-sand" aria-label="Increase quantity">
+          <span className="w-8 text-center font-bold" aria-live="polite">
+            {qty}
+          </span>
+          <button
+            type="button"
+            onClick={() => setQty((q) => Math.min(10, q + 1))}
+            className="inline-flex size-12 items-center justify-center rounded-full hover:bg-sand"
+            aria-label="Increase quantity"
+          >
             <Plus className="size-4" />
           </button>
         </div>
-        <button type="button" onClick={onAdd} className="btn-primary flex-1 py-3.5 text-base">
+        <button
+          type="button"
+          onClick={onAdd}
+          className="btn-primary flex-1 py-3.5 text-base"
+        >
           {added ? <Check className="size-5" aria-hidden /> : null}
           {added ? "Added to cart" : `Add to cart · ${money(price * qty)}`}
         </button>
@@ -63,7 +91,12 @@ export function PurchasePanel({ product }: { product: Product }) {
             <p className="truncate text-sm font-bold">{product.name}</p>
             <p className="text-sm">{money(price)}</p>
           </div>
-          <button type="button" onClick={onAdd} tabIndex={showSticky ? 0 : -1} className="btn-primary shrink-0">
+          <button
+            type="button"
+            onClick={onAdd}
+            tabIndex={showSticky ? 0 : -1}
+            className="btn-primary shrink-0"
+          >
             {added ? "Added" : "Add to cart"}
           </button>
         </div>

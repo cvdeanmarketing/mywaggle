@@ -2,7 +2,13 @@ import { Plus } from "lucide-react";
 import type { FaqItem } from "@/lib/catalog";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-export function Faq({ items, withSchema }: { items: FaqItem[]; withSchema?: boolean }) {
+export function Faq({
+  items,
+  withSchema,
+}: {
+  items: FaqItem[];
+  withSchema?: boolean;
+}) {
   return (
     <>
       <div className="divide-y divide-line border-y border-line">
@@ -23,7 +29,11 @@ export function Faq({ items, withSchema }: { items: FaqItem[]; withSchema?: bool
           data={{
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+            mainEntity: items.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
           }}
         />
       )}

@@ -191,6 +191,7 @@ export function Header() {
                   <div className="flex items-center">
                     <Link
                       href={item.href}
+                      onClick={() => setActive(null)}
                       className={cn(
                         "whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-bold transition-colors xl:px-3 xl:text-[14px]",
                         current ? "text-ink" : "text-ink/75 hover:text-ink",
@@ -246,6 +247,13 @@ export function Header() {
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-x-0 top-full hidden border-b border-line bg-paper lg:block"
               onMouseEnter={() => openPanel(activeItem.label)}
+              onClickCapture={(e) => {
+                // Choosing any link in the panel closes it right away.
+                if ((e.target as HTMLElement).closest("a")) {
+                  if (closeTimer.current) clearTimeout(closeTimer.current);
+                  setActive(null);
+                }
+              }}
             >
               <div className="container-page grid grid-cols-[260px_1fr] gap-10 py-8">
                 <div className="flex flex-col">

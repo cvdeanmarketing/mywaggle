@@ -7,7 +7,11 @@
  * capabilities recorded in the catalog.
  */
 
-export type ArticleSection = "rving-with-pets" | "heatstroke" | "pet-guides" | "buying-guides";
+export type ArticleSection =
+  | "rving-with-pets"
+  | "heatstroke"
+  | "pet-guides"
+  | "buying-guides";
 
 export interface ArticleBlock {
   heading: string;
@@ -30,18 +34,32 @@ export interface Article {
   tone: "clay" | "signal" | "mint" | "ink";
 }
 
-export const SECTIONS: Record<ArticleSection, { name: string; blurb: string }> = {
-  "rving-with-pets": { name: "RVing with Pets", blurb: "Checklists and know-how for life on the road with pets." },
-  heatstroke: { name: "Heatstroke in Pets", blurb: "Recognize, prevent and respond to heat danger." },
-  "pet-guides": { name: "Pet Guides", blurb: "Everyday care for pets at home and away." },
-  "buying-guides": { name: "Buying Guides", blurb: "Help choosing the right setup." },
-};
+export const SECTIONS: Record<ArticleSection, { name: string; blurb: string }> =
+  {
+    "rving-with-pets": {
+      name: "RVing with Pets",
+      blurb: "Checklists and know-how for life on the road with pets.",
+    },
+    heatstroke: {
+      name: "Heatstroke in Pets",
+      blurb: "Recognize, prevent and respond to heat danger.",
+    },
+    "pet-guides": {
+      name: "Pet Guides",
+      blurb: "Everyday care for pets at home and away.",
+    },
+    "buying-guides": {
+      name: "Buying Guides",
+      blurb: "Help choosing the right setup.",
+    },
+  };
 
 export const ARTICLES: Article[] = [
   {
     slug: "cellular-vs-wifi",
     title: "Cellular vs. WiFi Pet Monitors: Which Do You Need?",
-    description: "How cellular (4G) and WiFi pet monitors and cameras differ, what each costs to run, and how to choose based on where your pet stays.",
+    description:
+      "How cellular (4G) and WiFi pet monitors and cameras differ, what each costs to run, and how to choose based on where your pet stays.",
     section: "buying-guides",
     quickAnswer:
       "Choose WiFi if your pet stays somewhere with reliable internet, like a house with good WiFi. Choose a cellular (4G) device if your pet stays in a vehicle, RV, cabin or anywhere WiFi drops out, because a cellular device keeps sending alerts on its own connection. Cellular devices need a data plan. WiFi devices usually don't.",
@@ -92,16 +110,26 @@ export const ARTICLES: Article[] = [
       "Cellular devices need a data plan, and WiFi cameras usually don't.",
     ],
     faqs: [
-      { q: "Do cellular pet monitors work without WiFi?", a: "Yes. A cellular monitor uses its own built-in SIM and connects to cell towers directly, so it works anywhere there's cell coverage without WiFi." },
-      { q: "Will a WiFi pet camera work in an RV?", a: "Only if the RV has a reliable WiFi connection, such as a dedicated router or dependable campground WiFi. Without one, choose a cellular camera." },
-      { q: "Can I use my phone plan for a cellular pet monitor?", a: "Not for Waggle devices. They use Waggle's built-in cellular service, and the plan is shown before purchase." },
+      {
+        q: "Do cellular pet monitors work without WiFi?",
+        a: "Yes. A cellular monitor uses its own built-in SIM and connects to cell towers directly, so it works anywhere there's cell coverage without WiFi.",
+      },
+      {
+        q: "Will a WiFi pet camera work in an RV?",
+        a: "Only if the RV has a reliable WiFi connection, such as a dedicated router or dependable campground WiFi. Without one, choose a cellular camera.",
+      },
+      {
+        q: "Can I use my phone plan for a cellular pet monitor?",
+        a: "Not for Waggle devices. They use Waggle's built-in cellular service, and the plan is shown before purchase.",
+      },
     ],
     products: ["pet-monitor-lite-plus", "rv-4g-mini-camera", "wagglecam-pro"],
   },
   {
     slug: "pet-heat-safety",
     title: "Heatstroke in Pets: Warning Signs, Prevention and What to Do",
-    description: "How to recognize heatstroke in dogs and cats, how to keep pets safe in hot homes, cars and RVs, and when to call a vet.",
+    description:
+      "How to recognize heatstroke in dogs and cats, how to keep pets safe in hot homes, cars and RVs, and when to call a vet.",
     section: "heatstroke",
     quickAnswer:
       "Heatstroke is an emergency. Signs include heavy panting, drooling, bright red gums, weakness, vomiting and collapse. Move your pet somewhere cool, offer small amounts of water, cool them with lukewarm (not ice-cold) water, and call your vet right away. The best prevention is never leaving a pet anywhere the temperature can climb without someone knowing.",
@@ -153,16 +181,26 @@ export const ARTICLES: Article[] = [
       "Monitoring tells you about rising heat before your pet is in danger.",
     ],
     faqs: [
-      { q: "What are the first signs of heatstroke in dogs?", a: "Heavy panting that doesn't settle, thick drool, bright red gums and restlessness are early signs. Weakness, vomiting and collapse mean it's an emergency." },
-      { q: "Should I use ice water to cool an overheated pet?", a: "No. Use cool or lukewarm water and airflow. Ice-cold water can constrict blood vessels and slow cooling. Call your vet right away." },
-      { q: "Can cats get heatstroke?", a: "Yes. Cats are less likely to pant, so open-mouth breathing in a cat is a warning sign that needs urgent attention." },
+      {
+        q: "What are the first signs of heatstroke in dogs?",
+        a: "Heavy panting that doesn't settle, thick drool, bright red gums and restlessness are early signs. Weakness, vomiting and collapse mean it's an emergency.",
+      },
+      {
+        q: "Should I use ice water to cool an overheated pet?",
+        a: "No. Use cool or lukewarm water and airflow. Ice-cold water can constrict blood vessels and slow cooling. Call your vet right away.",
+      },
+      {
+        q: "Can cats get heatstroke?",
+        a: "Yes. Cats are less likely to pant, so open-mouth breathing in a cat is a warning sign that needs urgent attention.",
+      },
     ],
     products: ["pet-monitor-pro-plus", "pet-monitor-lite-plus"],
   },
   {
     slug: "rving-with-pets",
     title: "RVing with Pets: The Complete Safety Checklist",
-    description: "A practical checklist for traveling and camping in an RV with dogs and cats, from temperature and power to campground rules.",
+    description:
+      "A practical checklist for traveling and camping in an RV with dogs and cats, from temperature and power to campground rules.",
     section: "rving-with-pets",
     quickAnswer:
       "Before leaving pets in an RV, make sure the AC has a reliable power source, set up a temperature monitor that alerts you by text and app, keep water available, and know the campground's pet rules. On travel days, secure pets the way you would in a car and plan stops every few hours.",
@@ -210,15 +248,26 @@ export const ARTICLES: Article[] = [
       "Secure pets on travel days and know the campground's rules.",
     ],
     faqs: [
-      { q: "Is it safe to leave a dog in an RV?", a: "It can be, with reliable climate control, power-loss and temperature alerts, water, and a plan to get back quickly if something changes. Never leave pets without a way to know if the AC fails." },
-      { q: "How do I monitor my RV temperature remotely?", a: "Use a temperature monitor with its own cellular connection that sends app, text and email alerts when conditions cross your limits." },
+      {
+        q: "Is it safe to leave a dog in an RV?",
+        a: "It can be, with reliable climate control, power-loss and temperature alerts, water, and a plan to get back quickly if something changes. Never leave pets without a way to know if the AC fails.",
+      },
+      {
+        q: "How do I monitor my RV temperature remotely?",
+        a: "Use a temperature monitor with its own cellular connection that sends app, text and email alerts when conditions cross your limits.",
+      },
     ],
-    products: ["pet-monitor-pro-plus", "rv-4g-mini-camera", "rv-observation-system"],
+    products: [
+      "pet-monitor-pro-plus",
+      "rv-4g-mini-camera",
+      "rv-observation-system",
+    ],
   },
   {
     slug: "monitor-pets-without-wifi",
     title: "How to Monitor Your Pet Without WiFi",
-    description: "Options for watching over pets in places with no internet: cars, RVs, cabins, barns and job sites.",
+    description:
+      "Options for watching over pets in places with no internet: cars, RVs, cabins, barns and job sites.",
     section: "buying-guides",
     quickAnswer:
       "Use a device with a built-in cellular connection. A 4G temperature monitor sends alerts anywhere there's cell coverage, and a 4G camera streams live video without a router. Both need a data plan. For travel beyond cell coverage, choose a monitor with satellite backup for critical alerts.",
@@ -248,17 +297,32 @@ export const ARTICLES: Article[] = [
         ],
       },
     ],
-    takeaways: ["Built-in cellular beats a hotspot for reliability.", "Cellular devices need a plan and cell coverage.", "Satellite backup covers critical alerts beyond coverage."],
-    faqs: [
-      { q: "Can a pet camera work without internet?", a: "A cellular (4G) pet camera can, because it has its own data connection. A WiFi camera cannot stream remotely without internet." },
-      { q: "Do I need a hotspot for a 4G pet monitor?", a: "No. A 4G monitor has a built-in SIM and connects directly to cell towers." },
+    takeaways: [
+      "Built-in cellular beats a hotspot for reliability.",
+      "Cellular devices need a plan and cell coverage.",
+      "Satellite backup covers critical alerts beyond coverage.",
     ],
-    products: ["rv-4g-mini-camera", "pet-monitor-lite-plus", "pet-monitor-pro-plus-satellite"],
+    faqs: [
+      {
+        q: "Can a pet camera work without internet?",
+        a: "A cellular (4G) pet camera can, because it has its own data connection. A WiFi camera cannot stream remotely without internet.",
+      },
+      {
+        q: "Do I need a hotspot for a 4G pet monitor?",
+        a: "No. A 4G monitor has a built-in SIM and connects directly to cell towers.",
+      },
+    ],
+    products: [
+      "rv-4g-mini-camera",
+      "pet-monitor-lite-plus",
+      "pet-monitor-pro-plus-satellite",
+    ],
   },
   {
     slug: "why-pet-monitors-need-a-subscription",
     title: "Why Do Cellular Pet Monitors Need a Subscription?",
-    description: "What a pet monitor subscription pays for, which Waggle devices need one, and how to compare plan costs.",
+    description:
+      "What a pet monitor subscription pays for, which Waggle devices need one, and how to compare plan costs.",
     section: "buying-guides",
     quickAnswer:
       "A cellular monitor's subscription pays for the data connection that lets it send alerts and video without WiFi, the same way a phone plan does. Waggle's 4G devices need one plan per device. WiFi cameras work without a plan, and cloud features are optional.",
@@ -287,17 +351,28 @@ export const ARTICLES: Article[] = [
         ],
       },
     ],
-    takeaways: ["The plan is the device's data connection.", "One plan per cellular device.", "Compare first-year cost, not just device price."],
+    takeaways: [
+      "The plan is the device's data connection.",
+      "One plan per cellular device.",
+      "Compare first-year cost, not just device price.",
+    ],
     faqs: [
-      { q: "Can I cancel a Waggle subscription?", a: "Waggle's FAQ says you can cancel anytime, with service continuing to the end of the billing cycle." },
-      { q: "Do WiFi pet cameras need a subscription?", a: "Waggle's WiFi cameras stream and record locally without a plan. A cloud plan is optional." },
+      {
+        q: "Can I cancel a Waggle subscription?",
+        a: "Waggle's FAQ says you can cancel anytime, with service continuing to the end of the billing cycle.",
+      },
+      {
+        q: "Do WiFi pet cameras need a subscription?",
+        a: "Waggle's WiFi cameras stream and record locally without a plan. A cloud plan is optional.",
+      },
     ],
     products: ["pet-monitor-lite-plus", "rv-4g-mini-camera"],
   },
   {
     slug: "pets-home-alone-power-outage",
     title: "Pets Home Alone During a Power Outage: How to Prepare",
-    description: "How a power outage puts pets at risk in hot or cold weather, and how to get alerted when it happens.",
+    description:
+      "How a power outage puts pets at risk in hot or cold weather, and how to get alerted when it happens.",
     section: "pet-guides",
     quickAnswer:
       "When the power goes out, AC and heat stop, and WiFi usually goes down with them, so WiFi devices can't warn you. A monitor with power-loss alerts, a cellular connection and a backup battery will tell you the moment the power drops and keep reporting the temperature.",
@@ -321,14 +396,24 @@ export const ARTICLES: Article[] = [
         ],
       },
     ],
-    takeaways: ["Outages usually take WiFi down too.", "Cellular plus battery backup keeps alerts coming.", "Have a neighbor on standby."],
-    faqs: [{ q: "Will a WiFi camera alert me during a power outage?", a: "Usually not. When power drops, the router goes down with it. Use a cellular monitor with a backup battery for outage alerts." }],
+    takeaways: [
+      "Outages usually take WiFi down too.",
+      "Cellular plus battery backup keeps alerts coming.",
+      "Have a neighbor on standby.",
+    ],
+    faqs: [
+      {
+        q: "Will a WiFi camera alert me during a power outage?",
+        a: "Usually not. When power drops, the router goes down with it. Use a cellular monitor with a backup battery for outage alerts.",
+      },
+    ],
     products: ["pet-monitor-lite-plus", "pet-monitor-pro-plus"],
   },
   {
     slug: "choosing-a-pet-camera",
     title: "How to Choose a Pet Camera: WiFi, 4G, Treat-Tossing and More",
-    description: "Compare indoor WiFi pet cameras with portable 4G cameras and find the right features for your pet.",
+    description:
+      "Compare indoor WiFi pet cameras with portable 4G cameras and find the right features for your pet.",
     section: "buying-guides",
     quickAnswer:
       "If your pet is at home with good WiFi, a WiFi camera with two-way audio is the simplest choice, and treat tossing adds interaction. If you need video in an RV, cabin or outdoors without WiFi, choose a battery-powered 4G camera. For full-room coverage, look for pan, tilt and auto-tracking.",
@@ -349,21 +434,35 @@ export const ARTICLES: Article[] = [
       },
       {
         heading: "Indoor home camera",
-        paragraphs: ["WaggleCam Pro adds 360° tracking and treat tossing on your home WiFi. The RV WiFi Mini Cam is a compact pan-and-tilt option for any room with WiFi."],
+        paragraphs: [
+          "WaggleCam Pro adds 360° tracking and treat tossing on your home WiFi. The RV WiFi Mini Cam is a compact pan-and-tilt option for any room with WiFi.",
+        ],
       },
       {
         heading: "Anywhere without WiFi",
-        paragraphs: ["The RV 4G Mini Camera streams over built-in 4G, runs on a long-life battery with an optional solar panel, and is IP65 rated."],
+        paragraphs: [
+          "The RV 4G Mini Camera streams over built-in 4G, runs on a long-life battery with an optional solar panel, and is IP65 rated.",
+        ],
       },
     ],
-    takeaways: ["Match connectivity to where the camera lives.", "Tracking and two-way audio make check-ins useful.", "Battery and solar options free you from outlets."],
-    faqs: [{ q: "Do treat-tossing cameras work for cats?", a: "Many cats enjoy them. Check the treat size limits for the camera before you buy." }],
+    takeaways: [
+      "Match connectivity to where the camera lives.",
+      "Tracking and two-way audio make check-ins useful.",
+      "Battery and solar options free you from outlets.",
+    ],
+    faqs: [
+      {
+        q: "Do treat-tossing cameras work for cats?",
+        a: "Many cats enjoy them. Check the treat size limits for the camera before you buy.",
+      },
+    ],
     products: ["wagglecam-pro", "rv-wifi-mini-cam", "rv-4g-mini-camera"],
   },
   {
     slug: "road-trips-with-dogs",
     title: "Road Trips with Dogs: Planning, Packing and Stops",
-    description: "How to plan a comfortable, safe road trip with your dog, including what to pack and how often to stop.",
+    description:
+      "How to plan a comfortable, safe road trip with your dog, including what to pack and how often to stop.",
     section: "rving-with-pets",
     quickAnswer:
       "Secure your dog in a crate or crash-tested harness, stop every few hours for water and a walk, pack food, meds and records, and never leave your dog in a parked car unless you can monitor the temperature and get back fast.",
@@ -373,15 +472,34 @@ export const ARTICLES: Article[] = [
     blocks: [
       {
         heading: "Packing list",
-        bullets: ["Food, treats and collapsible bowls", "Medications and vaccination records", "Leash, harness and waste bags", "Bed or blanket that smells like home", "A recent photo in case your dog gets lost"],
+        bullets: [
+          "Food, treats and collapsible bowls",
+          "Medications and vaccination records",
+          "Leash, harness and waste bags",
+          "Bed or blanket that smells like home",
+          "A recent photo in case your dog gets lost",
+        ],
       },
       {
         heading: "On the road",
-        bullets: ["Plan pet-friendly stops in advance.", "Keep the car's cabin cool, and never leave your dog unattended without monitoring.", "Watch for signs of motion sickness or stress."],
+        bullets: [
+          "Plan pet-friendly stops in advance.",
+          "Keep the car's cabin cool, and never leave your dog unattended without monitoring.",
+          "Watch for signs of motion sickness or stress.",
+        ],
       },
     ],
-    takeaways: ["Secure pets like passengers.", "Stop often.", "Monitor the temperature any time your dog stays in the vehicle."],
-    faqs: [{ q: "How often should I stop with a dog on a road trip?", a: "Many owners stop every two to four hours for water, a short walk and a bathroom break. Adjust for your dog's age and health." }],
+    takeaways: [
+      "Secure pets like passengers.",
+      "Stop often.",
+      "Monitor the temperature any time your dog stays in the vehicle.",
+    ],
+    faqs: [
+      {
+        q: "How often should I stop with a dog on a road trip?",
+        a: "Many owners stop every two to four hours for water, a short walk and a bathroom break. Adjust for your dog's age and health.",
+      },
+    ],
     products: ["pet-monitor-pro-plus", "rv-4g-mini-camera"],
   },
 ];
@@ -390,19 +508,40 @@ export const BLOG_ARCHIVE_URL = "https://mywaggle.com/pages/blogs";
 
 /** The original Wag Reads pages on the live site. */
 export const ORIGINAL_PAGES = [
-  { label: "RVing with Pets", url: "https://mywaggle.com/pages/rving-with-pets" },
-  { label: "Heatstroke in Pets", url: "https://mywaggle.com/pages/heatstroke-in-dogs" },
+  {
+    label: "RVing with Pets",
+    url: "https://mywaggle.com/pages/rving-with-pets",
+  },
+  {
+    label: "Heatstroke in Pets",
+    url: "https://mywaggle.com/pages/heatstroke-in-dogs",
+  },
   { label: "Blogs", url: "https://mywaggle.com/pages/blogs" },
   { label: "Pet Guides", url: "https://info.mywaggle.com/pet-guides.php" },
-  { label: "Waggle Saves Lives", url: "https://info.mywaggle.com/share-your-story.php" },
-  { label: "Pet Travel Videos", url: "https://mywaggle.com/pages/traveling-tails" },
+  {
+    label: "Waggle Saves Lives",
+    url: "https://info.mywaggle.com/share-your-story.php",
+  },
+  {
+    label: "Pet Travel Videos",
+    url: "https://mywaggle.com/pages/traveling-tails",
+  },
 ];
 
 /** Existing posts on the current Wag Reads blog (URLs verified). */
 export const LEGACY_POSTS = [
-  { title: "Waggle Pet Temperature Monitor vs. MarCELL Pet Monitor", url: "https://mywaggle.com/blogs/pet-protection/waggle-pet-temperature-monitor-vs-marcell-pet-monitor" },
-  { title: "Best Pet Camera: Waggle Buyer's Guide for Smart Pet Parents", url: "https://mywaggle.com/blogs/wagglecam/waggle-pet-camera-buyers-guide" },
-  { title: "Treat-Tossing Camera: WaggleCam Pro vs. Petcube Bites 2 Lite", url: "https://mywaggle.com/blogs/wagglecam/treat-tossing-camera-wagglecam-pro-vs-petcube-bites-2-lite" },
+  {
+    title: "Waggle Pet Temperature Monitor vs. MarCELL Pet Monitor",
+    url: "https://mywaggle.com/blogs/pet-protection/waggle-pet-temperature-monitor-vs-marcell-pet-monitor",
+  },
+  {
+    title: "Best Pet Camera: Waggle Buyer's Guide for Smart Pet Parents",
+    url: "https://mywaggle.com/blogs/wagglecam/waggle-pet-camera-buyers-guide",
+  },
+  {
+    title: "Treat-Tossing Camera: WaggleCam Pro vs. Petcube Bites 2 Lite",
+    url: "https://mywaggle.com/blogs/wagglecam/treat-tossing-camera-wagglecam-pro-vs-petcube-bites-2-lite",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

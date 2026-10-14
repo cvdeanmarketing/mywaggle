@@ -6,7 +6,11 @@ export const metadata: Metadata = { title: "Search", robots: { index: false } };
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div className="container-page py-20 text-muted">Loading results…</div>}>
+    <Suspense
+      fallback={
+        <div className="container-page py-20 text-muted">Loading results…</div>
+      }
+    >
       <SearchResults />
     </Suspense>
   );

@@ -2,7 +2,11 @@ import { SRC } from "./sources";
 import type { SubscriptionPlan } from "./types";
 
 /** Services the live homepage says are "built into every Waggle subscription". */
-export const SUITE_SERVICES = ["Waggle Vet (24/7 licensed vet access)", "Waggle Vault (pet health records)", "Waggle Places (pet-friendly stops)"];
+export const SUITE_SERVICES = [
+  "Waggle Vet (24/7 licensed vet access)",
+  "Waggle Vault (pet health records)",
+  "Waggle Places (pet-friendly stops)",
+];
 
 export const plans: SubscriptionPlan[] = [
   {
@@ -17,10 +21,19 @@ export const plans: SubscriptionPlan[] = [
       { label: "Yearly", price: 199, interval: "year" },
       { label: "2-year", price: 299, interval: "2 years" },
     ],
-    includes: ["Built-in 4G data", "Text, email and app alerts", ...SUITE_SERVICES],
+    includes: [
+      "Built-in 4G data",
+      "Text, email and app alerts",
+      ...SUITE_SERVICES,
+    ],
     status: "conflicting",
     note: "Support pages list Monthly $24.99. The subscription policy page lists Monthly $29.99. Yearly ($199) and 2-year ($299) match across pages.",
-    sources: [SRC.subscription, SRC.subscriptionPolicy, SRC.networkPlan, SRC.faq],
+    sources: [
+      SRC.subscription,
+      SRC.subscriptionPolicy,
+      SRC.networkPlan,
+      SRC.faq,
+    ],
   },
   {
     id: "cellular-camera",
@@ -33,7 +46,11 @@ export const plans: SubscriptionPlan[] = [
       { label: "Yearly", price: 199, interval: "year" },
     ],
     trial: "3-day free trial, no credit card required",
-    includes: ["Built-in 4G data", "Live view and motion alerts", ...SUITE_SERVICES],
+    includes: [
+      "Built-in 4G data",
+      "Live view and motion alerts",
+      ...SUITE_SERVICES,
+    ],
     status: "verified",
     note: "Live product pages: 'free 3-day trial, then $24.99/mo or $199/yr. Cancel anytime.' Applies to RV 4G Mini Camera, RV 4G Camera and 4G TravelCam.",
     sources: [SRC.rv4gMini, SRC.rv4gMiniHelp, SRC.cameras],
@@ -45,7 +62,11 @@ export const plans: SubscriptionPlan[] = [
     requirementNote:
       "Covers both cellular and satellite-backed critical alerts for the Pet Monitor Pro+ Satellite. It replaces the standard 4G plan for this device.",
     options: [{ label: "Yearly", price: 399, interval: "year" }],
-    includes: ["Built-in 4G data", "Satellite backup for critical alerts", ...SUITE_SERVICES],
+    includes: [
+      "Built-in 4G data",
+      "Satellite backup for critical alerts",
+      ...SUITE_SERVICES,
+    ],
     status: "verified",
     sources: [SRC.shopCollection, SRC.petMonitor],
   },
@@ -76,13 +97,17 @@ export const plans: SubscriptionPlan[] = [
   },
 ];
 
-export function getPlan(id: string | null | undefined): SubscriptionPlan | undefined {
+export function getPlan(
+  id: string | null | undefined,
+): SubscriptionPlan | undefined {
   if (!id) return undefined;
   return plans.find((p) => p.id === id);
 }
 
 /** Lowest published yearly cost, used to show "from $X/yr" next to prices. */
-export function yearlyCost(plan: SubscriptionPlan | undefined): number | undefined {
+export function yearlyCost(
+  plan: SubscriptionPlan | undefined,
+): number | undefined {
   if (!plan) return undefined;
   const yearly = plan.options.find((o) => o.interval === "year");
   return yearly?.price;
@@ -113,5 +138,7 @@ export function planPricing(plan: SubscriptionPlan | undefined): PlanPricing {
 
 /** "about 55¢ a day" */
 export function perDayLabel(perDay: number): string {
-  return perDay < 1 ? `about ${Math.round(perDay * 100)}¢ a day` : `about $${perDay.toFixed(2)} a day`;
+  return perDay < 1
+    ? `about ${Math.round(perDay * 100)}¢ a day`
+    : `about $${perDay.toFixed(2)} a day`;
 }

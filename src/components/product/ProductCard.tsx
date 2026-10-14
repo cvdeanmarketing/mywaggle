@@ -21,10 +21,28 @@ export function ProductCard({
   priority?: boolean;
 }) {
   const href = `/products/${product.handle}`;
-  const stack = product.kind === "bundle" ? (product.includes ?? []).map(getProduct).filter((p): p is Product => Boolean(p)) : undefined;
+  const stack =
+    product.kind === "bundle"
+      ? (product.includes ?? [])
+          .map(getProduct)
+          .filter((p): p is Product => Boolean(p))
+      : undefined;
   return (
-    <article className={cn("group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]", className)}>
-      <TrackedLink href={href} handle={product.handle} listName={listName} index={index} className="block" aria-label={product.name} tabIndex={-1}>
+    <article
+      className={cn(
+        "group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]",
+        className,
+      )}
+    >
+      <TrackedLink
+        href={href}
+        handle={product.handle}
+        listName={listName}
+        index={index}
+        className="block"
+        aria-label={product.name}
+        tabIndex={-1}
+      >
         <ProductMedia
           product={product}
           bundleStack={stack}
@@ -43,18 +61,31 @@ export function ProductCard({
         <ConnectivityTags connectivity={product.connectivity} />
         <div>
           <h3 className="text-lg font-semibold leading-snug">
-            <TrackedLink href={href} handle={product.handle} listName={listName} index={index} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none">
+            <TrackedLink
+              href={href}
+              handle={product.handle}
+              listName={listName}
+              index={index}
+              className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+            >
               {product.name}
             </TrackedLink>
           </h3>
-          <p className="mt-1 text-sm leading-relaxed text-muted">{product.tagline}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted">
+            {product.tagline}
+          </p>
         </div>
         <div className="mt-auto flex items-end justify-between gap-3 pt-2">
           <div className="min-w-0">
             <Price product={product} size="sm" />
             <PlanLine product={product} className="mt-1" />
           </div>
-          <AddToCartButton handle={product.handle} compact label="Add" className="relative z-10 shrink-0" />
+          <AddToCartButton
+            handle={product.handle}
+            compact
+            label="Add"
+            className="relative z-10 shrink-0"
+          />
         </div>
       </div>
     </article>

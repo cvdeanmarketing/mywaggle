@@ -1,6 +1,9 @@
 export const SITE = {
   name: "Waggle",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mywaggle.com").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mywaggle.com").replace(
+    /\/$/,
+    "",
+  ),
   tagline: "Protect What Matters. Wherever Life Takes You.",
   description:
     "Waggle makes connected pet safety technology: 4G temperature monitors, WiFi and cellular pet cameras, and RV solutions that keep you connected to your pets, home and adventures.",
@@ -20,8 +23,17 @@ export const SITE = {
     { value: "20+", label: "Years of protection" },
     { value: "9M+", label: "Social family" },
   ],
-  amazonStore: "https://www.amazon.com/stores/Waggle/page/A049B7DE-7865-43EB-B361-F520DB0AF5A6",
-  press: ["Dogster", "Catster", "Dog Gear Review", "The Wayward Home", "The Dyrt", "Harvest Hosts", "FMCA"],
+  amazonStore:
+    "https://www.amazon.com/stores/Waggle/page/A049B7DE-7865-43EB-B361-F520DB0AF5A6",
+  press: [
+    "Dogster",
+    "Catster",
+    "Dog Gear Review",
+    "The Wayward Home",
+    "The Dyrt",
+    "Harvest Hosts",
+    "FMCA",
+  ],
   commerceMode: (process.env.NEXT_PUBLIC_COMMERCE_MODE ?? "demo") as "demo",
 };
 

@@ -580,10 +580,12 @@ export default function PartnersPage() {
               })}
             </ul>
             <img
-              src="/images/partners/gorgeous-dogs-and-tree-instructors-durin.webp"
-              alt="Dog trainers with their German Shepherds"
+              src="/images/partners/ab-sec-5-2.webp"
+              alt="Pet parent with her camera and dog on a beach blanket"
+              width={573}
+              height={424}
               loading="lazy"
-              className="mt-8 aspect-[16/9] w-full rounded-3xl object-cover object-[50%_20%] shadow-[var(--shadow-lift)]"
+              className="mt-8 aspect-[573/424] w-full rounded-3xl object-cover shadow-[var(--shadow-lift)]"
             />
           </div>
           <FormCard t={biz} />
@@ -626,7 +628,7 @@ export default function PartnersPage() {
               ],
               [
                 "/waggle-for-good",
-                "about/how-waggle-3",
+                "about/how-waggle-1",
                 "Waggle for Good",
                 "Our mission to build a better life for pets and pet parents.",
               ],

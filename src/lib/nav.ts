@@ -71,7 +71,6 @@ export const PRIMARY_NAV: NavItem[] = [
         href: "https://info.mywaggle.com/share-your-story.php",
       },
       { label: "Pet Travel Videos", href: "/videos" },
-      { label: "More guides from Waggle", href: "/learn" },
     ],
   },
   {

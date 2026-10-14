@@ -31,5 +31,8 @@ export interface CommerceProvider {
    * Production: create a Shopify cart (cartCreate → checkoutUrl) or a Stripe
    * Checkout Session and return its hosted URL.
    */
-  createCheckout(lines: CheckoutLine[], promoCode?: string): Promise<CheckoutSession>;
+  createCheckout(
+    lines: CheckoutLine[],
+    promoCode?: string,
+  ): Promise<CheckoutSession>;
 }

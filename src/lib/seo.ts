@@ -8,7 +8,15 @@ export function organizationLd() {
     name: SITE.name,
     url: SITE.url,
     logo: absoluteUrl("/icon.svg"),
-    contactPoint: [{ "@type": "ContactPoint", telephone: `+1-${SITE.phone}`, email: SITE.email, contactType: "customer support", areaServed: "US" }],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: `+1-${SITE.phone}`,
+        email: SITE.email,
+        contactType: "customer support",
+        areaServed: "US",
+      },
+    ],
   };
 }
 
@@ -16,7 +24,12 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: absoluteUrl(it.path) })),
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: absoluteUrl(it.path),
+    })),
   };
 }
 
@@ -41,7 +54,9 @@ export function productLd(p: Product) {
       url: absoluteUrl(`/products/${p.handle}`),
       priceCurrency: "USD",
       price: price.toFixed(2),
-      availability: p.variants[0]?.available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      availability: p.variants[0]?.available
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
       ...(compareAtOf(p) ? {} : {}),
     },

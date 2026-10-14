@@ -55,7 +55,7 @@ export default function VideosPage() {
         eyebrow="From our community"
         title="Traveling Tails"
         intro="Travel with your pet confidently while Waggle helps keep them safe."
-        image="/images/about/how-waggle-4.webp"
+        image="/images/partners/ab-sec-5-1.webp"
       />
       <div className="container-page space-y-16 py-16 sm:py-20">
         {SERIES.map((s) => (

@@ -47,7 +47,11 @@ declare global {
   }
 }
 
-export function toGa4Item(p: Product, quantity = 1, extra: Partial<Ga4Item> = {}): Ga4Item {
+export function toGa4Item(
+  p: Product,
+  quantity = 1,
+  extra: Partial<Ga4Item> = {},
+): Ga4Item {
   return {
     item_id: p.handle,
     item_name: p.name,
@@ -60,7 +64,9 @@ export function toGa4Item(p: Product, quantity = 1, extra: Partial<Ga4Item> = {}
   };
 }
 
-export function itemsFromLines(lines: { handle: string; quantity: number }[]): Ga4Item[] {
+export function itemsFromLines(
+  lines: { handle: string; quantity: number }[],
+): Ga4Item[] {
   return lines.flatMap((l) => {
     const p = getProduct(l.handle);
     return p ? [toGa4Item(p, l.quantity)] : [];
@@ -69,14 +75,21 @@ export function itemsFromLines(lines: { handle: string; quantity: number }[]): G
 
 const IS_DEMO = (process.env.NEXT_PUBLIC_COMMERCE_MODE ?? "demo") === "demo";
 
-export function track(event: EcommerceEvent | CustomEvent, params: Record<string, unknown> = {}): void {
+export function track(
+  event: EcommerceEvent | CustomEvent,
+  params: Record<string, unknown> = {},
+): void {
   if (typeof window === "undefined") return;
   let name: string = event;
   if (event === "purchase" && IS_DEMO) name = "demo_purchase";
-  const payload = { event: name, ...(params.items ? { ecommerce: { ...params } } : params) };
+  const payload = {
+    event: name,
+    ...(params.items ? { ecommerce: { ...params } } : params),
+  };
   window.dataLayer = window.dataLayer ?? [];
   // GA4 recommends clearing the previous ecommerce object before pushing a new one.
   if (params.items) window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(payload);
-  if (process.env.NODE_ENV !== "production") console.debug("[analytics]", payload);
+  if (process.env.NODE_ENV !== "production")
+    console.debug("[analytics]", payload);
 }

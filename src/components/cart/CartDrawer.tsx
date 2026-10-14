@@ -51,8 +51,17 @@ export function CartDrawer() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div className="fixed inset-0 z-50" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-          <div className="absolute inset-0 bg-ink/40" onClick={close} aria-hidden />
+        <motion.div
+          className="fixed inset-0 z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <div
+            className="absolute inset-0 bg-ink/40"
+            onClick={close}
+            aria-hidden
+          />
           <motion.div
             ref={panelRef}
             tabIndex={-1}
@@ -63,13 +72,23 @@ export function CartDrawer() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              type: "tween",
+              duration: 0.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <div className="flex h-16 items-center justify-between border-b border-line px-5">
               <p className="font-display text-lg font-semibold">
-                Your cart <span className="text-muted">({totals.itemCount})</span>
+                Your cart{" "}
+                <span className="text-muted">({totals.itemCount})</span>
               </p>
-              <button type="button" onClick={close} className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand" aria-label="Close cart">
+              <button
+                type="button"
+                onClick={close}
+                className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand"
+                aria-label="Close cart"
+              >
                 <X className="size-5" />
               </button>
             </div>
@@ -79,10 +98,27 @@ export function CartDrawer() {
                 <span className="flex size-14 items-center justify-center rounded-full bg-sand">
                   <ShoppingBag className="size-6" aria-hidden />
                 </span>
-                <p className="font-display text-xl font-semibold">Your cart is empty</p>
-                <p className="text-sm text-muted">Not sure what fits? Answer four quick questions and we&apos;ll recommend a setup.</p>
-                <Link href="/find-your-waggle" onClick={close} className="btn-primary">Find Your Waggle</Link>
-                <Link href="/shop" onClick={close} className="text-sm font-bold text-signal">Shop all products</Link>
+                <p className="font-display text-xl font-semibold">
+                  Your cart is empty
+                </p>
+                <p className="text-sm text-muted">
+                  Not sure what fits? Answer four quick questions and we&apos;ll
+                  recommend a setup.
+                </p>
+                <Link
+                  href="/find-your-waggle"
+                  onClick={close}
+                  className="btn-primary"
+                >
+                  Find Your Waggle
+                </Link>
+                <Link
+                  href="/shop"
+                  onClick={close}
+                  className="text-sm font-bold text-signal"
+                >
+                  Shop all products
+                </Link>
               </div>
             ) : (
               <>
@@ -90,19 +126,43 @@ export function CartDrawer() {
                   <CartLines compact onNavigate={close} />
                   <PlanDisclosure className="pb-4" />
                   {recs.length > 0 && (
-                    <section className="border-t border-line py-5" aria-labelledby="pair-heading">
-                      <h2 id="pair-heading" className="text-sm font-bold">Works well with</h2>
+                    <section
+                      className="border-t border-line py-5"
+                      aria-labelledby="pair-heading"
+                    >
+                      <h2 id="pair-heading" className="text-sm font-bold">
+                        Works well with
+                      </h2>
                       <ul className="mt-3 space-y-2">
                         {recs.map((p) => (
-                          <li key={p.handle} className="flex items-center gap-3 rounded-2xl bg-sand p-2 pr-3">
+                          <li
+                            key={p.handle}
+                            className="flex items-center gap-3 rounded-2xl bg-sand p-2 pr-3"
+                          >
                             <span className="size-14 shrink-0 overflow-hidden rounded-xl bg-paper">
-                              <ProductArt art={p.art} title="" className="size-full" />
+                              <ProductArt
+                                art={p.art}
+                                title=""
+                                className="size-full"
+                              />
                             </span>
                             <span className="min-w-0 flex-1">
-                              <Link href={`/products/${p.handle}`} onClick={close} className="block truncate text-sm font-bold hover:underline">{p.name}</Link>
-                              <span className="text-xs text-muted">{money(priceOf(p))}</span>
+                              <Link
+                                href={`/products/${p.handle}`}
+                                onClick={close}
+                                className="block truncate text-sm font-bold hover:underline"
+                              >
+                                {p.name}
+                              </Link>
+                              <span className="text-xs text-muted">
+                                {money(priceOf(p))}
+                              </span>
                             </span>
-                            <button type="button" onClick={() => add(p.handle, 1, { silent: true })} className="rounded-full bg-paper px-3 py-1.5 text-xs font-bold hover:bg-ink hover:text-paper">
+                            <button
+                              type="button"
+                              onClick={() => add(p.handle, 1, { silent: true })}
+                              className="rounded-full bg-paper px-3 py-1.5 text-xs font-bold hover:bg-ink hover:text-paper"
+                            >
                               Add
                             </button>
                           </li>
@@ -113,16 +173,36 @@ export function CartDrawer() {
                 </div>
                 <div className="border-t border-line bg-paper p-5">
                   <dl className="space-y-1.5 text-sm">
-                    <div className="flex justify-between"><dt className="text-muted">Subtotal</dt><dd className="font-bold">{money(totals.subtotal)}</dd></div>
+                    <div className="flex justify-between">
+                      <dt className="text-muted">Subtotal</dt>
+                      <dd className="font-bold">{money(totals.subtotal)}</dd>
+                    </div>
                     {totals.discount > 0 && (
-                      <div className="flex justify-between text-mint"><dt>{totals.promotion?.label}</dt><dd className="font-bold">−{money(totals.discount)}</dd></div>
+                      <div className="flex justify-between text-mint">
+                        <dt>{totals.promotion?.label}</dt>
+                        <dd className="font-bold">−{money(totals.discount)}</dd>
+                      </div>
                     )}
-                    <div className="flex justify-between"><dt className="text-muted">Shipping</dt><dd className="font-bold">Free</dd></div>
+                    <div className="flex justify-between">
+                      <dt className="text-muted">Shipping</dt>
+                      <dd className="font-bold">Free</dd>
+                    </div>
                   </dl>
-                  <Link href="/checkout" onClick={close} className="btn-primary mt-4 w-full">
-                    Checkout · {money(totals.total)} <ArrowRight className="size-4" aria-hidden />
+                  <Link
+                    href="/checkout"
+                    onClick={close}
+                    className="btn-primary mt-4 w-full"
+                  >
+                    Checkout · {money(totals.total)}{" "}
+                    <ArrowRight className="size-4" aria-hidden />
                   </Link>
-                  <Link href="/cart" onClick={close} className="mt-2 block text-center text-sm font-bold text-muted hover:text-ink">View full cart</Link>
+                  <Link
+                    href="/cart"
+                    onClick={close}
+                    className="mt-2 block text-center text-sm font-bold text-muted hover:text-ink"
+                  >
+                    View full cart
+                  </Link>
                 </div>
               </>
             )}

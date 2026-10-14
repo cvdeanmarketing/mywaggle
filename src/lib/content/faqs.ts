@@ -28,8 +28,20 @@ export const HOME_FAQS: FaqItem[] = [
 ];
 
 export const PLANS_FAQS: FaqItem[] = [
-  { q: "Can I use my own phone plan?", a: "No. Waggle cellular devices use Waggle's built-in service, and your existing cellular account can't be linked." },
-  { q: "Can I cancel?", a: "Waggle's FAQ says you can cancel anytime, with service continuing until the end of the billing cycle." },
-  { q: "Do I need one plan per device?", a: "Yes. Each cellular device has its own built-in connection and its own plan." },
-  { q: "Are plans charged at checkout?", a: "No. Plans are activated and billed through the Waggle app after your device arrives. This storefront shows them before you buy so there are no surprises." },
+  {
+    q: "Can I use my own phone plan?",
+    a: "No. Waggle cellular devices use Waggle's built-in service, and your existing cellular account can't be linked.",
+  },
+  {
+    q: "Can I cancel?",
+    a: "Waggle's FAQ says you can cancel anytime, with service continuing until the end of the billing cycle.",
+  },
+  {
+    q: "Do I need one plan per device?",
+    a: "Yes. Each cellular device has its own built-in connection and its own plan.",
+  },
+  {
+    q: "Are plans charged at checkout?",
+    a: "No. Plans are activated and billed through the Waggle app after your device arrives. This storefront shows them before you buy so there are no surprises.",
+  },
 ];

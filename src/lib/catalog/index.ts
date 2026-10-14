@@ -24,7 +24,9 @@ export const bundles = () => products.filter((p) => p.kind === "bundle");
 export const accessories = () => products.filter((p) => p.kind === "accessory");
 
 export function productsInCategory(slug: CategorySlug): Product[] {
-  return products.filter((p) => p.categories.includes(slug)).sort((a, b) => a.merchRank - b.merchRank);
+  return products
+    .filter((p) => p.categories.includes(slug))
+    .sort((a, b) => a.merchRank - b.merchRank);
 }
 
 export function bestsellers(limit = 4): Product[] {
@@ -35,7 +37,9 @@ export function bestsellers(limit = 4): Product[] {
 }
 
 export function relatedProducts(product: Product): Product[] {
-  return product.related.map(getProduct).filter((p): p is Product => Boolean(p));
+  return product.related
+    .map(getProduct)
+    .filter((p): p is Product => Boolean(p));
 }
 
 export function hasCapability(product: Product, cap: Capability): boolean {
@@ -64,11 +68,24 @@ export function searchProducts(query: string): Product[] {
   if (terms.length === 0) return [];
   return products
     .map((p) => {
-      const hay = [p.name, p.tagline, p.description, ...p.useCases, ...p.capabilities, ...p.connectivity, ...p.categories]
+      const hay = [
+        p.name,
+        p.tagline,
+        p.description,
+        ...p.useCases,
+        ...p.capabilities,
+        ...p.connectivity,
+        ...p.categories,
+      ]
         .join(" ")
         .toLowerCase()
         .replace(/-/g, " ");
-      const score = terms.reduce((s, t) => s + (hay.includes(t) ? (p.name.toLowerCase().includes(t) ? 3 : 1) : 0), 0);
+      const score = terms.reduce(
+        (s, t) =>
+          s +
+          (hay.includes(t) ? (p.name.toLowerCase().includes(t) ? 3 : 1) : 0),
+        0,
+      );
       return { p, score };
     })
     .filter((r) => r.score >= terms.length)

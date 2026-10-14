@@ -15,7 +15,10 @@ const DIGITS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Digit({ d, order, run }: { d: number; order: number; run: boolean }) {
   return (
-    <span className="relative inline-block h-[1em] w-[0.62em] overflow-hidden text-center leading-none" aria-hidden>
+    <span
+      className="relative inline-block h-[1em] w-[0.62em] overflow-hidden text-center leading-none"
+      aria-hidden
+    >
       <motion.span
         className="flex flex-col"
         initial={{ y: 0 }}
@@ -32,7 +35,15 @@ function Digit({ d, order, run }: { d: number; order: number; run: boolean }) {
   );
 }
 
-function Ticker({ value, run, reduce }: { value: string; run: boolean; reduce: boolean }) {
+function Ticker({
+  value,
+  run,
+  reduce,
+}: {
+  value: string;
+  run: boolean;
+  reduce: boolean;
+}) {
   if (reduce) return <span aria-hidden>{value}</span>;
   let order = 0;
   return (
@@ -66,7 +77,9 @@ export function StatsBand() {
           <span className="font-display text-3xl font-semibold text-ink sm:text-4xl">
             <Ticker value={s.value} run={run} reduce={reduce} />
           </span>
-          <span className="mt-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted sm:text-[13px]">{s.label}</span>
+          <span className="mt-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted sm:text-[13px]">
+            {s.label}
+          </span>
         </li>
       ))}
     </ul>

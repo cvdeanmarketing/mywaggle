@@ -94,7 +94,7 @@ export function ProductMedia({
           className={
             ART_PHOTOS[product.art]?.cover
               ? shrink
-                ? "absolute inset-x-3 bottom-2 top-11 m-auto aspect-square h-[calc(100%-3.25rem)] w-auto max-w-full"
+                ? "absolute inset-x-4 bottom-4 top-12 m-auto aspect-square h-[calc(100%-4rem)] w-auto max-w-full rounded-xl shadow-sm"
                 : "absolute inset-0 size-full"
               : "absolute inset-0 m-auto h-[88%] w-[88%]"
           }

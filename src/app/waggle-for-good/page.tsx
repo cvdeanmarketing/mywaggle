@@ -20,19 +20,19 @@ export const metadata: Metadata = {
 const BLOCKS = [
   {
     icon: HeartHandshake,
-    img: "/images/about/how-waggle-3.webp",
+    img: "/images/about/how-waggle-1.webp",
     title: "A Vision Rooted in Care",
     text: "We’re not just creating products; we’re creating a community. A community of pet parents who, like us, want nothing but the best for their furry companions. Every feature we design, every innovation we pursue, stems from a deep understanding of the unique bond between pets and their humans.",
   },
   {
     icon: ShieldCheck,
-    img: "/images/about/how-waggle-2.webp",
+    img: "/images/partners/ab-sec-5-3.webp",
     title: "Keeping Pets Safe",
     text: "From real-time temperature monitoring to instant alerts, Waggle helps your pets stay safe and comfortable — no matter where you are. We’re your partner in preventing heat-related risks, because their safety is our priority.",
   },
   {
     icon: Users,
-    img: "/images/about/how-waggle-4.webp",
+    img: "/images/partners/ab-sec-5-1.webp",
     title: "Empowering Pet Parents",
     text: "We’re here to give you peace of mind. Whether it’s monitoring your pet during a road trip or ensuring their well-being at home, Waggle empowers you with tools to stay connected and in control.",
   },

@@ -10,14 +10,26 @@ import { TrackedLink } from "@/components/product/TrackedLink";
 import { ViewItemList } from "@/components/product/ViewItemList";
 
 /** Horizontally scrolling product rail: four cards in view on desktop, scroll or arrows for the rest. */
-export function ProductRail({ products, title, listName }: { products: Product[]; title: string; listName: string }) {
+export function ProductRail({
+  products,
+  title,
+  listName,
+}: {
+  products: Product[];
+  title: string;
+  listName: string;
+}) {
   const scroller = useRef<HTMLUListElement>(null);
   const [edge, setEdge] = useState({ start: true, end: false });
 
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
-    const update = () => setEdge({ start: el.scrollLeft <= 4, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4 });
+    const update = () =>
+      setEdge({
+        start: el.scrollLeft <= 4,
+        end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4,
+      });
     update();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -29,14 +41,26 @@ export function ProductRail({ products, title, listName }: { products: Product[]
 
   const page = (dir: 1 | -1) => {
     const el = scroller.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
+    if (el)
+      el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
   };
 
   return (
-    <section className="pb-16 pt-14 sm:pb-20 sm:pt-16" aria-labelledby="rail-title">
-      <ViewItemList listName={listName} handles={products.map((p) => p.handle)} />
+    <section
+      className="pb-16 pt-14 sm:pb-20 sm:pt-16"
+      aria-labelledby="rail-title"
+    >
+      <ViewItemList
+        listName={listName}
+        handles={products.map((p) => p.handle)}
+      />
       <div className="container-page">
-        <h2 id="rail-title" className="text-center text-3xl font-semibold sm:text-[36px]">{title}</h2>
+        <h2
+          id="rail-title"
+          className="text-center text-3xl font-semibold sm:text-[36px]"
+        >
+          {title}
+        </h2>
       </div>
       <div className="container-page mt-10">
         <ul
@@ -45,7 +69,10 @@ export function ProductRail({ products, title, listName }: { products: Product[]
           aria-label={title}
         >
           {products.map((p, i) => (
-            <li key={p.handle} className="w-[72%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-4.5rem)/4)]">
+            <li
+              key={p.handle}
+              className="w-[72%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-4.5rem)/4)]"
+            >
               <article className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper transition-shadow hover:shadow-[var(--shadow-lift)]">
                 <ProductMedia
                   product={p}
@@ -54,8 +81,18 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   className="aspect-[1/0.9] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-signal" : "text-muted")}>
-                    {p.badge ?? (p.connectivity.includes("wifi") ? "WiFi" : p.connectivity.includes("cellular") ? "Built-in 4G" : "No app needed")}
+                  <p
+                    className={cn(
+                      "text-[11px] font-bold uppercase tracking-[0.14em]",
+                      p.badge ? "text-signal" : "text-muted",
+                    )}
+                  >
+                    {p.badge ??
+                      (p.connectivity.includes("wifi")
+                        ? "WiFi"
+                        : p.connectivity.includes("cellular")
+                          ? "Built-in 4G"
+                          : "No app needed")}
                   </p>
                   <h3 className="mt-1.5 text-lg font-semibold leading-snug">
                     <TrackedLink
@@ -68,14 +105,20 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                       {p.name}
                     </TrackedLink>
                   </h3>
-                  <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{p.tagline}</p>
+                  <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">
+                    {p.tagline}
+                  </p>
                   <div className="mt-auto flex items-center pt-4">
                     <Link
                       href={`/products/${p.handle}`}
                       className="group/shop relative z-10 inline-flex items-center gap-1 text-sm font-bold text-signal hover:underline"
                       aria-label={`Shop ${p.name}`}
                     >
-                      Shop <ArrowRight className="size-4 transition-transform group-hover/shop:translate-x-0.5" aria-hidden />
+                      Shop{" "}
+                      <ArrowRight
+                        className="size-4 transition-transform group-hover/shop:translate-x-0.5"
+                        aria-hidden
+                      />
                     </Link>
                   </div>
                 </div>
@@ -94,7 +137,10 @@ export function ProductRail({ products, title, listName }: { products: Product[]
         >
           <ChevronLeft className="size-5" />
         </button>
-        <Link href="/shop" className="btn bg-clay px-8 py-3.5 text-base text-paper hover:bg-clay-700">
+        <Link
+          href="/shop"
+          className="btn bg-clay px-8 py-3.5 text-base text-paper hover:bg-clay-700"
+        >
           View all Products
         </Link>
         <button

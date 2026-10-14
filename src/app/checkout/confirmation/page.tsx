@@ -37,7 +37,9 @@ export default function ConfirmationPage() {
       <CheckCircle2 className="mx-auto size-14 text-mint" aria-hidden />
       <h1 className="mt-6 text-4xl font-semibold">Demo order placed</h1>
       <p className="mt-3 text-muted">
-        This was a prototype checkout. No payment was taken and nothing will ship. Analytics recorded a <code className="rounded bg-sand px-1">demo_purchase</code>, not a sale.
+        This was a prototype checkout. No payment was taken and nothing will
+        ship. Analytics recorded a{" "}
+        <code className="rounded bg-sand px-1">demo_purchase</code>, not a sale.
       </p>
       {order && (
         <div className="mt-10 rounded-[var(--radius-card)] border border-line p-6 text-left">
@@ -57,14 +59,21 @@ export default function ConfirmationPage() {
           {order.plans.length > 0 && (
             <div className="mt-5 rounded-2xl bg-sand p-4 text-sm">
               <p className="font-bold">Next: activate your plan</p>
-              <p className="mt-1 text-muted">When your device arrives, open the Waggle app to activate {Array.from(new Set(order.plans)).join(" and ")}.</p>
+              <p className="mt-1 text-muted">
+                When your device arrives, open the Waggle app to activate{" "}
+                {Array.from(new Set(order.plans)).join(" and ")}.
+              </p>
             </div>
           )}
         </div>
       )}
       <div className="mt-10 flex flex-wrap justify-center gap-3">
-        <Link href="/shop" className="btn-primary">Keep shopping</Link>
-        <Link href="/learn" className="btn-secondary">Read Wag Reads</Link>
+        <Link href="/shop" className="btn-primary">
+          Keep shopping
+        </Link>
+        <Link href="/learn" className="btn-secondary">
+          Read Wag Reads
+        </Link>
       </div>
     </div>
   );

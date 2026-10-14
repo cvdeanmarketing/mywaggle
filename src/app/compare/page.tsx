@@ -4,14 +4,16 @@ import { CompareTable } from "@/components/shop/CompareTable";
 
 export const metadata: Metadata = {
   title: "Compare Waggle Pet Monitors and Cameras",
-  description: "Compare Waggle devices side by side: connectivity, WiFi requirements, subscription plans and features like temperature alerts, live video and geofencing.",
+  description:
+    "Compare Waggle devices side by side: connectivity, WiFi requirements, subscription plans and features like temperature alerts, live video and geofencing.",
   alternates: { canonical: "/compare" },
 };
 
 export default function ComparePage() {
   return (
     <>
-      <PageHeader image="/images/about/how-waggle-1.webp"
+      <PageHeader
+        image="/images/about/how-waggle-1.webp"
         crumbs={[{ name: "Compare", path: "/compare" }]}
         eyebrow="Compare"
         title="Compare Waggle devices."

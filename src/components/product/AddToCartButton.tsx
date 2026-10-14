@@ -28,9 +28,21 @@ export function AddToCartButton({
         setDone(true);
         setTimeout(() => setDone(false), 1600);
       }}
-      className={cn(variant === "accent" ? "btn-accent" : variant === "secondary" ? "btn-secondary" : "btn-primary", compact && "px-4 py-2 text-sm", className)}
+      className={cn(
+        variant === "accent"
+          ? "btn-accent"
+          : variant === "secondary"
+            ? "btn-secondary"
+            : "btn-primary",
+        compact && "px-4 py-2 text-sm",
+        className,
+      )}
     >
-      {done ? <Check className="size-4" aria-hidden /> : compact ? <Plus className="size-4" aria-hidden /> : null}
+      {done ? (
+        <Check className="size-4" aria-hidden />
+      ) : compact ? (
+        <Plus className="size-4" aria-hidden />
+      ) : null}
       <span>{done ? "Added" : label}</span>
     </button>
   );

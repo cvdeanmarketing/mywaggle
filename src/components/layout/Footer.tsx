@@ -18,7 +18,10 @@ export function Footer() {
       <div className="border-b border-line-dark">
         <ul className="container-page grid grid-cols-2 gap-x-4 gap-y-5 py-6 text-sm font-bold md:grid-cols-4">
           {TRUST.map(({ icon: Icon, label }) => (
-            <li key={label} className="flex items-center justify-center gap-2.5 text-center md:border-l md:border-line-dark md:first:border-l-0">
+            <li
+              key={label}
+              className="flex items-center justify-center gap-2.5 text-center md:border-l md:border-line-dark md:first:border-l-0"
+            >
               <Icon className="size-5 shrink-0 text-clay" aria-hidden />
               {label}
             </li>
@@ -29,10 +32,13 @@ export function Footer() {
         <div>
           <Logo tone="light" className="h-8 w-auto" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-dark">
-            Connected pet safety for home, travel and the open road. Built for pets, trusted by pet parents.
+            Connected pet safety for home, travel and the open road. Built for
+            pets, trusted by pet parents.
           </p>
           <div className="mt-6 max-w-sm">
-            <p className="text-sm font-bold">Pet safety tips and product news</p>
+            <p className="text-sm font-bold">
+              Pet safety tips and product news
+            </p>
             <NewsletterForm tone="dark" source="footer" />
           </div>
         </div>
@@ -43,7 +49,9 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5 text-sm text-muted-dark">
                 {col.links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="hover:text-paper">{l.label}</Link>
+                    <Link href={l.href} className="hover:text-paper">
+                      {l.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -52,10 +60,32 @@ export function Footer() {
           <div>
             <p className="text-sm font-bold">Support</p>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-dark">
-              <li><a href={`tel:${SITE.phone.replace(/-/g, "")}`} className="hover:text-paper">{SITE.phone}</a></li>
-              <li><a href={`mailto:${SITE.email}`} className="whitespace-nowrap hover:text-paper">{SITE.email}</a></li>
-              <li><Link href="/live" className="hover:text-paper">Waggle Live</Link></li>
-              <li><Link href="/account" className="hover:text-paper">Account</Link></li>
+              <li>
+                <a
+                  href={`tel:${SITE.phone.replace(/-/g, "")}`}
+                  className="hover:text-paper"
+                >
+                  {SITE.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="whitespace-nowrap hover:text-paper"
+                >
+                  {SITE.email}
+                </a>
+              </li>
+              <li>
+                <Link href="/live" className="hover:text-paper">
+                  Waggle Live
+                </Link>
+              </li>
+              <li>
+                <Link href="/account" className="hover:text-paper">
+                  Account
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

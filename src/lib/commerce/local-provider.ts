@@ -16,7 +16,11 @@ export const localProvider: CommerceProvider = {
   },
   async createCheckout() {
     const id = `DEMO-${Date.now().toString(36).toUpperCase()}`;
-    return { id, redirectUrl: `/checkout/confirmation?order=${id}`, mode: "demo" };
+    return {
+      id,
+      redirectUrl: `/checkout/confirmation?order=${id}`,
+      mode: "demo",
+    };
   },
 };
 

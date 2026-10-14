@@ -1,7 +1,23 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState, type ReactNode } from "react";
-import { getPlan, getProduct, priceOf, type Product, type SubscriptionPlan } from "@/lib/catalog";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import {
+  getPlan,
+  getProduct,
+  priceOf,
+  type Product,
+  type SubscriptionPlan,
+} from "@/lib/catalog";
 import { findPromotion, type Promotion } from "@/lib/commerce/promotions";
 import { itemsFromLines, toGa4Item, track } from "@/lib/analytics";
 
@@ -32,19 +48,43 @@ function reducer(state: CartState, action: Action): CartState {
     case "add": {
       const existing = state.lines.find((l) => l.handle === action.handle);
       const lines = existing
-        ? state.lines.map((l) => (l.handle === action.handle ? { ...l, quantity: Math.min(MAX_QTY, l.quantity + action.quantity) } : l))
-        : [...state.lines, { handle: action.handle, variantId: action.variantId, quantity: Math.min(MAX_QTY, action.quantity) }];
+        ? state.lines.map((l) =>
+            l.handle === action.handle
+              ? {
+                  ...l,
+                  quantity: Math.min(MAX_QTY, l.quantity + action.quantity),
+                }
+              : l,
+          )
+        : [
+            ...state.lines,
+            {
+              handle: action.handle,
+              variantId: action.variantId,
+              quantity: Math.min(MAX_QTY, action.quantity),
+            },
+          ];
       return { ...state, lines };
     }
     case "set":
       return {
         ...state,
         lines: state.lines
-          .map((l) => (l.handle === action.handle ? { ...l, quantity: Math.max(0, Math.min(MAX_QTY, action.quantity)) } : l))
+          .map((l) =>
+            l.handle === action.handle
+              ? {
+                  ...l,
+                  quantity: Math.max(0, Math.min(MAX_QTY, action.quantity)),
+                }
+              : l,
+          )
           .filter((l) => l.quantity > 0),
       };
     case "remove":
-      return { ...state, lines: state.lines.filter((l) => l.handle !== action.handle) };
+      return {
+        ...state,
+        lines: state.lines.filter((l) => l.handle !== action.handle),
+      };
     case "promo":
       return { ...state, promoCode: action.code };
     case "clear":
@@ -98,7 +138,9 @@ const CartContext = createContext<CartContextValue | null>(null);
 /** Expand a bundle into the devices whose plans it needs. */
 function planDevices(p: Product): Product[] {
   if (p.kind !== "bundle") return [p];
-  return (p.includes ?? []).map(getProduct).filter((x): x is Product => Boolean(x));
+  return (p.includes ?? [])
+    .map(getProduct)
+    .filter((x): x is Product => Boolean(x));
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -114,7 +156,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (raw) {
         const parsed = JSON.parse(raw) as CartState;
         const lines = (parsed.lines ?? []).filter((l) => getProduct(l.handle));
-        dispatch({ type: "hydrate", state: { lines, promoCode: parsed.promoCode ?? null } });
+        dispatch({
+          type: "hydrate",
+          state: { lines, promoCode: parsed.promoCode ?? null },
+        });
       }
     } catch {
       /* storage unavailable: start empty */
@@ -143,14 +188,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   const totals = useMemo<CartTotals>(() => {
-    const subtotal = detailed.reduce((s, l) => s + priceOf(l.product) * l.quantity, 0);
+    const subtotal = detailed.reduce(
+      (s, l) => s + priceOf(l.product) * l.quantity,
+      0,
+    );
     const compareAtSavings = detailed.reduce((s, l) => {
       const c = l.product.variants[0]?.price.compareAt;
       return s + (c ? (c - priceOf(l.product)) * l.quantity : 0);
     }, 0);
-    const promotion = state.promoCode ? findPromotion(state.promoCode) : undefined;
+    const promotion = state.promoCode
+      ? findPromotion(state.promoCode)
+      : undefined;
     const hasDevice = detailed.some((l) => l.product.kind !== "accessory");
-    const discount = promotion && hasDevice ? Math.round(subtotal * promotion.percentOff * 100) / 100 : 0;
+    const discount =
+      promotion && hasDevice
+        ? Math.round(subtotal * promotion.percentOff * 100) / 100
+        : 0;
 
     const planMap = new Map<string, PlanLine>();
     for (const l of detailed) {
@@ -158,7 +211,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
         const plan = getPlan(d.planId);
         if (!plan) continue;
         const prev = planMap.get(d.handle);
-        planMap.set(d.handle, { product: d, plan, quantity: (prev?.quantity ?? 0) + l.quantity });
+        planMap.set(d.handle, {
+          product: d,
+          plan,
+          quantity: (prev?.quantity ?? 0) + l.quantity,
+        });
       }
     }
     const plans = [...planMap.values()];
@@ -178,19 +235,28 @@ export function CartProvider({ children }: { children: ReactNode }) {
       promotion: discount > 0 ? promotion : undefined,
       plans,
       requiredYearly,
-      hasUnpricedRequiredPlan: required.some((p) => !p.plan.options.some((o) => o.interval === "year")),
+      hasUnpricedRequiredPlan: required.some(
+        (p) => !p.plan.options.some((o) => o.interval === "year"),
+      ),
     };
   }, [detailed, state.promoCode]);
 
-  const add = useCallback((handle: string, quantity = 1, opts?: { silent?: boolean }) => {
-    const product = getProduct(handle);
-    const variant = product?.variants[0];
-    if (!product || !variant?.available) return;
-    dispatch({ type: "add", handle, variantId: variant.id, quantity });
-    setLastAdded(handle);
-    track("add_to_cart", { currency: "USD", value: priceOf(product) * quantity, items: [toGa4Item(product, quantity)] });
-    if (!opts?.silent) setOpen(true);
-  }, []);
+  const add = useCallback(
+    (handle: string, quantity = 1, opts?: { silent?: boolean }) => {
+      const product = getProduct(handle);
+      const variant = product?.variants[0];
+      if (!product || !variant?.available) return;
+      dispatch({ type: "add", handle, variantId: variant.id, quantity });
+      setLastAdded(handle);
+      track("add_to_cart", {
+        currency: "USD",
+        value: priceOf(product) * quantity,
+        items: [toGa4Item(product, quantity)],
+      });
+      if (!opts?.silent) setOpen(true);
+    },
+    [],
+  );
 
   const addMany = useCallback(
     (handles: string[]) => {
@@ -222,7 +288,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const line = state.lines.find((l) => l.handle === handle);
       const product = getProduct(handle);
       if (line && product) {
-        track("remove_from_cart", { currency: "USD", value: priceOf(product) * line.quantity, items: [toGa4Item(product, line.quantity)] });
+        track("remove_from_cart", {
+          currency: "USD",
+          value: priceOf(product) * line.quantity,
+          items: [toGa4Item(product, line.quantity)],
+        });
       }
       dispatch({ type: "remove", handle });
     },
@@ -234,7 +304,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const promo = findPromotion(code);
       if (!promo) return { ok: false, message: "That code isn't valid." };
       dispatch({ type: "promo", code: promo.code });
-      track("promotion_applied", { promotion_id: promo.code, promotion_name: promo.label, items: itemsFromLines(state.lines) });
+      track("promotion_applied", {
+        promotion_id: promo.code,
+        promotion_name: promo.label,
+        items: itemsFromLines(state.lines),
+      });
       return { ok: true, message: `${promo.label} applied to hardware.` };
     },
     [state.lines],
@@ -249,7 +323,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     lastAdded,
     open: () => {
       setOpen(true);
-      track("view_cart", { currency: "USD", value: totals.total, items: itemsFromLines(state.lines) });
+      track("view_cart", {
+        currency: "USD",
+        value: totals.total,
+        items: itemsFromLines(state.lines),
+      });
     },
     close: () => setOpen(false),
     add,

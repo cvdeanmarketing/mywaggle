@@ -1,4 +1,10 @@
-import { categories, getPlan, perDayLabel, planPricing, products } from "@/lib/catalog";
+import {
+  categories,
+  getPlan,
+  perDayLabel,
+  planPricing,
+  products,
+} from "@/lib/catalog";
 import { ARTICLES } from "@/lib/content/articles";
 import { SITE, absoluteUrl } from "@/lib/site";
 
@@ -19,15 +25,27 @@ export function GET() {
       .map((p) => {
         const plan = getPlan(p.planId);
         const { yearly, perDay } = planPricing(plan);
-        const planText = !plan ? "no plan listed" : plan.requirement === "optional" ? "optional plan" : yearly ? `plan required, $${yearly}/yr (${perDayLabel(perDay!)})` : "plan required";
+        const planText = !plan
+          ? "no plan listed"
+          : plan.requirement === "optional"
+            ? "optional plan"
+            : yearly
+              ? `plan required, $${yearly}/yr (${perDayLabel(perDay!)})`
+              : "plan required";
         return `- [${p.name}](${absoluteUrl(`/products/${p.handle}`)}): ${p.tagline} $${p.variants[0]?.price.amount}, ${planText}.`;
       }),
     "",
     "## Shop by need",
-    ...categories.map((c) => `- [${c.name}](${absoluteUrl(c.slug === "bundles" ? "/bundles" : `/shop/${c.slug}`)}): ${c.description}`),
+    ...categories.map(
+      (c) =>
+        `- [${c.name}](${absoluteUrl(c.slug === "bundles" ? "/bundles" : `/shop/${c.slug}`)}): ${c.description}`,
+    ),
     "",
     "## Guides",
-    ...ARTICLES.map((a) => `- [${a.title}](${absoluteUrl(`/learn/${a.slug}`)}): ${a.quickAnswer}`),
+    ...ARTICLES.map(
+      (a) =>
+        `- [${a.title}](${absoluteUrl(`/learn/${a.slug}`)}): ${a.quickAnswer}`,
+    ),
     "",
     "## Help",
     `- [Subscription plans](${absoluteUrl("/plans")})`,
@@ -35,5 +53,7 @@ export function GET() {
     `- Support: ${SITE.phone}, ${SITE.email}`,
     "",
   ];
-  return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  return new Response(lines.join("\n"), {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
 }

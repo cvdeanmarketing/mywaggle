@@ -38,7 +38,7 @@ function Featured({ p }: { p: HubPost }) {
       rel="noopener noreferrer"
       className="group grid overflow-hidden rounded-3xl border border-line bg-paper shadow-sm transition-shadow hover:shadow-[var(--shadow-lift)] md:grid-cols-[1.1fr_1fr]"
     >
-      <div className="aspect-[16/10] overflow-hidden bg-sand md:aspect-auto">
+      <div className="aspect-[1.91/1] overflow-hidden bg-sand md:aspect-auto">
         {p.img && (
           <img
             src={p.img}
@@ -80,7 +80,7 @@ function Small({ p }: { p: HubPost }) {
       rel="noopener noreferrer"
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-shadow hover:shadow-[var(--shadow-lift)]"
     >
-      <div className="aspect-[16/10] overflow-hidden bg-sand">
+      <div className="aspect-[1.91/1] overflow-hidden bg-sand">
         {p.img && (
           <img
             src={p.img}
@@ -301,7 +301,7 @@ export default function LearnPage() {
                         src={p.img}
                         alt=""
                         loading="lazy"
-                        className="aspect-[16/10] w-full object-cover"
+                        className="aspect-[1.91/1] w-full object-cover"
                       />
                     )}
                     <span className="block p-4">

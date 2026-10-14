@@ -5,7 +5,8 @@ export const categories: Category[] = [
     slug: "pet-safety",
     name: "Pet Safety Monitors",
     navLabel: "Pet Safety",
-    headline: "Know the moment it gets too hot, too cold, or the power goes out.",
+    headline:
+      "Know the moment it gets too hot, too cold, or the power goes out.",
     description:
       "Temperature, humidity and power-loss monitors with their own 4G connection. Alerts reach your phone by app, text and email, with no WiFi needed.",
     seoTitle: "Pet Temperature Monitors with 4G Alerts",
@@ -74,11 +75,11 @@ export const categories: Category[] = [
       "The original Waggle use case: temperature and power monitoring for pets in RVs, plus 4G cameras and a wireless observation system for driving.",
     seoTitle: "RV Pet Monitors, 4G Cameras and Backup Cameras",
     seoDescription:
-      "Waggle RV solutions: 4G pet temperature monitors with power-loss and geofence alerts, 4G and WiFi cameras, and a wireless RV observation camera with 7\" display.",
+      'Waggle RV solutions: 4G pet temperature monitors with power-loss and geofence alerts, 4G and WiFi cameras, and a wireless RV observation camera with 7" display.',
     guidance: [
       "Parked with pets inside: start with a Pet Monitor for temperature and shore-power alerts.",
       "Want to see inside: add the RV 4G Mini Camera (no WiFi) or RV WiFi Mini Cam (with WiFi).",
-      "Backing up and towing: the RV Observation System has its own 7\" display, with no app needed.",
+      'Backing up and towing: the RV Observation System has its own 7" display, with no app needed.',
     ],
   },
   {
@@ -102,9 +103,11 @@ export const categories: Category[] = [
     name: "Bundles",
     navLabel: "Bundles",
     headline: "Better together, for less.",
-    description: "Waggle's published bundles pair a monitor with the right camera. Or build your own.",
+    description:
+      "Waggle's published bundles pair a monitor with the right camera. Or build your own.",
     seoTitle: "Waggle Bundles: Monitor + Camera Kits",
-    seoDescription: "Pair a Waggle temperature monitor with a WiFi or 4G camera. See published bundle pricing or build your own bundle.",
+    seoDescription:
+      "Pair a Waggle temperature monitor with a WiFi or 4G camera. See published bundle pricing or build your own bundle.",
     guidance: [
       "Each cellular device needs its own plan, shown before checkout.",
       "Published bundle pricing applies only when your selection exactly matches a bundle.",

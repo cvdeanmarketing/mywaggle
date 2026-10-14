@@ -30,19 +30,37 @@
   --color-alert: #c2410c;
 
   --radius-card: 1.25rem;
-  --shadow-lift: 0 1px 2px rgb(17 19 24 / 0.04), 0 12px 32px -12px rgb(17 19 24 / 0.18);
+  --shadow-lift:
+    0 1px 2px rgb(17 19 24 / 0.04), 0 12px 32px -12px rgb(17 19 24 / 0.18);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   --animate-marquee-l: marquee-l 60s linear infinite;
   --animate-marquee-r: marquee-r 70s linear infinite;
-  @keyframes marquee-l { to { transform: translateX(-50%); } }
-  @keyframes marquee-r { from { transform: translateX(-50%); } to { transform: none; } }
+  @keyframes marquee-l {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee-r {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: none;
+    }
+  }
 
   --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: none; }
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
@@ -55,23 +73,39 @@
     @apply bg-paper text-ink font-sans antialiased;
     font-feature-settings: "kern";
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-display tracking-tight text-balance;
   }
-  p { text-wrap: pretty; }
+  p {
+    text-wrap: pretty;
+  }
   :focus-visible {
     outline: 2px solid var(--color-signal);
     outline-offset: 2px;
     border-radius: 6px;
   }
-  ::selection { background: var(--color-signal-50); color: var(--color-ink); }
-  summary { cursor: pointer; }
-  summary::-webkit-details-marker { display: none; }
+  ::selection {
+    background: var(--color-signal-50);
+    color: var(--color-ink);
+  }
+  summary {
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -114,5 +148,7 @@
 
 @utility scrollbar-none {
   scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

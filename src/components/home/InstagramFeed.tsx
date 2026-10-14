@@ -8,17 +8,20 @@ const ROW_A = [
   ["/images/about/how-waggle-1.webp", "Couple playing with their dog outdoors"],
   ["/images/partners/ab-sec-5-2.webp", "Dog on a blanket at the beach"],
   ["/images/lifestyle/rv-4g-camera-on-rv.webp", "RV with a Waggle 4G camera"],
-  ["/images/about/how-waggle-3.webp", "Family holiday with their dog"],
+  [
+    "/images/partners/gorgeous-dogs-and-tree-instructors-durin.webp",
+    "Family holiday with their dog",
+  ],
   ["/images/partners/ab-sect-2.webp", "Napping in the camper van with a dog"],
   ["/images/events/event-image.webp", "Campground in the hills"],
 ];
 const ROW_B = [
   ["/images/about/why-what-2.webp", "Family relaxing with their dog"],
   ["/images/partners/ab-sec-5-3.webp", "Dog and owner playing on the couch"],
-  ["/images/about/how-waggle-4.webp", "Friends with their dogs"],
+  ["/images/events/event-image-1.webp", "Friends with their dogs"],
   ["/images/lifestyle/rv-4g-mini-cams.webp", "Waggle RV mini cams"],
   ["/images/partners/ab-sec-5-1.webp", "Walking a dog in the hills"],
-  ["/images/about/how-waggle-2.webp", "Dog at home with a Waggle monitor"],
+  ["/images/events/event-image-2.webp", "Dog at home with a Waggle monitor"],
 ];
 
 function Tile({ src, alt }: { src: string; alt: string }) {
