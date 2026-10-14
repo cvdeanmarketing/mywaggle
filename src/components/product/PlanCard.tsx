@@ -28,7 +28,7 @@ export function PlanCard({ product }: { product: Product }) {
               {money(yearly)}
               <span className="text-sm font-normal text-muted">/yr</span>
             </p>
-            <p className="text-xs font-semibold text-signal-700">
+            <p className="text-xs font-semibold text-signal">
               ≈ {money(yearlyPerMonth!)}/mo · {perDayLabel(perDay!)}
             </p>
           </div>

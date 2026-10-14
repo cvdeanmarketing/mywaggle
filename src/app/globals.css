@@ -95,7 +95,7 @@
   @apply btn border border-white/25 text-paper hover:bg-white/10;
 }
 @utility link {
-  @apply font-bold text-signal-700 underline-offset-4 hover:underline;
+  @apply font-bold text-signal underline-offset-4 hover:underline;
 }
 @utility chip {
   @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-bold text-ink;

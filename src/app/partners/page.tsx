@@ -99,7 +99,7 @@ export default function PartnersPage() {
                   </span>
                   <span className="mt-4 font-display text-lg font-semibold">{t.name}</span>
                   <span className="mt-1 text-sm text-muted">{TRACK_TAGLINE[t.id]}</span>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-signal-700">
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-signal">
                     Learn more <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
                   </span>
                 </a>

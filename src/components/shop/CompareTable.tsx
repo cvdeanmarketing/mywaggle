@@ -31,7 +31,7 @@ function PlanCell({ p }: { p: Product }) {
   return (
     <>
       {y ? `${label} · ${money(y.price)}/yr` : label}
-      {y && perDay ? <span className="mt-0.5 block text-xs font-semibold text-signal-700">{perDayLabel(perDay)}</span> : null}
+      {y && perDay ? <span className="mt-0.5 block text-xs font-semibold text-signal">{perDayLabel(perDay)}</span> : null}
     </>
   );
 }

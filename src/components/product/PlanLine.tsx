@@ -14,7 +14,7 @@ export function PlanLine({ product, className }: { product: Product; className?:
   }
   return (
     <p className={cn("text-xs text-muted", className)}>
-      <span className="font-bold text-ink">Plan:</span> {yearly ? <>{money(yearly)}/yr{perDay ? <span className="font-semibold text-signal-700"> · {perDayLabel(perDay)}</span> : null}</> : "price at activation"}
+      <span className="font-bold text-ink">Plan:</span> {yearly ? <>{money(yearly)}/yr{perDay ? <span className="font-semibold text-signal"> · {perDayLabel(perDay)}</span> : null}</> : "price at activation"}
     </p>
   );
 }

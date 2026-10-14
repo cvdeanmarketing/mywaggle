@@ -54,7 +54,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   className="aspect-[1/0.9] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-signal-700" : "text-muted")}>
+                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-signal" : "text-muted")}>
                     {p.badge ?? (p.connectivity.includes("wifi") ? "WiFi" : p.connectivity.includes("cellular") ? "Built-in 4G" : "No app needed")}
                   </p>
                   <h3 className="mt-1.5 text-lg font-semibold leading-snug">
@@ -72,7 +72,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   <div className="mt-auto flex items-center pt-4">
                     <Link
                       href={`/products/${p.handle}`}
-                      className="group/shop relative z-10 inline-flex items-center gap-1 text-sm font-bold text-signal-700 hover:underline"
+                      className="group/shop relative z-10 inline-flex items-center gap-1 text-sm font-bold text-signal hover:underline"
                       aria-label={`Shop ${p.name}`}
                     >
                       Shop <ArrowRight className="size-4 transition-transform group-hover/shop:translate-x-0.5" aria-hidden />

@@ -28,7 +28,7 @@ export function PlanDisclosure({ className }: { className?: string }) {
                 <span className="shrink-0 text-right font-bold">
                   {yv ? `${money(yv)}/yr` : mv ? `${money(mv)}/mo` : "at activation"}
                   {yv && perDay ? (
-                    <span className="block text-xs font-semibold text-signal-700">
+                    <span className="block text-xs font-semibold text-signal">
                       ≈ {money(yearlyPerMonth!)}/mo · {perDayLabel(perDay)}
                       {mv ? ` · or ${money(mv)} monthly` : ""}
                     </span>

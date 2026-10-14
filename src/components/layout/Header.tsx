@@ -114,14 +114,14 @@ export function Header() {
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            className="mx-8 hidden h-11 flex-1 items-center gap-3 rounded-full border border-line bg-sand/60 px-5 text-left text-[15px] text-muted transition-colors hover:border-ink/30 lg:flex"
+            className="ml-auto mr-2 hidden h-10 w-56 items-center gap-2.5 rounded-full border border-line bg-sand/60 px-4 text-left text-[14px] text-muted transition-colors hover:border-ink/30 lg:flex xl:w-64"
           >
             <Search className="size-[18px]" aria-hidden />
-            Search monitors, cameras, no-WiFi setups…
+            Search
             <kbd className="ml-auto rounded-md border border-line bg-paper px-1.5 py-0.5 text-[11px] font-bold text-muted">⌘K</kbd>
           </button>
 
-          <div className="ml-auto flex items-center gap-1">
+          <div className="ml-auto flex items-center gap-1 lg:ml-0">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -210,7 +210,7 @@ export function Header() {
                   {activeItem.links ? (
                     <p className="font-display text-2xl font-semibold">{activeItem.label}</p>
                   ) : (
-                    <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal-700">
+                    <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal">
                     View all {activeItem.label === "Shop All" ? "products" : activeItem.label}
                     <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                   </Link>
@@ -219,7 +219,7 @@ export function Header() {
                   <div className="mt-auto rounded-2xl bg-sand p-4">
                     <p className="text-sm font-bold">Not sure where to start?</p>
                     <p className="mt-1 text-xs text-muted">Four questions, one recommendation.</p>
-                    <Link href="/find-your-waggle" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-signal-700 hover:underline">
+                    <Link href="/find-your-waggle" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-signal hover:underline">
                       Find Your Waggle <ArrowRight className="size-4" aria-hidden />
                     </Link>
                   </div>
@@ -231,7 +231,7 @@ export function Header() {
                         <Link
                           href={l.href}
                           {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                          className={cn("flex items-center justify-between rounded-xl px-4 py-3 hover:bg-sand", i === 0 ? "bg-signal-50 font-bold text-signal-700" : "font-bold")}
+                          className={cn("flex items-center justify-between rounded-xl px-4 py-3 hover:bg-sand", i === 0 ? "bg-signal-50 font-bold text-signal" : "font-bold")}
                         >
                           {l.label}
                           <ArrowRight className="size-4 text-muted" aria-hidden />

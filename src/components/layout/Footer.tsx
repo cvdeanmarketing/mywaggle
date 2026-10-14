@@ -36,7 +36,7 @@ export function Footer() {
             <NewsletterForm tone="dark" source="footer" />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:grid-cols-[repeat(4,minmax(0,1fr))_minmax(11rem,1.2fr)]">
           {FOOTER_NAV.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <p className="text-sm font-bold">{col.title}</p>
@@ -53,7 +53,7 @@ export function Footer() {
             <p className="text-sm font-bold">Support</p>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-dark">
               <li><a href={`tel:${SITE.phone.replace(/-/g, "")}`} className="hover:text-paper">{SITE.phone}</a></li>
-              <li><a href={`mailto:${SITE.email}`} className="break-all hover:text-paper">{SITE.email}</a></li>
+              <li><a href={`mailto:${SITE.email}`} className="whitespace-nowrap hover:text-paper">{SITE.email}</a></li>
               <li><Link href="/live" className="hover:text-paper">Waggle Live</Link></li>
               <li><Link href="/account" className="hover:text-paper">Account</Link></li>
             </ul>

@@ -207,7 +207,7 @@ export function SocialProof() {
               href={SITE.amazonStore}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 flex aspect-square w-52 flex-col justify-end rounded-md bg-signal p-6 text-paper shadow-[var(--shadow-lift)] transition-colors hover:bg-signal-700"
+              className="group mt-8 flex aspect-square w-52 flex-col justify-end rounded-md bg-ink p-6 text-paper shadow-[var(--shadow-lift)] transition-colors hover:bg-ink-3"
             >
               <p className="font-display text-4xl font-semibold leading-none">{SITE.stats[1]!.value}</p>
               <p className="mt-3 text-sm font-bold leading-snug">{SITE.stats[1]!.label}</p>
