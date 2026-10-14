@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight, Check, Headset, Radio, RotateCcw, Satellite, ShieldCheck, Star, Truck, Wifi, Link2 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { bundles, getProduct, products, relatedProducts, type Product } from "@/lib/catalog";
+import { bundles, getCategory, getProduct, products, relatedProducts, type Product } from "@/lib/catalog";
 import { PLANS_FAQS } from "@/lib/content/faqs";
 import { productLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -50,7 +50,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
   const inBundles = bundles().filter((b) => b.includes?.includes(p.handle));
   const category = p.categories[0];
   const crumbCat =
-    category === "bundles" ? { name: "Bundles", path: "/bundles" } : { name: category ? category.replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()) : "Shop", path: `/shop/${category}` };
+    category === "bundles" ? { name: "Bundles", path: "/bundles" } : { name: (category && getCategory(category)?.navLabel) ?? "Shop", path: `/shop/${category}` };
   const faqs = [...p.faqs, ...(p.planId ? PLANS_FAQS.slice(0, 2) : [])];
   const conflicts = [...p.variants.filter((v) => v.price.status !== "verified").map((v) => `Price: ${v.price.note ?? ""}`), ...p.specs.filter((s) => s.status !== "verified").map((s) => `${s.label}: ${s.note ?? s.value}`)];
 

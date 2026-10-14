@@ -4,7 +4,26 @@ import type { ArtKey } from "@/lib/catalog";
  * Vector renderings of Waggle devices, drawn from the live product photography.
  * Used until official assets are supplied through `product.images`.
  */
+/** Official product photography (transparent cutouts). Any art key listed here renders the photo instead of the drawing. */
+export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: number }>> = {
+  "monitor-pro": { src: "/images/products/pet-monitor-pro-plus.webp", w: 510, h: 554 },
+  "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 282, h: 468 },
+  "wifi-mini-cam": { src: "/images/products/rv-wifi-mini-cam.webp", w: 250, h: 419 },
+  "observation-system": { src: "/images/products/rv-observation-system.webp", w: 900, h: 720 },
+};
+
 export function ProductArt({ art, className, title }: { art: ArtKey; className?: string; title: string }) {
+  const photo = ART_PHOTOS[art];
+  if (photo) {
+    // Same square footprint as the drawings, so layouts don't shift between photo and illustration.
+    return (
+      <span className={`relative inline-block aspect-square ${className ?? ""}`} role={title ? "img" : undefined} aria-label={title || undefined}>
+        <span aria-hidden className="absolute bottom-[12%] left-1/2 h-[4%] w-[62%] -translate-x-1/2 rounded-[50%] bg-ink/10 blur-[2px]" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- static cutouts; also used inside SVG-sized slots */}
+        <img src={photo.src} alt="" width={photo.w} height={photo.h} loading="lazy" decoding="async" className="absolute inset-[10%] bottom-[14%] m-auto max-h-[76%] max-w-[80%] object-contain" />
+      </span>
+    );
+  }
   return (
     <svg viewBox="0 0 400 400" className={className} role="img" aria-label={title}>
       <title>{title}</title>

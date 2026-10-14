@@ -3,6 +3,8 @@ import { categories, products } from "@/lib/catalog";
 import { ARTICLES, SECTIONS } from "@/lib/content/articles";
 import { absoluteUrl } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticPaths = ["/", "/shop", "/bundles", "/compare", "/find-your-waggle", "/plans", "/learn", "/live", "/partners"];

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Product } from "@/lib/catalog";
 import { cn } from "@/lib/format";
-import { ProductArt } from "./ProductArt";
+import { ART_PHOTOS, ProductArt } from "./ProductArt";
 
 const TONES: Record<Product["art"], string> = {
   "monitor-pro": "bg-[#f3efe9]",
@@ -42,13 +42,13 @@ export function ProductMedia({
             <ProductArt
               key={p.handle}
               art={p.art}
-              title={`Illustration of ${p.name}`}
+              title={ART_PHOTOS[p.art] ? p.name : `Illustration of ${p.name}`}
               className={cn("h-[78%] w-auto shrink", i > 0 && "-ml-[12%]", i === 1 && "z-10 h-[88%]")}
             />
           ))}
         </div>
       ) : (
-        <ProductArt art={product.art} title={`Illustration of ${product.name}`} className="absolute inset-0 m-auto h-[88%] w-[88%]" />
+        <ProductArt art={product.art} title={ART_PHOTOS[product.art] ? product.name : `Illustration of ${product.name}`} className="absolute inset-0 m-auto h-[88%] w-[88%]" />
       )}
     </div>
   );
