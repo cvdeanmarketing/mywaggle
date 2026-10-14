@@ -59,6 +59,16 @@ export const FOOTER_NAV = [
     ],
   },
   {
+    title: "Quick Links",
+    links: [
+      { label: "Blogs", href: "/learn" },
+      { label: "Pet Guide", href: "/learn/section/pet-guides" },
+      { label: "Subscription Plans", href: "/plans" },
+      { label: "Return Policy", href: "/returns" },
+      { label: "Support", href: "/support" },
+    ],
+  },
+  {
     title: "Partner with Waggle",
     links: [
       { label: "Refer a friend", href: "/partners#refer" },

@@ -36,7 +36,7 @@ export function Footer() {
             <NewsletterForm tone="dark" source="footer" />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:grid-cols-5">
           {FOOTER_NAV.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <p className="text-sm font-bold">{col.title}</p>
