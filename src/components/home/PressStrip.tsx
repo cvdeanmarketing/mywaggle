@@ -10,10 +10,10 @@ const PRESS_LOGOS = [
 
 export function PressStrip() {
   return (
-    <section className="border-b border-line bg-paper" aria-label="Featured by and partnered with">
-      <div className="container-page flex flex-col items-center gap-4 py-6 lg:flex-row lg:justify-between lg:gap-10">
-        <p className="shrink-0 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Featured by &amp; partnered with</p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-10">
+    <section className="border-y border-line bg-paper" aria-label="Featured by and partnered with">
+      <div className="container-page flex flex-col items-center gap-5 py-8 sm:py-9">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Featured by &amp; partnered with</p>
+        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-12">
           {PRESS_LOGOS.map((l) => (
             <li key={l.name} className="flex items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}

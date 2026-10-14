@@ -32,8 +32,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <PressStrip />
       <ProductRail products={railProducts} title="What's keeping your pet safe today?" listName="home_featured" />
+      <PressStrip />
       <Lifestyles />
 
       <section className="py-16 sm:py-20" aria-labelledby="quiz-title" id="find-your-waggle">
