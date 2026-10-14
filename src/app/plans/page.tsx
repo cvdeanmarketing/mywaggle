@@ -35,7 +35,7 @@ export default function PlansPage() {
                   <p className="mt-4">
                     <span className="font-display text-4xl font-semibold">{money(yearly)}</span>
                     <span className="text-muted">/yr</span>
-                    <span className="mt-1 block text-sm text-muted">
+                    <span className="mt-1 block text-sm font-semibold text-signal-700">
                       ≈ {money(yearlyPerMonth!)}/mo · {perDayLabel(perDay!)}
                     </span>
                   </p>

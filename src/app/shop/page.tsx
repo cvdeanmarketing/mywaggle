@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { categories, products } from "@/lib/catalog";
+import { bundles, categories, getProduct, priceOf, products } from "@/lib/catalog";
+import { BundleHero } from "@/components/shop/BundleHero";
 import { PageHeader } from "@/components/shop/PageHeader";
 import { ShopGrid } from "@/components/shop/ShopGrid";
 
@@ -12,8 +13,17 @@ export const metadata: Metadata = {
 
 export default function ShopPage() {
   const handles = products.slice().sort((a, b) => a.merchRank - b.merchRank).map((p) => p.handle);
+  // Biggest saving across published bundles: sum of the included devices minus the bundle price.
+  const maxSaving = Math.max(
+    0,
+    ...bundles().map((b) => {
+      const parts = (b.includes ?? []).map(getProduct).filter((p): p is NonNullable<typeof p> => Boolean(p));
+      return Math.round(parts.reduce((sum, p) => sum + priceOf(p), 0) - priceOf(b));
+    }),
+  );
   return (
     <>
+      <BundleHero maxSaving={maxSaving} />
       <PageHeader
         crumbs={[{ name: "Shop All", path: "/shop" }]}
         eyebrow="Shop all"
@@ -28,7 +38,7 @@ export default function ShopPage() {
           ))}
         </nav>
       </PageHeader>
-      <div className="container-page py-12">
+      <div id="all-products" className="container-page scroll-mt-32 py-12">
         <ShopGrid handles={handles} listName="shop_all" />
       </div>
     </>

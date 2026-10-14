@@ -33,7 +33,7 @@ export default function BundlesPage() {
           ))}
         </ul>
       </section>
-      <section className="border-t border-line bg-sand py-14 sm:py-20" aria-labelledby="build-title">
+      <section id="build-a-bundle" className="scroll-mt-28 border-t border-line bg-sand py-14 sm:py-20" aria-labelledby="build-title">
         <div className="container-page">
           <SectionHeading
             id="build-title"

@@ -100,7 +100,7 @@ export function Header() {
         <div className="container-page flex h-16 items-center gap-4 lg:h-[72px]">
           <button
             type="button"
-            className="-ml-2 inline-flex size-10 items-center justify-center rounded-full hover:bg-sand xl:hidden"
+            className="-ml-2 inline-flex size-10 items-center justify-center rounded-full hover:bg-sand lg:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(true)}
@@ -114,7 +114,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            className="mx-8 hidden h-11 flex-1 items-center gap-3 rounded-full border border-line bg-sand/60 px-5 text-left text-[15px] text-muted transition-colors hover:border-ink/30 xl:flex"
+            className="mx-8 hidden h-11 flex-1 items-center gap-3 rounded-full border border-line bg-sand/60 px-5 text-left text-[15px] text-muted transition-colors hover:border-ink/30 lg:flex"
           >
             <Search className="size-[18px]" aria-hidden />
             Search monitors, cameras, no-WiFi setups…
@@ -125,7 +125,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand xl:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-full hover:bg-sand lg:hidden"
               aria-label="Search products"
             >
               <Search className="size-5" />
@@ -148,7 +148,7 @@ export function Header() {
             </button>
           </div>
         </div>
-          <nav aria-label="Primary" className="hidden border-t border-line/70 xl:block">
+          <nav aria-label="Primary" className="hidden border-t border-line/70 lg:block">
             <ul className="container-page flex h-12 items-center justify-center gap-1">
               {PRIMARY_NAV.map((item) => {
                 const isActive = active === item.label;
@@ -159,7 +159,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "rounded-full px-3 py-2 text-[14px] font-bold transition-colors",
+                          "rounded-full px-2 py-2 text-[13px] font-bold transition-colors xl:px-3 xl:text-[14px]",
                           current ? "text-ink" : "text-ink/75 hover:text-ink",
                           isActive && "bg-sand text-ink",
                         )}
@@ -184,7 +184,7 @@ export function Header() {
               <li>
                 <Link
                   href="/find-your-waggle"
-                  className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-[14px] font-bold text-paper transition-colors hover:bg-ink-3"
+                  className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2 text-[13px] font-bold xl:ml-2 xl:px-4 xl:text-[14px] text-paper transition-colors hover:bg-ink-3"
                 >
                   <Sparkles className="size-4" aria-hidden />
                   Find Your Waggle
@@ -202,7 +202,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-0 top-full hidden border-b border-line bg-paper xl:block"
+              className="absolute inset-x-0 top-full hidden border-b border-line bg-paper lg:block"
               onMouseEnter={() => openPanel(activeItem.label)}
             >
               <div className="container-page grid grid-cols-[260px_1fr] gap-10 py-8">
@@ -282,7 +282,7 @@ function MobileNav({ open, onClose, onSearch }: { open: boolean; onClose: () => 
   return (
     <AnimatePresence>
       {open && (
-        <motion.div className="fixed inset-0 z-50 xl:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div className="fixed inset-0 z-50 lg:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
           <div className="absolute inset-0 bg-ink/40" onClick={onClose} aria-hidden />
           <motion.div
             ref={panelRef}
