@@ -7,6 +7,7 @@ import {
   Crown,
   Handshake,
   Link2,
+  PawPrint,
   MessagesSquare,
   Rocket,
   ShieldCheck,
@@ -22,7 +23,7 @@ import {
   REFERRAL_TERMS,
 } from "@/lib/programs";
 import Link from "next/link";
-import { PageHeader } from "@/components/shop/PageHeader";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { InterestForm } from "@/components/ui/InterestForm";
 
 export const metadata: Metadata = {
@@ -150,34 +151,122 @@ export default function PartnersPage() {
 
   return (
     <>
-      <PageHeader
-        image="/images/partners/ab-sect-2.webp"
-        imageAlt="Dog and owner waking up in a camper van"
-        bg="bg-clay-50"
-        crumbs={[{ name: "Partner with Waggle", path: "/partners" }]}
-        eyebrow="Partner with Waggle"
-        title="Help more pets get home safe."
-        intro="Four ways to work with Waggle. Pick the one that fits you."
+      <header className="relative isolate overflow-hidden bg-ink text-white">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[34rem] rounded-full bg-signal/30 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 right-0 -z-10 size-[30rem] rounded-full bg-clay/35 blur-3xl"
+        />
+        <div className="container-page pb-28 pt-8 sm:pb-32">
+          <div className="[&_*]:!text-white/80">
+            <Breadcrumbs
+              items={[{ name: "Partner with Waggle", path: "/partners" }]}
+            />
+          </div>
+          <div className="mt-6 grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em]">
+                <PawPrint className="size-4 text-signal" aria-hidden />{" "}
+                Ambassadors wanted
+              </p>
+              <h1 className="mt-5 text-[40px] font-semibold leading-[1.02] sm:text-6xl">
+                Join the pack that keeps pets{" "}
+                <span className="text-signal">safe on the road.</span>
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+                RVers, pet parents, trainers and creators: represent Waggle at
+                events, share your story, shape new products and earn perks
+                along the way.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href="#ambassador"
+                  className="inline-flex items-center gap-2 rounded-full bg-signal px-7 py-3.5 text-base font-bold text-white transition-colors hover:bg-signal-700"
+                >
+                  Become an ambassador{" "}
+                  <ArrowRight className="size-4" aria-hidden />
+                </a>
+                <a
+                  href="#refer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-bold transition-colors hover:bg-white/10"
+                >
+                  Refer a friend
+                </a>
+              </div>
+              <ul className="mt-8 flex flex-wrap gap-2 text-sm font-bold">
+                {[
+                  "Event rep",
+                  "Brand advocate",
+                  "Community connector",
+                  "Feedback insider",
+                ].map((r) => (
+                  <li
+                    key={r}
+                    className="rounded-full border border-white/15 bg-white/5 px-4 py-2"
+                  >
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div
+              className="relative mx-auto grid w-full max-w-lg grid-cols-6 grid-rows-6 gap-3"
+              aria-hidden
+            >
+              <img
+                src="/images/partners/ab-sec-5-2.webp"
+                alt=""
+                className="col-span-4 row-span-4 size-full -rotate-2 rounded-3xl object-cover shadow-2xl"
+              />
+              <img
+                src="/images/about/how-waggle-1.webp"
+                alt=""
+                className="col-span-2 col-start-5 row-span-3 row-start-2 size-full rotate-3 rounded-3xl object-cover shadow-2xl"
+              />
+              <img
+                src="/images/partners/ab-sec-5-3.webp"
+                alt=""
+                className="col-span-3 row-span-2 row-start-5 size-full rotate-2 rounded-3xl object-cover shadow-2xl"
+              />
+              <img
+                src="/images/partners/ab-sect-2.webp"
+                alt=""
+                className="col-span-3 col-start-4 row-span-2 row-start-5 size-full -rotate-1 rounded-3xl object-cover shadow-2xl"
+              />
+              <span className="absolute -left-3 top-6 rounded-2xl bg-paper px-4 py-2 text-sm font-bold text-ink shadow-xl">
+                Represent Waggle at events
+              </span>
+              <span className="absolute -right-2 bottom-1/3 rounded-2xl bg-signal px-4 py-2 text-sm font-bold text-white shadow-xl">
+                Earn exclusive perks
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section
+        aria-label="Partner tracks"
+        className="relative z-10 -mt-16 pb-4"
       >
-        <ul
-          className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
-          aria-label="Partner tracks"
-        >
+        <ul className="container-page grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PARTNER_TRACKS.map((t) => {
             const Icon = TRACK_ICON[t.id];
             return (
               <li key={t.id}>
                 <a
                   href={`#${t.id}`}
-                  className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-5 transition-all hover:-translate-y-0.5 hover:border-ink hover:shadow-[var(--shadow-lift)]"
+                  className="group flex h-full flex-col rounded-3xl border border-line bg-paper p-6 shadow-[var(--shadow-lift)] transition-transform hover:-translate-y-1"
                 >
-                  <span className="flex size-11 items-center justify-center rounded-full bg-ink text-paper">
-                    <Icon className="size-5" aria-hidden />
+                  <span className="flex size-12 items-center justify-center rounded-2xl bg-clay-50 text-clay-700">
+                    <Icon className="size-6" aria-hidden />
                   </span>
-                  <span className="mt-4 font-display text-lg font-semibold">
+                  <span className="mt-4 font-display text-xl font-semibold">
                     {t.name}
                   </span>
-                  <span className="mt-1 text-sm text-muted">
+                  <span className="mt-1 flex-1 text-sm text-muted">
                     {TRACK_TAGLINE[t.id]}
                   </span>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-signal">
@@ -191,26 +280,6 @@ export default function PartnersPage() {
               </li>
             );
           })}
-        </ul>
-      </PageHeader>
-
-      <section aria-label="The Waggle community" className="bg-paper pt-14">
-        <ul className="container-page grid grid-cols-2 gap-3 md:grid-cols-4">
-          {[
-            "partners/ab-sec-5-2",
-            "about/how-waggle-1",
-            "partners/ab-sec-5-3",
-            "about/how-waggle-4",
-          ].map((src, i) => (
-            <li key={src} className={i % 2 ? "md:translate-y-6" : ""}>
-              <img
-                src={`/images/${src}.webp`}
-                alt=""
-                loading="lazy"
-                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-[var(--shadow-lift)]"
-              />
-            </li>
-          ))}
         </ul>
       </section>
 
@@ -487,7 +556,7 @@ export default function PartnersPage() {
         className="scroll-mt-32 bg-paper py-16 sm:py-20"
         aria-labelledby="business-title"
       >
-        <div className="container-page grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <div className="container-page grid items-start gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-clay-700">
               {biz.audience}
@@ -510,16 +579,14 @@ export default function PartnersPage() {
                 );
               })}
             </ul>
-          </div>
-          <div className="space-y-6">
             <img
               src="/images/partners/gorgeous-dogs-and-tree-instructors-durin.webp"
               alt="Dog trainers with their German Shepherds"
               loading="lazy"
-              className="aspect-[16/10] w-full rounded-3xl object-cover object-top shadow-[var(--shadow-lift)]"
+              className="mt-8 aspect-[16/9] w-full rounded-3xl object-cover object-[50%_20%] shadow-[var(--shadow-lift)]"
             />
-            <FormCard t={biz} />
           </div>
+          <FormCard t={biz} />
         </div>
       </section>
       <section

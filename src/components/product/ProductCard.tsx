@@ -29,6 +29,7 @@ export function ProductCard({
           product={product}
           bundleStack={stack}
           priority={priority}
+          reserveBadge={Boolean(product.badge)}
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="aspect-[4/3.4] transition-transform duration-500 ease-out group-hover:[&_svg]:scale-[1.03] [&_svg]:transition-transform [&_svg]:duration-500"
         />
