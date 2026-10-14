@@ -22,8 +22,8 @@ export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: num
   "bundle-home-and-roam": { src: "/images/products/bundle-home-and-roam.webp", w: 347, h: 309 },
   "bundle-pet-scout": { src: "/images/products/bundle-pet-scout.webp", w: 291, h: 316 },
   "bundle-rv-4g-scout": { src: "/images/products/bundle-rv-4g-scout.webp", w: 288, h: 289 },
-  "bundle-rv-4g-scout-pro": { src: "/images/products/bundle-rv-4g-scout-pro.webp", w: 362, h: 365 },
-  "bundle-roadsafe": { src: "/images/products/bundle-roadsafe.webp", w: 378, h: 302 },
+  "bundle-rv-4g-scout-pro": { src: "/images/products/bundle-rv-4g-scout-pro.webp", w: 493, h: 501 },
+  "bundle-roadsafe": { src: "/images/products/bundle-roadsafe.webp", w: 502, h: 397 },
   "bundle-rv-watch": { src: "/images/products/bundle-rv-watch.webp", w: 419, h: 320 },
   "bundle-anti-anxiety": { src: "/images/products/bundle-anti-anxiety.webp", w: 335, h: 330 },
 };
