@@ -610,9 +610,9 @@ export default function PartnersPage() {
             {[
               [
                 "/events",
-                "about/why-what-1",
+                "events/event-sec-2-img",
                 "RV Events",
-                "Rallies and shows we attend, plus big events like NASCAR weekends to suggest.",
+                "Rallies and shows we attend, and big events like NASCAR to suggest.",
               ],
               [
                 "/live",
@@ -636,7 +636,7 @@ export default function PartnersPage() {
               <li key={href}>
                 <Link
                   href={href!}
-                  className="group block overflow-hidden rounded-3xl bg-paper shadow-sm transition-shadow hover:shadow-[var(--shadow-lift)]"
+                  className="group block h-full overflow-hidden rounded-3xl bg-paper shadow-sm transition-shadow hover:shadow-[var(--shadow-lift)]"
                 >
                   <img
                     src={`/images/${img}.webp`}
