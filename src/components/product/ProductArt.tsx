@@ -6,12 +6,12 @@ import type { ArtKey } from "@/lib/catalog";
  */
 /** Official product photography (transparent cutouts). Any art key listed here renders the photo instead of the drawing. */
 export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: number; cover?: boolean }>> = {
-  "monitor-pro": { src: "/images/products/pet-monitor-pro-plus.webp", w: 510, h: 554 },
-  "monitor-lite": { src: "/images/products/pet-monitor-lite-plus.webp", w: 380, h: 410 },
+  "monitor-pro": { src: "/images/products/pet-monitor-pro-plus.webp", w: 251, h: 274 },
+  "monitor-lite": { src: "/images/products/pet-monitor-lite-plus.webp", w: 186, h: 200 },
   "monitor-satellite": { src: "/images/products/pet-monitor-pro-plus-satellite.webp", w: 900, h: 900, cover: true },
   "wagglecam-pro": { src: "/images/products/wagglecam-pro.webp", w: 187, h: 329 },
   "wifi-mini-cam": { src: "/images/products/rv-wifi-mini-cam.webp", w: 250, h: 419 },
-  "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 282, h: 468 },
+  "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 137, h: 232 },
   "camera-4g": { src: "/images/products/rv-4g-camera.webp", w: 425, h: 517 },
   "travelcam": { src: "/images/products/waggle-4g-travelcam.webp", w: 504, h: 648 },
   "observation-system": { src: "/images/products/rv-observation-system.webp", w: 900, h: 720 },
