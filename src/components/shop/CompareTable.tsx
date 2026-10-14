@@ -3,7 +3,7 @@
 import { Check, Minus } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { CAPABILITY_LABELS, CONNECTIVITY_LABELS, devices, getPlan, priceOf, type Capability, type Product } from "@/lib/catalog";
+import { CAPABILITY_LABELS, CONNECTIVITY_LABELS, devices, getPlan, perDayLabel, planPricing, priceOf, type Capability, type Product } from "@/lib/catalog";
 import { track } from "@/lib/analytics";
 import { cn, money } from "@/lib/format";
 import { ProductArt } from "@/components/product/ProductArt";
@@ -22,12 +22,18 @@ const ROWS: Capability[] = [
   "driving-visibility",
 ];
 
-function planText(p: Product): string {
+function PlanCell({ p }: { p: Product }) {
   const plan = getPlan(p.planId);
-  if (!plan) return "None listed";
+  if (!plan) return <>None listed</>;
   const y = plan.options.find((o) => o.interval === "year");
-  if (plan.requirement === "optional") return y ? `Optional · ${money(y.price)}/yr` : "Optional";
-  return y ? `Required · ${money(y.price)}/yr` : "Required";
+  const label = plan.requirement === "optional" ? "Optional" : "Required";
+  const { perDay } = planPricing(plan);
+  return (
+    <>
+      {y ? `${label} · ${money(y.price)}/yr` : label}
+      {y && perDay ? <span className="mt-0.5 block text-xs text-muted">{perDayLabel(perDay)}</span> : null}
+    </>
+  );
 }
 
 export function CompareTable({ handles, selectable = true }: { handles?: string[]; selectable?: boolean }) {
@@ -109,7 +115,7 @@ export function CompareTable({ handles, selectable = true }: { handles?: string[
             <tr>
               <th scope="row" className="sticky left-0 z-10 border-t border-line bg-paper p-3 text-left font-bold">Plan</th>
               {cols.map((p) => (
-                <td key={p.handle} className="border-t border-line p-3">{planText(p)}</td>
+                <td key={p.handle} className="border-t border-line p-3"><PlanCell p={p} /></td>
               ))}
             </tr>
             {ROWS.filter((r) => cols.some((p) => p.capabilities.includes(r))).map((r) => (

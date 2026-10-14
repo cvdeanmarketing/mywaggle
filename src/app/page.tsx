@@ -53,10 +53,10 @@ export default function HomePage() {
       <WhyWaggle />
       <Ecosystem />
 
-      <section className="bg-sand py-16 sm:py-20" aria-labelledby="compare-title">
+      <section className="bg-sand pb-16 pt-10 sm:pb-20 sm:pt-12" aria-labelledby="compare-title">
         <div className="container-page">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading id="compare-title" eyebrow="Compare" title="Find the Waggle that fits." intro="See how each device connects, what it can do, and what the plan costs, side by side." />
+            <SectionHeading id="compare-title" align="left" eyebrow="Compare" title="Find the Waggle that fits." intro="See how each device connects, what it can do, and what the plan costs, side by side." />
             <Link href="/compare" className="inline-flex shrink-0 items-center gap-1.5 font-bold hover:text-signal">
               Full comparison <ArrowRight className="size-4" aria-hidden />
             </Link>
@@ -87,7 +87,7 @@ export default function HomePage() {
 
       <section className="bg-sand py-16 sm:py-20" aria-labelledby="faq-title">
         <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.6fr]">
-          <SectionHeading id="faq-title" eyebrow="FAQ" title="Good questions." intro={<>Still curious? Chat with us 24/7 or read <Link href="/plans" className="link">how plans work</Link>.</>} />
+          <SectionHeading id="faq-title" align="left" eyebrow="FAQ" title="Good questions." intro={<>Still curious? Chat with us 24/7 or read <Link href="/plans" className="link">how plans work</Link>.</>} />
           <Faq items={HOME_FAQS} withSchema />
         </div>
       </section>

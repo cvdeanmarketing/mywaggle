@@ -284,7 +284,7 @@ export function Education() {
     <section className="py-16 sm:py-20" aria-labelledby="learn-title">
       <div className="container-page">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <SectionHeading id="learn-title" eyebrow="Wag Reads" title="Know more. Worry less." intro="Straight answers on pet safety, travel and choosing the right setup." />
+          <SectionHeading id="learn-title" align="left" eyebrow="Wag Reads" title="Know more. Worry less." intro="Straight answers on pet safety, travel and choosing the right setup." />
           <Link href="/learn" className="inline-flex shrink-0 items-center gap-1.5 font-bold hover:text-signal">
             View all guides <ArrowRight className="size-4" aria-hidden />
           </Link>
