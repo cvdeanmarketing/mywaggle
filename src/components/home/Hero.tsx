@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
       <div className="container-page grid items-center gap-8 pb-12 pt-10 sm:pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:pb-16 lg:pt-16">
         <div className="relative z-10 max-w-2xl animate-fade-up">
-          <p className="eyebrow">Pet cameras &amp; safety monitors</p>
+          <p className="eyebrow text-signal">Connected pet safety</p>
           <h1 id="hero-title" className="mt-4 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
             Keep your pets safe.
             <span className="block text-clay">At home or on the road.</span>
