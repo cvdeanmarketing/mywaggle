@@ -42,8 +42,10 @@ export function ProductMedia({
   bundleStack?: Product[];
 }) {
   const img = product.images[0];
+  // Full-bleed marketing tiles are square and carry their own text, so the slot must stay square or they get cropped.
+  const fullBleed = !img && ART_PHOTOS[product.art]?.cover;
   return (
-    <div className={cn("relative overflow-hidden", TONES[product.art], className)}>
+    <div className={cn("relative overflow-hidden", TONES[product.art], className, fullBleed && "!aspect-square")}>
       {img ? (
         <Image src={img.src} alt={img.alt} fill sizes={sizes} priority={priority} className={img.fit === "cover" ? "object-cover" : "object-contain p-6"} />
       ) : bundleStack && bundleStack.length > 1 && !ART_PHOTOS[product.art] ? (
