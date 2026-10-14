@@ -1,9 +1,27 @@
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen, Caravan, Clock, Compass, Dog, ExternalLink, Heart, Route, Sun, Thermometer } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Caravan,
+  Clock,
+  Compass,
+  Dog,
+  ExternalLink,
+  Heart,
+  Route,
+  Sun,
+  Thermometer,
+} from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, type ArtKey, type Product } from "@/lib/catalog";
-import { ARTICLES, ORIGINAL_PAGES, SECTIONS, type ArticleSection } from "@/lib/content/articles";
+import { RvingGuide } from "@/components/guides/RvingGuide";
+import {
+  ARTICLES,
+  ORIGINAL_PAGES,
+  SECTIONS,
+  type ArticleSection,
+} from "@/lib/content/articles";
 import { ArticleCard } from "@/components/learn/ArticleCard";
 import { ProductArt } from "@/components/product/ProductArt";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -12,11 +30,19 @@ export function generateStaticParams() {
   return Object.keys(SECTIONS).map((section) => ({ section }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ section: string }>;
+}): Promise<Metadata> {
   const { section } = await params;
   const s = SECTIONS[section as ArticleSection];
   if (!s) return {};
-  return { title: `${s.name} | Wag Reads`, description: s.blurb, alternates: { canonical: `/learn/section/${section}` } };
+  return {
+    title: `${s.name} | Wag Reads`,
+    description: s.blurb,
+    alternates: { canonical: `/learn/section/${section}` },
+  };
 }
 
 type Theme = {
@@ -77,7 +103,11 @@ const THEMES: Record<ArticleSection, Theme> = {
   },
 };
 
-export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
+export default async function SectionPage({
+  params,
+}: {
+  params: Promise<{ section: string }>;
+}) {
   const { section } = await params;
   const s = SECTIONS[section as ArticleSection];
   if (!s) notFound();
@@ -86,80 +116,142 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
   const list = ARTICLES.filter((a) => a.section === section);
   const [lead, ...rest] = list;
   const minutes = list.reduce((sum, a) => sum + a.readMinutes, 0);
-  const original = t.original ? ORIGINAL_PAGES.find((o) => o.label === t.original) : undefined;
+  const original = t.original
+    ? ORIGINAL_PAGES.find((o) => o.label === t.original)
+    : undefined;
   const gear = t.gear.map(getProduct).filter((p): p is Product => Boolean(p));
 
   return (
     <>
-      <header className={`relative overflow-hidden ${t.bg}`}>
-        <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 size-[26rem] rounded-full bg-paper/50 blur-2xl" />
-        <div className="container-page relative pb-14 pt-8 sm:pb-20">
-          <Breadcrumbs items={[{ name: "Wag Reads", path: "/learn" }, { name: s.name, path: `/learn/section/${section}` }]} />
-          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
-            <div>
-              <p className="eyebrow">Wag Reads · {s.name}</p>
-              <h1 className="mt-3 text-[38px] font-semibold leading-[1.05] sm:text-5xl">{s.name}</h1>
-              <p className={`mt-3 font-display text-2xl font-semibold ${t.accent}`}>{t.headline}</p>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink/75">{s.blurb}</p>
-              <ul className="mt-6 flex flex-wrap gap-2.5">
-                <li className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm ${t.chip}`}>
-                  <BookOpen className="size-4" aria-hidden /> {list.length} {list.length === 1 ? "guide" : "guides"}
-                </li>
-                <li className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm ${t.chip}`}>
-                  <Clock className="size-4" aria-hidden /> {minutes} min of reading
-                </li>
-              </ul>
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <a href="#guides" className="btn-primary px-7 py-3.5 text-base">
-                  Start reading <ArrowRight className="size-4" aria-hidden />
-                </a>
-                {original && (
-                  <a href={original.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:underline">
-                    See the original page <ExternalLink className="size-4" aria-hidden />
-                    <span className="sr-only">(opens in a new tab)</span>
+      {key === "rving-with-pets" ? (
+        <RvingGuide />
+      ) : (
+        <header className={`relative overflow-hidden ${t.bg}`}>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 -top-24 size-[26rem] rounded-full bg-paper/50 blur-2xl"
+          />
+          <div className="container-page relative pb-14 pt-8 sm:pb-20">
+            <Breadcrumbs
+              items={[
+                { name: "Wag Reads", path: "/learn" },
+                { name: s.name, path: `/learn/section/${section}` },
+              ]}
+            />
+            <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+              <div>
+                <p className="eyebrow">Wag Reads · {s.name}</p>
+                <h1 className="mt-3 text-[38px] font-semibold leading-[1.05] sm:text-5xl">
+                  {s.name}
+                </h1>
+                <p
+                  className={`mt-3 font-display text-2xl font-semibold ${t.accent}`}
+                >
+                  {t.headline}
+                </p>
+                <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink/75">
+                  {s.blurb}
+                </p>
+                <ul className="mt-6 flex flex-wrap gap-2.5">
+                  <li
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm ${t.chip}`}
+                  >
+                    <BookOpen className="size-4" aria-hidden /> {list.length}{" "}
+                    {list.length === 1 ? "guide" : "guides"}
+                  </li>
+                  <li
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm ${t.chip}`}
+                  >
+                    <Clock className="size-4" aria-hidden /> {minutes} min of
+                    reading
+                  </li>
+                </ul>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <a
+                    href="#guides"
+                    className="btn-primary px-7 py-3.5 text-base"
+                  >
+                    Start reading <ArrowRight className="size-4" aria-hidden />
                   </a>
+                  {original && (
+                    <a
+                      href={original.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:underline"
+                    >
+                      See the original page{" "}
+                      <ExternalLink className="size-4" aria-hidden />
+                      <span className="sr-only">(opens in a new tab)</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div
+                className="relative mx-auto w-full max-w-[460px]"
+                aria-hidden
+              >
+                <div className="rounded-[36px] bg-paper p-5 shadow-[var(--shadow-lift)]">
+                  <div className="grid grid-cols-2 gap-3">
+                    {t.art.map((a) => (
+                      <div
+                        key={a}
+                        className={`aspect-square rounded-2xl ${t.bg}`}
+                      >
+                        <ProductArt art={a} title="" className="size-full" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex items-center justify-around rounded-2xl bg-sand py-3">
+                    {t.icons.map((Icon, i) => (
+                      <span
+                        key={i}
+                        className={`flex size-10 items-center justify-center rounded-full bg-paper shadow-sm ${t.accent}`}
+                      >
+                        <Icon className="size-5" />
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                {key === "pet-guides" && (
+                  <div className="absolute -left-4 -top-5 flex items-center gap-3 rounded-2xl border border-line bg-paper py-2.5 pl-2.5 pr-5 shadow-xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/pug.webp"
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="size-11 rounded-full object-cover ring-2 ring-clay"
+                    />
+                    <span className="text-sm font-bold">Biscuit approves</span>
+                  </div>
                 )}
               </div>
             </div>
-
-            <div className="relative mx-auto w-full max-w-[460px]" aria-hidden>
-              <div className="rounded-[36px] bg-paper p-5 shadow-[var(--shadow-lift)]">
-                <div className="grid grid-cols-2 gap-3">
-                  {t.art.map((a) => (
-                    <div key={a} className={`aspect-square rounded-2xl ${t.bg}`}>
-                      <ProductArt art={a} title="" className="size-full" />
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 flex items-center justify-around rounded-2xl bg-sand py-3">
-                  {t.icons.map((Icon, i) => (
-                    <span key={i} className={`flex size-10 items-center justify-center rounded-full bg-paper shadow-sm ${t.accent}`}>
-                      <Icon className="size-5" />
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {key === "pet-guides" && (
-                <div className="absolute -left-4 -top-5 flex items-center gap-3 rounded-2xl border border-line bg-paper py-2.5 pl-2.5 pr-5 shadow-xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/pug.webp" alt="" width={44} height={44} className="size-11 rounded-full object-cover ring-2 ring-clay" />
-                  <span className="text-sm font-bold">Biscuit approves</span>
-                </div>
-              )}
-            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
       <div id="guides" className="container-page scroll-mt-32 py-14 sm:py-16">
         {lead && (
           <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
             <ArticleCard a={lead} large />
-            <div className={`flex flex-col justify-center rounded-[var(--radius-card)] p-7 sm:p-9 ${t.bg}`}>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/60">Quick answer</p>
-              <p className="mt-3 font-display text-xl font-semibold leading-snug sm:text-2xl">{lead.quickAnswer}</p>
-              <Link href={`/learn/${lead.slug}`} className="link mt-5 inline-flex items-center gap-1.5">
-                Read the full guide <ArrowRight className="size-4" aria-hidden />
+            <div
+              className={`flex flex-col justify-center rounded-[var(--radius-card)] p-7 sm:p-9 ${t.bg}`}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/60">
+                Quick answer
+              </p>
+              <p className="mt-3 font-display text-xl font-semibold leading-snug sm:text-2xl">
+                {lead.quickAnswer}
+              </p>
+              <Link
+                href={`/learn/${lead.slug}`}
+                className="link mt-5 inline-flex items-center gap-1.5"
+              >
+                Read the full guide{" "}
+                <ArrowRight className="size-4" aria-hidden />
               </Link>
             </div>
           </div>
@@ -175,21 +267,39 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
         )}
       </div>
 
-      <section className={`${t.bg} py-14 sm:py-16`} aria-labelledby="gear-title">
+      <section
+        className={`${t.bg} py-14 sm:py-16`}
+        aria-labelledby="gear-title"
+      >
         <div className="container-page">
-          <h2 id="gear-title" className="text-center text-3xl font-semibold">{t.gearTitle}</h2>
+          <h2 id="gear-title" className="text-center text-3xl font-semibold">
+            {t.gearTitle}
+          </h2>
           <ul className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
             {gear.map((p) => (
               <li key={p.handle}>
-                <Link href={`/products/${p.handle}`} className="group flex items-center gap-4 rounded-3xl bg-paper p-4 shadow-sm transition-shadow hover:shadow-[var(--shadow-lift)]">
-                  <span className={`block size-24 shrink-0 rounded-2xl ${t.bg}`}>
+                <Link
+                  href={`/products/${p.handle}`}
+                  className="group flex items-center gap-4 rounded-3xl bg-paper p-4 shadow-sm transition-shadow hover:shadow-[var(--shadow-lift)]"
+                >
+                  <span
+                    className={`block size-24 shrink-0 rounded-2xl ${t.bg}`}
+                  >
                     <ProductArt art={p.art} title="" className="size-full" />
                   </span>
                   <span>
-                    <span className="block font-display text-lg font-semibold leading-tight">{p.name}</span>
-                    <span className="mt-1 line-clamp-2 block text-sm text-muted">{p.tagline}</span>
+                    <span className="block font-display text-lg font-semibold leading-tight">
+                      {p.name}
+                    </span>
+                    <span className="mt-1 line-clamp-2 block text-sm text-muted">
+                      {p.tagline}
+                    </span>
                     <span className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-signal">
-                      Shop <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                      Shop{" "}
+                      <ArrowRight
+                        className="size-4 transition-transform group-hover:translate-x-1"
+                        aria-hidden
+                      />
                     </span>
                   </span>
                 </Link>
