@@ -150,7 +150,7 @@ export function BundleBuilder({ initial = [] as string[] }: { initial?: string[]
                 <div className="mt-2 flex items-baseline justify-between">
                   <span className="text-sm text-muted-dark">Bundle price</span>
                   <span className="font-display text-3xl font-semibold">
-                    {money(bundlePrice!)} <span className="text-base text-muted-dark line-through">{money(itemsTotal)}</span>
+                    {money(bundlePrice!)}
                   </span>
                 </div>
                 <p className="mt-1 text-right text-xs text-muted-dark">Published bundle price · you save {money(savings)}</p>

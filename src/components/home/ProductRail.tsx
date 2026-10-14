@@ -73,9 +73,6 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   <div className="mt-auto flex items-center justify-between pt-4">
                     <p className="font-display text-lg font-semibold">
                       {money(priceOf(p))}
-                      {p.variants[0]?.price.compareAt && (
-                        <span className="ml-2 text-sm font-normal text-muted line-through">{money(p.variants[0].price.compareAt)}</span>
-                      )}
                     </p>
                     <AddToCartButton handle={p.handle} compact label="Add" className="relative z-10" />
                   </div>
