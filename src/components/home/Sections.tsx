@@ -42,7 +42,7 @@ const LIFESTYLES: { title: string; line: string; href: string; icon: typeof Hous
 
 export function Lifestyles() {
   return (
-    <section className="bg-sand py-20 sm:py-28" aria-labelledby="life-title">
+    <section className="bg-sand py-16 sm:py-20" aria-labelledby="life-title">
       <div className="container-page">
         <SectionHeading id="life-title" align="center" eyebrow="Shop by lifestyle" title="Wherever your pet spends the day." intro="Start with where life happens, and we'll show you what fits." />
         <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
@@ -82,7 +82,7 @@ const WHY = [
 
 export function WhyWaggle() {
   return (
-    <section className="bg-ink py-20 text-paper sm:py-28" aria-labelledby="why-title">
+    <section className="bg-ink py-16 text-paper sm:py-20" aria-labelledby="why-title">
       <div className="container-page">
         <SectionHeading id="why-title" tone="dark" eyebrow="Why Waggle" title="Built for the moments you can't be there." />
       </div>
@@ -152,7 +152,7 @@ function Layer({ icon: Icon, title, body, align }: { icon: typeof Thermometer; t
 
 export function Ecosystem() {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="eco-title">
+    <section className="py-16 sm:py-20" aria-labelledby="eco-title">
       <div className="container-page">
         <SectionHeading
           id="eco-title"
@@ -203,7 +203,7 @@ const PRESS_LOGOS = [
 
 export function SocialProof() {
   return (
-    <section className="border-y border-line bg-paper py-20 sm:py-24" aria-labelledby="proof-title">
+    <section className="border-y border-line bg-paper py-16 sm:py-20" aria-labelledby="proof-title">
       <div className="container-page">
         <SectionHeading id="proof-title" eyebrow="Reviews & press" title="Tested by people who test things." />
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
@@ -281,7 +281,7 @@ const TONE: Record<string, string> = {
 export function Education() {
   const featured = ["cellular-vs-wifi", "pet-heat-safety", "rving-with-pets"].map((s) => ARTICLES.find((a) => a.slug === s)!);
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="learn-title">
+    <section className="py-16 sm:py-20" aria-labelledby="learn-title">
       <div className="container-page">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading id="learn-title" eyebrow="Wag Reads" title="Know more. Worry less." intro="Straight answers on pet safety, travel and choosing the right setup." />

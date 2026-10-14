@@ -36,7 +36,7 @@ export default function HomePage() {
       <ProductRail products={railProducts} title="What's keeping your pet safe today?" listName="home_featured" />
       <Lifestyles />
 
-      <section className="py-20 sm:py-28" aria-labelledby="quiz-title" id="find-your-waggle">
+      <section className="py-16 sm:py-20" aria-labelledby="quiz-title" id="find-your-waggle">
         <div className="container-page">
           <SectionHeading
             id="quiz-title"
@@ -53,7 +53,7 @@ export default function HomePage() {
       <WhyWaggle />
       <Ecosystem />
 
-      <section className="bg-sand py-20 sm:py-28" aria-labelledby="compare-title">
+      <section className="bg-sand py-16 sm:py-20" aria-labelledby="compare-title">
         <div className="container-page">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionHeading id="compare-title" eyebrow="Compare" title="Find the Waggle that fits." intro="See how each device connects, what it can do, and what the plan costs, side by side." />
@@ -69,7 +69,7 @@ export default function HomePage() {
 
       <SocialProof />
 
-      <section className="py-20 sm:py-28" aria-labelledby="bundle-title" id="build-a-bundle">
+      <section className="bg-sand py-16 sm:py-20" aria-labelledby="bundle-title" id="build-a-bundle">
         <div className="container-page">
           <SectionHeading
             id="bundle-title"
@@ -85,7 +85,7 @@ export default function HomePage() {
 
       <Education />
 
-      <section className="bg-sand py-20 sm:py-28" aria-labelledby="faq-title">
+      <section className="bg-sand py-16 sm:py-20" aria-labelledby="faq-title">
         <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.6fr]">
           <SectionHeading id="faq-title" eyebrow="FAQ" title="Good questions." intro={<>Still curious? Chat with us 24/7 or read <Link href="/plans" className="link">how plans work</Link>.</>} />
           <Faq items={HOME_FAQS} withSchema />
