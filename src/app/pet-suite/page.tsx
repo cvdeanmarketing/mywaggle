@@ -72,7 +72,7 @@ export default function PetSuitePage() {
       <section className="bg-sand py-16 sm:py-20">
         <div className="container-page">
           <h2 className="mx-auto max-w-3xl text-center text-3xl font-semibold sm:text-4xl">
-            Pet parenting has become too complicated.
+            Pet parenting has become complicated.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted">
             When your pet needs care, you are forced to navigate multiple
