@@ -257,7 +257,16 @@ export default function PartnersPage() {
             return (
               <li key={t.id}>
                 <a
-                  href={`#${t.id}`}
+                  href={
+                    (
+                      {
+                        refer: "/refer",
+                        ambassador: "/ambassador",
+                        alpha: "/alpha",
+                        business: "#business",
+                      } as Record<string, string>
+                    )[t.id]
+                  }
                   className="group flex h-full flex-col rounded-3xl border border-line bg-paper p-6 shadow-[var(--shadow-lift)] transition-transform hover:-translate-y-1"
                 >
                   <span className="flex size-12 items-center justify-center rounded-2xl bg-clay-50 text-clay-700">
@@ -281,6 +290,105 @@ export default function PartnersPage() {
             );
           })}
         </ul>
+      </section>
+
+      <section
+        className="container-page py-16 sm:py-20"
+        aria-labelledby="why-title"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-clay-700">
+            Shape the future of pet innovation
+          </p>
+          <h2
+            id="why-title"
+            className="mt-3 text-3xl font-semibold sm:text-[40px]"
+          >
+            Why partner with us?
+          </h2>
+        </div>
+        <ul className="mt-10 grid gap-5 md:grid-cols-3">
+          {[
+            [
+              "Amplifying pet safety",
+              "Bringing together our collective expertise to make a greater, lasting impact on pet safety and well-being.",
+            ],
+            [
+              "Make a real difference for pets",
+              "Ensure pets receive the dedicated care, attention, and protection they truly deserve for a happier, healthier life.",
+            ],
+            [
+              "Compensation that grows",
+              "Competitive compensation for your efforts in advancing pet safety and the positive impact you bring.",
+            ],
+          ].map(([t, d]) => (
+            <li
+              key={t}
+              className="rounded-3xl border border-line bg-paper p-7 shadow-sm"
+            >
+              <h3 className="font-display text-xl font-semibold">{t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{d}</p>
+            </li>
+          ))}
+        </ul>
+        <h3 className="mt-16 text-center text-2xl font-semibold">
+          What type of partner are you?
+        </h3>
+        <ul className="mt-8 grid gap-5 md:grid-cols-3">
+          {[
+            [
+              "Pet Advocates",
+              "Designed for social influencers, affiliates, and pet trainers to showcase their love for pets. Make pet care smarter and earn valuable rewards.",
+              "/ambassador",
+              "Join now",
+            ],
+            [
+              "Resellers",
+              "For retail partners, resellers, and wholesalers eager to expand. Deliver premium pet products while boosting your sales.",
+              "#business",
+              "Join now",
+            ],
+            [
+              "Brands",
+              "Collaborating for advancing pet safety through a powerful fusion of knowledge, experience, innovation, and collective efforts.",
+              "#business",
+              "Join now",
+            ],
+          ].map(([t, d, href, cta]) => (
+            <li key={t} className="flex flex-col rounded-3xl bg-sand p-7">
+              <h4 className="font-display text-xl font-semibold">{t}</h4>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                {d}
+              </p>
+              <a
+                href={href}
+                className="mt-5 inline-flex w-fit items-center gap-1 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white hover:bg-ink-3"
+              >
+                {cta}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-12 text-center text-sm font-bold uppercase tracking-[0.16em] text-clay-700">
+          Stronger together: how does this work?
+        </p>
+        <ol className="mx-auto mt-4 grid max-w-4xl gap-4 md:grid-cols-3">
+          {[
+            "Pick the program that fits you best and sign up.",
+            "Our team will hit you up with the details and next steps.",
+            "Boom! You're all set to spread the love for pets!",
+          ].map((t, i) => (
+            <li
+              key={t}
+              className="flex gap-4 rounded-2xl border border-line p-5"
+            >
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink font-display font-semibold text-white">
+                {i + 1}
+              </span>
+              <span className="text-sm font-semibold leading-snug">{t}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* Refer a friend */}

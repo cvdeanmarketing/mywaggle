@@ -129,7 +129,7 @@ export function ProductArt({
           height={photo.h}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 size-full object-cover"
+          className="absolute inset-0 size-full object-cover object-top"
         />
       </span>
     );

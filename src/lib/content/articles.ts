@@ -504,8 +504,6 @@ export const ARTICLES: Article[] = [
   },
 ];
 
-
-
 /** Existing posts on the current Wag Reads blog (URLs verified). */
 export const LEGACY_POSTS = [
   {

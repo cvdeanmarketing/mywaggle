@@ -79,10 +79,10 @@ export const PRIMARY_NAV: NavItem[] = [
     href: "/partners",
     blurb: "Earn, represent and grow with Waggle.",
     links: [
-      { label: "Partner with Us", href: "/partners" },
-      { label: "Refer & Earn", href: "/partners#refer" },
-      { label: "Ambassador Program", href: "/partners#ambassador" },
-      { label: "Waggle Alpha Program", href: "/partners#alpha" },
+      { label: "Partners Program", href: "/partners" },
+      { label: "Refer & Earn", href: "/refer" },
+      { label: "Ambassador Program", href: "/ambassador" },
+      { label: "Waggle Alpha Program", href: "/alpha" },
       { label: "Business partners", href: "/partners#business" },
       { label: "RV Events", href: "/events" },
       { label: "Waggle Live Sessions", href: "/live" },
@@ -127,9 +127,9 @@ export const FOOTER_NAV = [
   {
     title: "Partner with Waggle",
     links: [
-      { label: "Refer a friend", href: "/partners#refer" },
-      { label: "Ambassadors", href: "/partners#ambassador" },
-      { label: "Waggle Alpha", href: "/partners#alpha" },
+      { label: "Refer a friend", href: "/refer" },
+      { label: "Ambassadors", href: "/ambassador" },
+      { label: "Waggle Alpha", href: "/alpha" },
       { label: "Business partners", href: "/partners#business" },
       { label: "RV Events", href: "/events" },
       { label: "Waggle for Good", href: "/waggle-for-good" },

@@ -4,6 +4,7 @@ import { AddToCartButton } from "./AddToCartButton";
 import { ConnectivityTags } from "./ConnectivityTag";
 import { PlanLine } from "./PlanLine";
 import { Price } from "./Price";
+import { ART_PHOTOS } from "./ProductArt";
 import { ProductMedia } from "./ProductMedia";
 import { TrackedLink } from "./TrackedLink";
 
@@ -20,6 +21,9 @@ export function ProductCard({
   className?: string;
   priority?: boolean;
 }) {
+  // Full-bleed marketing photos carry their own headline, so the badge moves below the image.
+  const coverArt =
+    !product.images[0] && Boolean(ART_PHOTOS[product.art]?.cover);
   const href = `/products/${product.handle}`;
   const stack =
     product.kind === "bundle"
@@ -47,17 +51,21 @@ export function ProductCard({
           product={product}
           bundleStack={stack}
           priority={priority}
-          reserveBadge={Boolean(product.badge)}
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="aspect-[4/3.4] transition-transform duration-500 ease-out group-hover:[&_svg]:scale-[1.03] [&_svg]:transition-transform [&_svg]:duration-500"
         />
       </TrackedLink>
-      {product.badge && (
+      {product.badge && !coverArt && (
         <span className="absolute left-4 top-4 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-signal shadow-sm">
           {product.badge}
         </span>
       )}
       <div className="flex flex-1 flex-col gap-3 p-5">
+        {product.badge && coverArt && (
+          <span className="w-fit rounded-full bg-signal-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-signal">
+            {product.badge}
+          </span>
+        )}
         <ConnectivityTags connectivity={product.connectivity} />
         <div>
           <h3 className="text-lg font-semibold leading-snug">
