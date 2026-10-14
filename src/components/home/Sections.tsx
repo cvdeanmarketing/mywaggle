@@ -193,6 +193,14 @@ const REVIEWS = [
   { outlet: "Dog Gear Review", title: "Waggle PRO Pet Monitor Review", url: "https://doggearreview.com/review/waggle/" },
 ];
 
+const PRESS_LOGOS = [
+  { name: "Dogster", src: "/images/press/dogster.webp", w: 622, h: 176, cls: "h-7 sm:h-9" },
+  { name: "Dog Gear Review", src: "/images/press/dog-gear-review.webp", w: 504, h: 152, cls: "h-9 sm:h-11" },
+  { name: "The Wayward Home", src: "/images/press/wayward-home.webp", w: 256, h: 43, cls: "h-8 sm:h-10 !opacity-90 contrast-150" },
+  { name: "The Dyrt", src: "/images/press/the-dyrt.webp", w: 664, h: 196, cls: "h-8 sm:h-10" },
+  { name: "Harvest Hosts", src: "/images/press/harvest-hosts.webp", w: 320, h: 200, cls: "h-12 sm:h-14" },
+];
+
 export function SocialProof() {
   return (
     <section className="border-y border-line bg-paper py-20 sm:py-24" aria-labelledby="proof-title">
@@ -240,9 +248,19 @@ export function SocialProof() {
         </div>
         <div className="mt-14 border-t border-line pt-8">
           <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-muted">Featured by and partnered with</p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {SITE.press.map((p) => (
-              <li key={p} className="font-display text-lg font-semibold text-ink/45">{p}</li>
+          <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12">
+            {PRESS_LOGOS.map((l) => (
+              <li key={l.name} className="flex items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={l.src}
+                  alt={l.name}
+                  width={l.w}
+                  height={l.h}
+                  loading="lazy"
+                  className={cn("w-auto opacity-50 grayscale transition duration-300 hover:opacity-90 hover:grayscale-0", l.cls)}
+                />
+              </li>
             ))}
           </ul>
         </div>
