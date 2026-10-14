@@ -184,7 +184,7 @@ export function Header() {
               <li>
                 <Link
                   href="/find-your-waggle"
-                  className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-signal px-4 py-2 text-[14px] font-bold text-paper transition-colors hover:bg-signal-700"
+                  className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-[14px] font-bold text-paper transition-colors hover:bg-ink-3"
                 >
                   <Sparkles className="size-4" aria-hidden />
                   Find Your Waggle

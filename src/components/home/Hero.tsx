@@ -12,16 +12,16 @@ export function Hero() {
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
       <div className="container-page grid items-center gap-8 pb-12 pt-10 sm:pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:pb-16 lg:pt-16">
         <div className="relative z-10 max-w-2xl animate-fade-up">
-          <p className="eyebrow text-signal">Connected pet safety</p>
+          <p className="eyebrow text-signal-700">Connected pet safety</p>
           <h1 id="hero-title" className="mt-4 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
             Keep your pets safe.
-            <span className="block text-clay">At home or on the road.</span>
+            <span className="block text-clay-700">At home or on the road.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink/80">
             Cameras and temperature monitors that tell you how your dog or cat is doing, whether you are at home, in the RV or miles away. Get an alert the moment it gets too hot, too cold or the power goes out.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/find-your-waggle" className="btn-accent px-7 py-3.5 text-base">
+            <Link href="/find-your-waggle" className="btn-primary px-7 py-3.5 text-base">
               Find Your Waggle <ArrowRight className="size-4" aria-hidden />
             </Link>
             <Link href="/shop" className="btn-secondary px-7 py-3.5 text-base">
@@ -31,8 +31,8 @@ export function Hero() {
           <ul className="mt-8 grid gap-2 sm:flex sm:flex-wrap sm:gap-x-6" aria-label="What Waggle makes">
             {WHAT_WE_SELL.map(({ icon: Icon, label, href }) => (
               <li key={label}>
-                <Link href={href} className="inline-flex items-center gap-2 text-sm font-bold text-ink/80 hover:text-ink">
-                  <Icon className="size-4 text-clay" aria-hidden />
+                <Link href={href} className="inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-clay-700">
+                  <Icon className="size-4 text-clay-700" aria-hidden />
                   {label}
                 </Link>
               </li>
