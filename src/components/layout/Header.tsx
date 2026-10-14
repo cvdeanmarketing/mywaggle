@@ -45,6 +45,7 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Close menus on navigation (state adjusted during render rather than in an effect).
   const [prevPath, setPrevPath] = useState(pathname);
@@ -57,8 +58,16 @@ export function Header() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
+    const closeOnScroll = () => {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      setActive(null);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("wheel", closeOnScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", closeOnScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -80,13 +89,19 @@ export function Header() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!active) return;
+    const onDown = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest("[data-site-header]"))
+        setActive(null);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [active]);
+
   const openPanel = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActive(label);
-  };
-  const scheduleClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActive(null), 140);
   };
 
   const activeItem = PRIMARY_NAV.find((n) => n.label === active);
@@ -111,13 +126,13 @@ export function Header() {
         </p>
       </div>
       <header
+        data-site-header
         className={cn(
           "sticky top-0 z-40 border-b bg-paper/90 backdrop-blur-xl transition-[border-color,box-shadow] duration-300",
           scrolled || active
             ? "border-line shadow-[0_6px_24px_-18px_rgba(17,19,24,0.35)]"
             : "border-transparent",
         )}
-        onMouseLeave={scheduleClose}
       >
         <div className="container-page flex h-16 items-center gap-4 lg:h-[72px]">
           <button
@@ -187,11 +202,19 @@ export function Header() {
                 pathname === item.href ||
                 (item.href !== "/shop" && pathname.startsWith(item.href));
               return (
-                <li key={item.label} onMouseEnter={() => openPanel(item.label)}>
+                <li key={item.label}>
                   <div className="flex items-center">
                     <Link
                       href={item.href}
-                      onClick={() => setActive(null)}
+                      onClick={(e) => {
+                        // Desktop: click opens or closes the menu panel; "View all" inside it goes to the page.
+                        if (window.matchMedia("(min-width: 1024px)").matches) {
+                          e.preventDefault();
+                          setActive(isActive ? null : item.label);
+                        } else {
+                          setActive(null);
+                        }
+                      }}
                       className={cn(
                         "whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-bold transition-colors xl:px-3 xl:text-[14px]",
                         current ? "text-ink" : "text-ink/75 hover:text-ink",
@@ -246,7 +269,6 @@ export function Header() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-x-0 top-full hidden border-b border-line bg-paper lg:block"
-              onMouseEnter={() => openPanel(activeItem.label)}
               onClickCapture={(e) => {
                 // Choosing any link in the panel closes it right away.
                 if ((e.target as HTMLElement).closest("a")) {
