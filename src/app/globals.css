@@ -35,6 +35,18 @@
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
+  --animate-tail-wag: tail-wag 3.2s ease-in-out infinite;
+  @keyframes tail-wag {
+    0%, 40%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(-18deg); }
+    10% { transform: rotate(16deg); }
+    15% { transform: rotate(-16deg); }
+    20% { transform: rotate(14deg); }
+    25% { transform: rotate(-10deg); }
+    30% { transform: rotate(8deg); }
+    35% { transform: rotate(-4deg); }
+  }
+
   --animate-marquee-l: marquee-l 60s linear infinite;
   --animate-marquee-r: marquee-r 70s linear infinite;
   @keyframes marquee-l {

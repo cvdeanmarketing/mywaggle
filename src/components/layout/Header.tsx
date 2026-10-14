@@ -162,9 +162,20 @@ export function Header() {
           <Link
             href="/"
             aria-label="Waggle home"
-            className="shrink-0 max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2"
+            className="relative shrink-0 max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2"
           >
             <Logo className="h-7 w-auto lg:h-8" />
+            {/* A little tail that wags out of the header line, next to the logo. */}
+            <svg
+              aria-hidden
+              viewBox="0 0 24 30"
+              className="pointer-events-none absolute -bottom-[18px] left-full ml-1 h-[26px] w-[21px] origin-bottom-left animate-tail-wag text-ink lg:-bottom-5"
+            >
+              <path
+                d="M2 30C2 18 6 8 18 3c3-1 5 2 2 5-8 5-9 12-9 22z"
+                fill="currentColor"
+              />
+            </svg>
           </Link>
 
           <button
