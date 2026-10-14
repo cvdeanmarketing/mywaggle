@@ -75,10 +75,10 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                     </p>
                     <Link
                       href={`/products/${p.handle}`}
-                      className="btn-primary relative z-10 gap-1.5 px-4 py-2 text-sm"
-                      aria-label={`Learn more about ${p.name}`}
+                      className="group/shop relative z-10 inline-flex items-center gap-1 text-sm font-bold text-signal-700 hover:underline"
+                      aria-label={`Shop ${p.name}`}
                     >
-                      Learn more <ArrowRight className="size-4" aria-hidden />
+                      Shop <ArrowRight className="size-4 transition-transform group-hover/shop:translate-x-0.5" aria-hidden />
                     </Link>
                   </div>
                 </div>
