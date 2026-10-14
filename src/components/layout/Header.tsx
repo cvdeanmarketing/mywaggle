@@ -160,7 +160,7 @@ export function Header() {
                         href={item.href}
                         className={cn(
                           "rounded-full px-3 py-2 text-[14px] font-bold transition-colors",
-                          current ? "text-signal-700" : "text-ink/75 hover:text-ink",
+                          current ? "text-ink" : "text-ink/75 hover:text-ink",
                           isActive && "bg-sand text-ink",
                         )}
                         aria-current={current ? "page" : undefined}

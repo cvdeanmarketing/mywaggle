@@ -35,7 +35,7 @@ export function ProductMedia({
   return (
     <div className={cn("relative overflow-hidden", TONES[product.art], className)}>
       {img ? (
-        <Image src={img.src} alt={img.alt} fill sizes={sizes} priority={priority} className="object-contain p-6" />
+        <Image src={img.src} alt={img.alt} fill sizes={sizes} priority={priority} className={img.fit === "cover" ? "object-cover" : "object-contain p-6"} />
       ) : bundleStack && bundleStack.length > 1 ? (
         <div className="absolute inset-0 flex items-end justify-center px-4 pb-2">
           {bundleStack.map((p, i) => (

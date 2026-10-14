@@ -11,6 +11,8 @@ import { NewsletterForm } from "@/components/ui/NewsletterForm";
 
 const DISMISS_KEY = "waggle.promo.dismissedAt";
 const SESSION_KEY = "waggle.promo.shown";
+const PAGES_KEY = "waggle.promo.pages";
+const ENGAGED_KEY = "waggle.promo.engaged";
 
 function safeGet(store: Storage | undefined, key: string): string | null {
   try {
@@ -28,8 +30,9 @@ function safeSet(store: Storage | undefined, key: string, value: string) {
 }
 
 /**
- * Engagement-triggered offer. Never shows on arrival: it waits for time on
- * site, scroll depth, or exit intent, then respects dismissal and session caps.
+ * Engagement-triggered offer. Never shows on arrival: it waits until the
+ * visitor scrolls ~70% down a page or reaches their third page (two clicks),
+ * or shows exit intent after that; then respects dismissal and session caps.
  */
 export function PromoModal() {
   const pathname = usePathname();
@@ -56,34 +59,51 @@ export function PromoModal() {
     track("promotion_viewed", { promotion_id: promo?.code ?? "email-capture", promotion_name: promo?.label ?? "Email capture", creative_slot: "engagement_modal" });
   }, [eligible, promo]);
 
+  // Count pages viewed this visit; the modal waits for real engagement.
+  useEffect(() => {
+    const views = Number(safeGet(globalThis.sessionStorage, PAGES_KEY) ?? 0) + 1;
+    safeSet(globalThis.sessionStorage, PAGES_KEY, String(views));
+    if (views >= PROMO_MODAL.minPageViews) safeSet(globalThis.sessionStorage, ENGAGED_KEY, "1");
+  }, [pathname]);
+
   useEffect(() => {
     if (!eligible()) return;
-    const start = Date.now();
     let fired = false;
     const fire = () => {
       if (fired) return;
       fired = true;
       show();
     };
-    const timer = setInterval(() => {
-      if (Date.now() - start >= PROMO_MODAL.minSecondsOnSite * 1000) fire();
-    }, 1000);
+    const engaged = () => safeGet(globalThis.sessionStorage, ENGAGED_KEY) === "1";
+    if (engaged() && safeGet(globalThis.sessionStorage, PAGES_KEY) === String(PROMO_MODAL.minPageViews)) {
+      // Arrived on the qualifying page: give it a moment to render first.
+      const t = setTimeout(fire, 1500);
+      return () => clearTimeout(t);
+    }
+    const arrivedAt = Date.now();
     const onScroll = () => {
+      // Right after navigation the old page's scroll position briefly carries over; ignore it.
+      if (Date.now() - arrivedAt < 1200) return;
+      // Only count deliberate scrolling on a page long enough to scroll; short pages and
+      // the scroll reset that comes with navigation don't qualify.
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable < window.innerHeight) return;
       const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      // Require a little dwell time so a fast flick to the footer doesn't trigger it.
-      if (depth >= PROMO_MODAL.minScrollDepth && Date.now() - start > 8000) fire();
+      if (depth >= PROMO_MODAL.minScrollDepth && window.scrollY > window.innerHeight * 0.8) {
+        safeSet(globalThis.sessionStorage, ENGAGED_KEY, "1");
+        fire();
+      }
     };
     const onLeave = (e: MouseEvent) => {
-      if (PROMO_MODAL.exitIntent && e.clientY <= 0 && Date.now() - start > 5000) fire();
+      if (PROMO_MODAL.exitIntent && e.clientY <= 0 && engaged()) fire();
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("mouseleave", onLeave);
     return () => {
-      clearInterval(timer);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mouseleave", onLeave);
     };
-  }, [eligible, show]);
+  }, [eligible, show, pathname]);
 
   const dismiss = useCallback(() => {
     safeSet(globalThis.localStorage, DISMISS_KEY, String(Date.now()));

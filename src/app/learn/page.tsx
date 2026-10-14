@@ -42,11 +42,11 @@ export default function LearnPage() {
         <section className="mt-16 grid gap-6 lg:grid-cols-2" aria-label="More from Waggle">
           <Link href="/live" className="group flex items-center justify-between gap-6 rounded-[var(--radius-card)] bg-ink p-8 text-paper">
             <span>
-              <span className="eyebrow text-[#5aa8ff]">Pet Travel Videos</span>
+              <span className="eyebrow text-clay">Pet Travel Videos</span>
               <span className="mt-2 block font-display text-2xl font-semibold">Waggle Live expert sessions</span>
               <span className="mt-1 block text-sm text-muted-dark">Vets, trainers and full-time RVers answer your questions.</span>
             </span>
-            <PlayCircle className="size-10 shrink-0 text-[#5aa8ff] transition-transform group-hover:scale-110" aria-hidden />
+            <PlayCircle className="size-10 shrink-0 text-clay transition-transform group-hover:scale-110" aria-hidden />
           </Link>
           <div className="rounded-[var(--radius-card)] border border-line p-8">
             <p className="eyebrow">From the blog archive</p>

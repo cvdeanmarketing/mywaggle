@@ -80,7 +80,7 @@ export function ProductRail({ products, title, listName }: { products: Product[]
                   className="aspect-[5/4] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
                 />
                 <div className="flex flex-1 flex-col p-5">
-                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-signal-700" : "text-muted")}>
+                  <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-clay-700" : "text-muted")}>
                     {p.badge ?? (p.connectivity.includes("wifi") ? "WiFi" : p.connectivity.includes("cellular") ? "Built-in 4G" : "No app needed")}
                   </p>
                   <h3 className="mt-1.5 text-lg font-semibold leading-snug">

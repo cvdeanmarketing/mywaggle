@@ -83,6 +83,8 @@ export interface ProductImage {
   alt: string;
   width: number;
   height: number;
+  /** "cover" for photos with their own background (fills the tile); default "contain" for cutouts. */
+  fit?: "contain" | "cover";
 }
 
 export interface Price {
@@ -154,8 +156,10 @@ export interface Product {
   /** Accessories and cross-sells. */
   related: string[];
   art: ArtKey;
-  /** Official photography. Empty until assets are supplied (see README). */
+  /** Official product photography. Empty until assets are supplied (see README). */
   images: ProductImage[];
+  /** Lifestyle and in-use photography for the product page. */
+  gallery?: ProductImage[];
   faqs: FaqItem[];
   reviews?: ReviewSummary;
   /** Canonical product URL on the current live store. */

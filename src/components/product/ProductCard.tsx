@@ -34,7 +34,7 @@ export function ProductCard({
         />
       </TrackedLink>
       {product.badge && (
-        <span className="absolute left-4 top-4 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-signal-700 shadow-sm">
+        <span className="absolute left-4 top-4 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-clay-700 shadow-sm">
           {product.badge}
         </span>
       )}

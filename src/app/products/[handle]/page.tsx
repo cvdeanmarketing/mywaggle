@@ -63,6 +63,23 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
       <section className="container-page grid gap-8 pb-16 pt-6 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
         <div className="lg:sticky lg:top-36 lg:self-start">
           <ProductMedia product={p} bundleStack={included.length ? included : undefined} priority className="aspect-square rounded-[28px]" sizes="(min-width: 1024px) 55vw, 100vw" />
+          {p.gallery && p.gallery.length > 0 && (
+            <ul className="mt-3 grid grid-cols-2 gap-3">
+              {p.gallery.map((g) =>
+                g.fit === "contain" ? (
+                  <li key={g.src} className="flex aspect-square items-center justify-center overflow-hidden rounded-[28px] bg-sand p-6">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- static cutout */}
+                    <img src={g.src} alt={g.alt} width={g.width} height={g.height} loading="lazy" decoding="async" className="max-h-full w-auto object-contain" />
+                  </li>
+                ) : (
+                  <li key={g.src} className="col-span-2 overflow-hidden rounded-[28px] bg-sand">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- static lifestyle photo, sized by its own dimensions */}
+                    <img src={g.src} alt={g.alt} width={g.width} height={g.height} loading="lazy" decoding="async" className="h-auto w-full" />
+                  </li>
+                ),
+              )}
+            </ul>
+          )}
           {included.length > 0 && (
             <ul className="mt-3 grid grid-cols-3 gap-3">
               {included.map((d) => (
@@ -157,7 +174,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
               const I = Icon as typeof Truck;
               return (
                 <li key={label as string} className="flex items-center gap-2 rounded-xl bg-sand px-3 py-2.5">
-                  <I className="size-4 text-signal-700" aria-hidden />
+                  <I className="size-4 text-clay-700" aria-hidden />
                   {label as string}
                 </li>
               );
@@ -184,7 +201,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
               return (
                 <li key={key} className={cn("rounded-2xl p-5", on ? "bg-ink text-paper" : "bg-paper text-ink/60")}>
                   <div className="flex items-center justify-between">
-                    <Icon className={cn("size-6", on ? "text-[#5aa8ff]" : "")} aria-hidden />
+                    <Icon className={cn("size-6", on ? "text-clay" : "")} aria-hidden />
                     {on && <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold">This device</span>}
                   </div>
                   <p className="mt-4 font-display text-lg font-semibold">{title}</p>

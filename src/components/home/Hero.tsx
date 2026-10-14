@@ -16,7 +16,7 @@ export function Hero() {
           <p className="eyebrow">Connected pet safety</p>
           <h1 id="hero-title" className="mt-3 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
             Protect what matters.
-            <span className="block text-signal">Wherever life takes you.</span>
+            <span className="block text-clay">Wherever life takes you.</span>
           </h1>
           <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-muted">
             Smart cameras, temperature monitors and connected safety tech that protect your pets, home and adventures. From your living room to the open
@@ -34,7 +34,7 @@ export function Hero() {
             {WHAT_WE_SELL.map(({ icon: Icon, label, href }) => (
               <li key={label}>
                 <Link href={href} className="inline-flex items-center gap-2 text-sm font-bold text-ink/80 hover:text-ink">
-                  <Icon className="size-4 text-signal" aria-hidden />
+                  <Icon className="size-4 text-clay" aria-hidden />
                   {label}
                 </Link>
               </li>
@@ -54,7 +54,7 @@ export function Hero() {
           </div>
           {/* App alert cards */}
           <div className="absolute -left-[2%] top-[3%] w-[60%] max-w-[290px] animate-fade-up rounded-2xl bg-ink p-3.5 text-paper shadow-2xl [animation-delay:500ms] sm:p-4">
-            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#5aa8ff]">
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-clay">
               <BellRing className="size-3.5" /> Alert · RV living room
             </div>
             <p className="mt-1.5 font-display text-base font-semibold leading-snug sm:text-lg">Temperature rising: 86°F</p>

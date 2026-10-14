@@ -5,15 +5,25 @@ import type { ArtKey } from "@/lib/catalog";
  * Used until official assets are supplied through `product.images`.
  */
 /** Official product photography (transparent cutouts). Any art key listed here renders the photo instead of the drawing. */
-export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: number }>> = {
+export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: number; cover?: boolean }>> = {
   "monitor-pro": { src: "/images/products/pet-monitor-pro-plus.webp", w: 510, h: 554 },
   "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 282, h: 468 },
   "wifi-mini-cam": { src: "/images/products/rv-wifi-mini-cam.webp", w: 250, h: 419 },
   "observation-system": { src: "/images/products/rv-observation-system.webp", w: 900, h: 720 },
+  "camera-4g": { src: "/images/products/rv-4g-camera.webp", w: 316, h: 314, cover: true },
 };
 
 export function ProductArt({ art, className, title }: { art: ArtKey; className?: string; title: string }) {
   const photo = ART_PHOTOS[art];
+  if (photo?.cover) {
+    // Photo with its own background: fill the slot edge to edge.
+    return (
+      <span className={`relative inline-block aspect-square overflow-hidden rounded-[inherit] ${className ?? ""}`} role={title ? "img" : undefined} aria-label={title || undefined}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- static photo inside SVG-sized slots */}
+        <img src={photo.src} alt="" width={photo.w} height={photo.h} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
+      </span>
+    );
+  }
   if (photo) {
     // Same square footprint as the drawings, so layouts don't shift between photo and illustration.
     return (

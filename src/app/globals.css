@@ -77,7 +77,7 @@
   @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
 }
 @utility eyebrow {
-  @apply font-sans text-xs font-bold uppercase tracking-[0.16em] text-signal-700;
+  @apply font-sans text-xs font-bold uppercase tracking-[0.16em] text-clay-700;
 }
 @utility btn {
   @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold transition-[background,color,transform,box-shadow] duration-200 ease-out disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98];

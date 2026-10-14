@@ -30,9 +30,11 @@ export function findPromotion(code: string): Promotion | undefined {
 export const PROMO_MODAL = {
   enabled: true,
   offerCode: "SAVINGS10" as string | null,
-  /** Show after this many seconds on site, or this much scroll depth, or exit intent. */
-  minSecondsOnSite: 25,
-  minScrollDepth: 0.45,
+  /** Show once the visitor scrolls this far down a page… */
+  minScrollDepth: 0.7,
+  /** …or reaches this many pages in the visit (landing page + two clicks)… */
+  minPageViews: 3,
+  /** …or moves to leave, but only after one of the signals above. */
   exitIntent: true,
   /** Don't show again for this many days after dismissal. */
   dismissDays: 14,

@@ -19,7 +19,7 @@ export function Footer() {
         <ul className="container-page grid grid-cols-2 gap-4 py-6 text-sm font-bold md:grid-cols-4">
           {TRUST.map(({ icon: Icon, label }) => (
             <li key={label} className="flex items-center gap-2.5">
-              <Icon className="size-5 shrink-0 text-[#5aa8ff]" aria-hidden />
+              <Icon className="size-5 shrink-0 text-clay" aria-hidden />
               {label}
             </li>
           ))}
