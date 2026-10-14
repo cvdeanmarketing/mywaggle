@@ -45,6 +45,17 @@ export function Hero() {
           <div className="absolute inset-x-[6%] bottom-0 h-[18%] rounded-full bg-ink/10 blur-2xl" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/hero-lineup.webp" alt="" width={619} height={374} className="relative w-full" fetchPriority="high" />
+          <div className="absolute -left-[4%] top-[6%] flex animate-fade-up items-center gap-3 rounded-2xl border border-line bg-paper py-3 pl-3 pr-5 shadow-xl [animation-delay:500ms]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/pug.webp" alt="" width={48} height={48} className="size-12 rounded-full object-cover ring-2 ring-clay" />
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-muted">Home · Kitchen cam</p>
+              <p className="mt-0.5 flex items-center gap-2 text-sm font-bold">
+                <span className="size-2 rounded-full bg-mint" /> Biscuit is napping
+              </p>
+              <p className="text-xs text-muted">72°F · 45% humidity</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
