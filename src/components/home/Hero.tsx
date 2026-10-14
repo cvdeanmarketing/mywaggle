@@ -1,6 +1,5 @@
-import { ArrowRight, BellRing, Radio, Thermometer, Video } from "lucide-react";
+import { ArrowRight, Radio, Thermometer, Video } from "lucide-react";
 import Link from "next/link";
-import { ProductArt } from "@/components/product/ProductArt";
 
 const WHAT_WE_SELL = [
   { icon: Thermometer, label: "Temperature & power alerts", href: "/shop/pet-safety" },
@@ -11,12 +10,12 @@ const WHAT_WE_SELL = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
-      <div className="container-page grid items-center gap-8 pb-8 pt-8 sm:pt-10 lg:grid-cols-[1.25fr_1fr] lg:gap-8 lg:pb-8 lg:pt-8">
+      <div className="container-page grid items-center gap-8 pb-6 pt-6 sm:pt-8 lg:grid-cols-[1.3fr_1fr] lg:gap-8 lg:pb-0 lg:pt-6">
         <div className="relative z-10 max-w-2xl animate-fade-up">
           <p className="eyebrow">Connected pet safety</p>
           <h1 id="hero-title" className="mt-3 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
-            Protect what matters.
-            <span className="block text-clay">Wherever life takes you.</span>
+            Keep your pets safe.
+            <span className="block text-clay">At home or on the road.</span>
           </h1>
           <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-muted">
             Smart cameras, temperature monitors and connected safety tech that protect your pets, home and adventures. From your living room to the open
@@ -42,31 +41,10 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto aspect-[1/0.72] w-full max-w-[470px]" aria-hidden>
-          <div className="absolute inset-[6%] rounded-[44px] bg-paper shadow-[var(--shadow-lift)]" />
-          <div className="absolute inset-x-[6%] bottom-[6%] top-[52%] rounded-b-[44px] bg-gradient-to-t from-sand-2/80 to-transparent" />
-          {/* Device family lineup */}
-          <div className="absolute inset-x-[2%] bottom-[4%] flex items-end justify-center">
-            <ProductArt art="mini-cam-4g" title="" className="-mr-[14%] w-[42%] animate-fade-up [animation-delay:200ms]" />
-            <ProductArt art="monitor-pro" title="" className="z-10 w-[58%] animate-fade-up [animation-delay:80ms]" />
-            <ProductArt art="wagglecam-pro" title="" className="z-[5] -ml-[16%] w-[42%] animate-fade-up [animation-delay:280ms]" />
-            <ProductArt art="wifi-mini-cam" title="" className="-ml-[16%] w-[34%] animate-fade-up [animation-delay:360ms]" />
-          </div>
-          {/* App alert cards */}
-          <div className="absolute -left-[2%] top-[3%] w-[60%] max-w-[290px] animate-fade-up rounded-2xl bg-ink p-3.5 text-paper shadow-2xl [animation-delay:500ms] sm:p-4">
-            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-clay">
-              <BellRing className="size-3.5" /> Alert · RV living room
-            </div>
-            <p className="mt-1.5 font-display text-base font-semibold leading-snug sm:text-lg">Temperature rising: 86°F</p>
-            <p className="mt-1 text-xs text-muted-dark">Shore power lost 2 min ago. Sent by app, text and email.</p>
-          </div>
-          <div className="absolute -right-[3%] top-[26%] w-[44%] max-w-[230px] animate-fade-up rounded-2xl border border-line bg-paper p-3.5 shadow-xl [animation-delay:650ms] sm:p-4">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-muted">Home · Kitchen cam</p>
-            <p className="mt-1.5 flex items-center gap-2 text-sm font-bold">
-              <span className="size-2 rounded-full bg-mint" /> Biscuit is napping
-            </p>
-            <p className="mt-0.5 text-xs text-muted">72°F · 45% humidity</p>
-          </div>
+        <div className="relative mx-auto w-full max-w-[440px] animate-fade-up" aria-hidden>
+          <div className="absolute inset-x-[6%] bottom-0 h-[18%] rounded-full bg-ink/10 blur-2xl" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/hero-lineup.webp" alt="" width={619} height={374} className="relative w-full" fetchPriority="high" />
         </div>
       </div>
     </section>
