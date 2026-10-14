@@ -68,7 +68,7 @@ export const PRIMARY_NAV: NavItem[] = [
       { label: "Pet Guides", href: "/learn/section/pet-guides" },
       {
         label: "Waggle Saves Lives",
-        href: "https://info.mywaggle.com/share-your-story.php",
+        href: "/saves-lives",
       },
       { label: "Pet Travel Videos", href: "/videos" },
     ],
