@@ -1,5 +1,6 @@
 import { ArrowRight, Radio, ShieldCheck, Thermometer, Video } from "lucide-react";
 import Link from "next/link";
+import { StatsBand } from "@/components/home/StatsBand";
 
 const WHAT_WE_SELL = [
   { icon: Thermometer, label: "Temperature & power alerts", href: "/shop/pet-safety" },
@@ -10,7 +11,7 @@ const WHAT_WE_SELL = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-sand" aria-labelledby="hero-title">
-      <div className="container-page grid items-center gap-8 pb-12 pt-10 sm:pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:pb-16 lg:pt-16">
+      <div className="container-page grid items-center gap-8 pb-8 pt-10 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:pb-8 lg:pt-14">
         <div className="relative z-10 max-w-2xl animate-fade-up">
           <p className="eyebrow">Connected pet safety</p>
           <h1 id="hero-title" className="mt-4 text-[40px] font-semibold leading-[1.04] sm:text-[48px] lg:text-[50px]">
@@ -61,6 +62,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <div className="container-page pb-8"><StatsBand /></div>
     </section>
   );
 }

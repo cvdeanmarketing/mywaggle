@@ -4,7 +4,7 @@ import Link from "next/link";
 import { devices, getProduct, type Product } from "@/lib/catalog";
 import { HOME_FAQS } from "@/lib/content/faqs";
 import { Hero } from "@/components/home/Hero";
-import { StatsBand } from "@/components/home/StatsBand";
+import { PressStrip } from "@/components/home/PressStrip";
 import { ProductRail } from "@/components/home/ProductRail";
 import { Ecosystem, Education, Lifestyles, SocialProof, WhyWaggle } from "@/components/home/Sections";
 import { BundleBuilder } from "@/components/shop/BundleBuilder";
@@ -32,7 +32,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsBand />
+      <PressStrip />
       <ProductRail products={railProducts} title="What's keeping your pet safe today?" listName="home_featured" />
       <Lifestyles />
 
