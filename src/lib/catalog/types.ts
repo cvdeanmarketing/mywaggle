@@ -75,7 +75,17 @@ export type ArtKey =
   | "camera-4g"
   | "travelcam"
   | "observation-system"
-  | "solar-panel";
+  | "solar-panel"
+  | "tripod"
+  | "vacuum-mount"
+  | "clamp-mount"
+  | "bundle-home-and-roam"
+  | "bundle-pet-scout"
+  | "bundle-rv-4g-scout"
+  | "bundle-rv-4g-scout-pro"
+  | "bundle-roadsafe"
+  | "bundle-rv-watch"
+  | "bundle-anti-anxiety";
 
 export interface ProductImage {
   /** Official asset URL (e.g. cdn.shopify.com). */

@@ -388,6 +388,16 @@ export const ARTICLES: Article[] = [
 
 export const BLOG_ARCHIVE_URL = "https://mywaggle.com/pages/blogs";
 
+/** The original Wag Reads pages on the live site. */
+export const ORIGINAL_PAGES = [
+  { label: "RVing with Pets", url: "https://mywaggle.com/pages/rving-with-pets" },
+  { label: "Heatstroke in Pets", url: "https://mywaggle.com/pages/heatstroke-in-dogs" },
+  { label: "Blogs", url: "https://mywaggle.com/pages/blogs" },
+  { label: "Pet Guides", url: "https://info.mywaggle.com/pet-guides.php" },
+  { label: "Waggle Saves Lives", url: "https://info.mywaggle.com/share-your-story.php" },
+  { label: "Pet Travel Videos", url: "https://mywaggle.com/pages/traveling-tails" },
+];
+
 /** Existing posts on the current Wag Reads blog (URLs verified). */
 export const LEGACY_POSTS = [
   { title: "Waggle Pet Temperature Monitor vs. MarCELL Pet Monitor", url: "https://mywaggle.com/blogs/pet-protection/waggle-pet-temperature-monitor-vs-marcell-pet-monitor" },

@@ -21,15 +21,16 @@ export const PRIMARY_NAV: NavItem[] = [
   {
     label: "Wag Reads",
     href: "/learn",
-    blurb: "Guides, safety know-how and expert sessions for pet parents.",
+    blurb: "Stories, guides and safety know-how for pet parents.",
+    // The live site's original Wag Reads pages, with the original "all blogs" page first.
     links: [
-      { label: "View all Wag Reads", href: "/learn" },
-      { label: "RVing with Pets", href: "/learn/section/rving-with-pets" },
-      { label: "Heatstroke in Pets", href: "/learn/section/heatstroke" },
-      { label: "Pet Guides", href: "/learn/section/pet-guides" },
-      { label: "Buying Guides", href: "/learn/section/buying-guides" },
-      { label: "Waggle Live (expert sessions)", href: "/live" },
-      { label: "Blog archive", href: "https://mywaggle.com/pages/blogs" },
+      { label: "All blogs", href: "https://mywaggle.com/pages/blogs" },
+      { label: "RVing with Pets", href: "https://mywaggle.com/pages/rving-with-pets" },
+      { label: "Heatstroke in Pets", href: "https://mywaggle.com/pages/heatstroke-in-dogs" },
+      { label: "Pet Guides", href: "https://info.mywaggle.com/pet-guides.php" },
+      { label: "Waggle Saves Lives", href: "https://info.mywaggle.com/share-your-story.php" },
+      { label: "Pet Travel Videos", href: "https://mywaggle.com/pages/traveling-tails" },
+      { label: "More guides from Waggle", href: "/learn" },
     ],
   },
 ];

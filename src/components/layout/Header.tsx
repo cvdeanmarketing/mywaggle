@@ -207,10 +207,14 @@ export function Header() {
             >
               <div className="container-page grid grid-cols-[260px_1fr] gap-10 py-8">
                 <div className="flex flex-col">
-                  <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal-700">
+                  {activeItem.links ? (
+                    <p className="font-display text-2xl font-semibold">{activeItem.label}</p>
+                  ) : (
+                    <Link href={activeItem.href} className="group inline-flex items-center gap-1.5 font-display text-2xl font-semibold hover:text-signal-700">
                     View all {activeItem.label === "Shop All" ? "products" : activeItem.label}
                     <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                   </Link>
+                  )}
                   <p className="mt-2 text-sm leading-relaxed text-muted">{activeItem.blurb}</p>
                   <div className="mt-auto rounded-2xl bg-sand p-4">
                     <p className="text-sm font-bold">Not sure where to start?</p>
@@ -221,12 +225,13 @@ export function Header() {
                   </div>
                 </div>
                 {activeItem.links ? (
-                  <ul className="grid grid-cols-2 content-start gap-x-10 gap-y-1">
+                  <ul className="grid max-w-lg content-start gap-y-0.5">
                     {activeItem.links.map((l, i) => (
                       <li key={l.href}>
                         <Link
                           href={l.href}
-                          className={cn("flex items-center justify-between rounded-xl px-4 py-3 hover:bg-sand", i === 0 ? "font-bold text-signal" : "font-bold")}
+                          {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          className={cn("flex items-center justify-between rounded-xl px-4 py-3 hover:bg-sand", i === 0 ? "bg-signal-50 font-bold text-signal-700" : "font-bold")}
                         >
                           {l.label}
                           <ArrowRight className="size-4 text-muted" aria-hidden />

@@ -68,10 +68,10 @@ export const plans: SubscriptionPlan[] = [
     requirement: "optional",
     requirementNote:
       "Optional. The camera streams over WiFi and records to its SD card without a plan. Cloud storage is a paid add-on.",
-    options: [],
+    options: [{ label: "Starting at", price: 4.99, interval: "month" }],
     includes: ["Cloud video storage"],
-    status: "unverified",
-    note: "Cloud plan pricing for this camera isn't published on an official page we could verify.",
+    status: "verified",
+    note: "Store lists plans from $4.99/mo. Exact tiers weren't shown.",
     sources: [SRC.rvMiniCamFaq],
   },
 ];

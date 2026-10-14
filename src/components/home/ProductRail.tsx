@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { priceOf, type Product } from "@/lib/catalog";
@@ -34,52 +34,27 @@ export function ProductRail({ products, title, listName }: { products: Product[]
   };
 
   return (
-    <section className="pb-12 pt-8 sm:pb-14 sm:pt-9" aria-labelledby="rail-title">
+    <section className="pb-16 pt-12 sm:pb-20 sm:pt-16" aria-labelledby="rail-title">
       <ViewItemList listName={listName} handles={products.map((p) => p.handle)} />
       <div className="container-page">
-        <div className="flex items-end justify-between gap-4">
-          <h2 id="rail-title" className="text-2xl font-semibold sm:text-[32px]">{title}</h2>
-          <div className="flex items-center gap-2">
-            <Link href="/shop" className="mr-2 hidden items-center gap-1 text-sm font-bold text-signal-700 hover:underline sm:inline-flex">
-              Shop all <ArrowRight className="size-4" aria-hidden />
-            </Link>
-            <button
-              type="button"
-              onClick={() => page(-1)}
-              disabled={edge.start}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-line bg-paper transition-colors hover:border-ink disabled:opacity-35"
-              aria-label="Previous products"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => page(1)}
-              disabled={edge.end}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-line bg-paper transition-colors hover:border-ink disabled:opacity-35"
-              aria-label="More products"
-            >
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-        </div>
+        <h2 id="rail-title" className="text-center text-3xl font-semibold sm:text-[36px]">{title}</h2>
       </div>
-      <div className="container-page mt-5">
+      <div className="container-page mt-10">
         <ul
           ref={scroller}
-          className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-2 sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:scroll-px-0 lg:px-0"
+          className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:scroll-px-0 lg:px-0"
           aria-label={title}
         >
           {products.map((p, i) => (
-            <li key={p.handle} className="w-[72%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-3rem)/4)]">
+            <li key={p.handle} className="w-[72%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-4.5rem)/4)]">
               <article className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper transition-shadow hover:shadow-[var(--shadow-lift)]">
                 <ProductMedia
                   product={p}
                   priority={i < 4}
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 44vw, 72vw"
-                  className="aspect-[5/4] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
+                  className="aspect-[1/0.9] [&_svg]:transition-transform [&_svg]:duration-500 group-hover:[&_svg]:scale-[1.04]"
                 />
-                <div className="flex flex-1 flex-col p-5">
+                <div className="flex flex-1 flex-col p-6">
                   <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em]", p.badge ? "text-clay-700" : "text-muted")}>
                     {p.badge ?? (p.connectivity.includes("wifi") ? "WiFi" : p.connectivity.includes("cellular") ? "Built-in 4G" : "No app needed")}
                   </p>
@@ -109,6 +84,29 @@ export function ProductRail({ products, title, listName }: { products: Product[]
             </li>
           ))}
         </ul>
+      </div>
+      <div className="container-page mt-10 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          onClick={() => page(-1)}
+          disabled={edge.start}
+          className="inline-flex size-11 items-center justify-center rounded-full border border-line bg-paper transition-colors hover:border-ink disabled:opacity-35"
+          aria-label="Previous products"
+        >
+          <ChevronLeft className="size-5" />
+        </button>
+        <Link href="/shop" className="btn bg-clay px-8 py-3.5 text-base text-paper hover:bg-clay-700">
+          View all Products
+        </Link>
+        <button
+          type="button"
+          onClick={() => page(1)}
+          disabled={edge.end}
+          className="inline-flex size-11 items-center justify-center rounded-full border border-line bg-paper transition-colors hover:border-ink disabled:opacity-35"
+          aria-label="More products"
+        >
+          <ChevronRight className="size-5" />
+        </button>
       </div>
     </section>
   );

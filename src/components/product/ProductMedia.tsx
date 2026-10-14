@@ -4,6 +4,16 @@ import { cn } from "@/lib/format";
 import { ART_PHOTOS, ProductArt } from "./ProductArt";
 
 const TONES: Record<Product["art"], string> = {
+  "tripod": "bg-[#f1f0ee]",
+  "vacuum-mount": "bg-[#f1f0ee]",
+  "clamp-mount": "bg-[#f1f0ee]",
+  "bundle-home-and-roam": "bg-[#f1f0ee]",
+  "bundle-pet-scout": "bg-[#f1f0ee]",
+  "bundle-rv-4g-scout": "bg-[#f1f0ee]",
+  "bundle-rv-4g-scout-pro": "bg-[#f1f0ee]",
+  "bundle-roadsafe": "bg-[#f1f0ee]",
+  "bundle-rv-watch": "bg-[#f1f0ee]",
+  "bundle-anti-anxiety": "bg-[#f1f0ee]",
   "monitor-pro": "bg-[#f3efe9]",
   "monitor-lite": "bg-[#f1f0ee]",
   "monitor-satellite": "bg-[#eef1f5]",
@@ -36,7 +46,7 @@ export function ProductMedia({
     <div className={cn("relative overflow-hidden", TONES[product.art], className)}>
       {img ? (
         <Image src={img.src} alt={img.alt} fill sizes={sizes} priority={priority} className={img.fit === "cover" ? "object-cover" : "object-contain p-6"} />
-      ) : bundleStack && bundleStack.length > 1 ? (
+      ) : bundleStack && bundleStack.length > 1 && !ART_PHOTOS[product.art] ? (
         <div className="absolute inset-0 flex items-end justify-center px-4 pb-2">
           {bundleStack.map((p, i) => (
             <ProductArt
@@ -48,7 +58,7 @@ export function ProductMedia({
           ))}
         </div>
       ) : (
-        <ProductArt art={product.art} title={ART_PHOTOS[product.art] ? product.name : `Illustration of ${product.name}`} className="absolute inset-0 m-auto h-[88%] w-[88%]" />
+        <ProductArt art={product.art} title={ART_PHOTOS[product.art] ? product.name : `Illustration of ${product.name}`} className={ART_PHOTOS[product.art]?.cover ? "absolute inset-0 size-full" : "absolute inset-0 m-auto h-[88%] w-[88%]"} />
       )}
     </div>
   );

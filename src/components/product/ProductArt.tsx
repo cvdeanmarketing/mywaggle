@@ -7,10 +7,25 @@ import type { ArtKey } from "@/lib/catalog";
 /** Official product photography (transparent cutouts). Any art key listed here renders the photo instead of the drawing. */
 export const ART_PHOTOS: Partial<Record<ArtKey, { src: string; w: number; h: number; cover?: boolean }>> = {
   "monitor-pro": { src: "/images/products/pet-monitor-pro-plus.webp", w: 510, h: 554 },
-  "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 282, h: 468 },
+  "monitor-lite": { src: "/images/products/pet-monitor-lite-plus.webp", w: 380, h: 410 },
+  "monitor-satellite": { src: "/images/products/pet-monitor-pro-plus-satellite.webp", w: 900, h: 900, cover: true },
+  "wagglecam-pro": { src: "/images/products/wagglecam-pro.webp", w: 187, h: 329 },
   "wifi-mini-cam": { src: "/images/products/rv-wifi-mini-cam.webp", w: 250, h: 419 },
+  "mini-cam-4g": { src: "/images/products/rv-4g-mini-camera.webp", w: 282, h: 468 },
+  "camera-4g": { src: "/images/products/rv-4g-camera.webp", w: 425, h: 517 },
+  "travelcam": { src: "/images/products/waggle-4g-travelcam.webp", w: 504, h: 648 },
   "observation-system": { src: "/images/products/rv-observation-system.webp", w: 900, h: 720 },
-  "camera-4g": { src: "/images/products/rv-4g-camera.webp", w: 316, h: 314, cover: true },
+  "solar-panel": { src: "/images/products/accessory-solar-panel.webp", w: 268, h: 364 },
+  "tripod": { src: "/images/products/accessory-tripod.webp", w: 350, h: 384 },
+  "vacuum-mount": { src: "/images/products/accessory-vacuum-mount.webp", w: 392, h: 232 },
+  "clamp-mount": { src: "/images/products/accessory-clamp-mount.webp", w: 248, h: 420 },
+  "bundle-home-and-roam": { src: "/images/products/bundle-home-and-roam.webp", w: 347, h: 309 },
+  "bundle-pet-scout": { src: "/images/products/bundle-pet-scout.webp", w: 291, h: 316 },
+  "bundle-rv-4g-scout": { src: "/images/products/bundle-rv-4g-scout.webp", w: 288, h: 289 },
+  "bundle-rv-4g-scout-pro": { src: "/images/products/bundle-rv-4g-scout-pro.webp", w: 362, h: 365 },
+  "bundle-roadsafe": { src: "/images/products/bundle-roadsafe.webp", w: 378, h: 302 },
+  "bundle-rv-watch": { src: "/images/products/bundle-rv-watch.webp", w: 419, h: 320 },
+  "bundle-anti-anxiety": { src: "/images/products/bundle-anti-anxiety.webp", w: 335, h: 330 },
 };
 
 export function ProductArt({ art, className, title }: { art: ArtKey; className?: string; title: string }) {
@@ -38,7 +53,7 @@ export function ProductArt({ art, className, title }: { art: ArtKey; className?:
     <svg viewBox="0 0 400 400" className={className} role="img" aria-label={title}>
       <title>{title}</title>
       <ellipse cx="200" cy="338" rx="118" ry="12" fill="#111318" opacity="0.10" />
-      {ART[art]}
+      {ART[art] ?? null}
     </svg>
   );
 }
@@ -94,7 +109,7 @@ const MonitorBody = ({ accent }: { accent: "red" | "graphite" | "satellite" }) =
   );
 };
 
-const ART: Record<ArtKey, React.ReactNode> = {
+const ART: Partial<Record<ArtKey, React.ReactNode>> = {
   "monitor-pro": <MonitorBody accent="red" />,
   "monitor-lite": <MonitorBody accent="graphite" />,
   "monitor-satellite": <MonitorBody accent="satellite" />,

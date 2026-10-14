@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, PlayCircle } from "lucide-react";
 import Link from "next/link";
-import { ARTICLES, BLOG_ARCHIVE_URL, LEGACY_POSTS, SECTIONS, type ArticleSection } from "@/lib/content/articles";
+import { ARTICLES, BLOG_ARCHIVE_URL, LEGACY_POSTS, ORIGINAL_PAGES, SECTIONS, type ArticleSection } from "@/lib/content/articles";
 import { ArticleCard } from "@/components/learn/ArticleCard";
 import { PageHeader } from "@/components/shop/PageHeader";
 
@@ -17,11 +17,16 @@ export default function LearnPage() {
     <>
       <PageHeader crumbs={[{ name: "Wag Reads", path: "/learn" }]} eyebrow="Wag Reads" title="Know more. Worry less." intro="Pet safety, travel know-how and plain-English buying guides from the Waggle team.">
         <nav aria-label="Wag Reads sections" className="mt-8 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-          <Link href="/learn" className="chip shrink-0 border-ink bg-ink px-4 py-2 text-sm text-paper">View all</Link>
+          <Link href="/learn" className="chip shrink-0 border-ink bg-ink px-4 py-2 text-sm text-paper">All guides</Link>
           {(Object.keys(SECTIONS) as ArticleSection[]).map((s) => (
             <Link key={s} href={`/learn/section/${s}`} className="chip shrink-0 px-4 py-2 text-sm hover:border-ink">{SECTIONS[s].name}</Link>
           ))}
           <Link href="/live" className="chip shrink-0 px-4 py-2 text-sm hover:border-ink">Waggle Live</Link>
+          {ORIGINAL_PAGES.map((o) => (
+            <a key={o.url + o.label} href={o.url} target="_blank" rel="noopener noreferrer" className="chip shrink-0 px-4 py-2 text-sm hover:border-ink">
+              {o.label} <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          ))}
         </nav>
       </PageHeader>
       <div className="container-page py-14">
