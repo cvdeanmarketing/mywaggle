@@ -7,6 +7,7 @@ import {
   Menu,
   Search,
   ShoppingBag,
+  Smartphone,
   Sparkles,
   UserRound,
   X,
@@ -21,6 +22,7 @@ import {
   type Product,
 } from "@/lib/catalog";
 import { useCart } from "@/lib/cart";
+import { SITE } from "@/lib/site";
 import { cn, money } from "@/lib/format";
 import { PRIMARY_NAV, type NavItem } from "@/lib/nav";
 import { ProductArt } from "@/components/product/ProductArt";
@@ -109,21 +111,34 @@ export function Header() {
   return (
     <>
       <div className="bg-ink text-paper">
-        <p className="container-page flex h-9 items-center justify-center gap-x-5 overflow-hidden text-center text-[12px] font-bold tracking-wide">
+        <div className="container-page flex h-9 items-center justify-center gap-x-5 overflow-hidden text-center text-[12px] font-bold tracking-wide">
           <span>Free shipping</span>
           <span aria-hidden className="text-white/30">
             •
           </span>
-          <span>21-day returns</span>
+          <span className="hidden sm:inline">Easy 21-day returns</span>
           <span aria-hidden className="hidden text-white/30 sm:inline">
             •
           </span>
-          <span className="hidden sm:inline">Lifetime limited warranty</span>
+          <span className="hidden md:inline">Lifetime limited warranty</span>
           <span aria-hidden className="hidden text-white/30 md:inline">
             •
           </span>
-          <span className="hidden md:inline">24/7 chat support</span>
-        </p>
+          <span className="hidden lg:inline">24/7 chat support</span>
+          <span aria-hidden className="hidden text-white/30 lg:inline">
+            •
+          </span>
+          <a
+            href={SITE.appStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-signal hover:underline"
+          >
+            <Smartphone className="size-3.5" aria-hidden />
+            Get the Waggle Pet App
+            <span className="sr-only">(opens the App Store in a new tab)</span>
+          </a>
+        </div>
       </div>
       <header
         data-site-header
@@ -134,7 +149,7 @@ export function Header() {
             : "border-transparent",
         )}
       >
-        <div className="container-page flex h-16 items-center gap-4 lg:h-[72px]">
+        <div className="container-page relative flex h-16 items-center gap-4 lg:h-[72px]">
           <button
             type="button"
             className="-ml-2 inline-flex size-10 items-center justify-center rounded-full hover:bg-sand lg:hidden"
@@ -144,7 +159,11 @@ export function Header() {
           >
             <Menu className="size-5" />
           </button>
-          <Link href="/" aria-label="Waggle home" className="shrink-0">
+          <Link
+            href="/"
+            aria-label="Waggle home"
+            className="shrink-0 max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2"
+          >
             <Logo className="h-7 w-auto lg:h-8" />
           </Link>
 

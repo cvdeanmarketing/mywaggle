@@ -79,34 +79,51 @@ export function CompareTable({
     <div>
       {selectable && (
         <fieldset className="mb-6">
-          <legend className="text-sm font-bold">Choose up to 4 devices</legend>
+          <legend className="text-sm font-bold">
+            Choose up to 4 devices{" "}
+            <span className="font-normal text-muted">
+              ({chosen.length} of 4 selected)
+            </span>
+          </legend>
           <div className="mt-3 flex flex-wrap gap-2">
             {all.map((p) => {
               const on = chosen.includes(p.handle);
-              const disabled = !on && chosen.length >= 4;
               return (
                 <button
                   key={p.handle}
                   type="button"
                   aria-pressed={on}
-                  disabled={disabled}
                   onClick={() =>
-                    setChosen((c) =>
-                      on ? c.filter((x) => x !== p.handle) : [...c, p.handle],
-                    )
+                    setChosen((c) => {
+                      if (on)
+                        return c.length > 1
+                          ? c.filter((x) => x !== p.handle)
+                          : c;
+                      // Full: swap out the earliest pick instead of ignoring the click.
+                      return c.length >= 4
+                        ? [...c.slice(1), p.handle]
+                        : [...c, p.handle];
+                    })
                   }
                   className={cn(
-                    "rounded-full border px-3.5 py-1.5 text-sm font-bold transition-colors disabled:opacity-40",
+                    "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-bold transition-colors",
                     on
                       ? "border-ink bg-ink text-paper"
                       : "border-line bg-paper hover:border-ink",
                   )}
                 >
+                  {on && <Check className="size-3.5" aria-hidden />}
                   {p.name}
                 </button>
               );
             })}
           </div>
+          {chosen.length >= 4 && (
+            <p className="mt-3 text-xs text-muted">
+              Four selected. Picking another device swaps out the first one you
+              chose.
+            </p>
+          )}
         </fieldset>
       )}
 

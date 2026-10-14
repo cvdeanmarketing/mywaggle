@@ -12,7 +12,7 @@ export const SITE = {
   /** Store policies as shown in the live site's trust bar. */
   policies: {
     shipping: "Free shipping",
-    returns: "21-day returns",
+    returns: "Easy 21-day returns",
     warranty: "Lifetime limited warranty",
     support: "24/7 chat support",
   },
@@ -23,6 +23,9 @@ export const SITE = {
     { value: "20+", label: "Years of protection" },
     { value: "9M+", label: "Social family" },
   ],
+  /** iOS app listing. The App Store title still says "RVing with Ease"; the site just says Waggle Pet App. */
+  appStore:
+    "https://apps.apple.com/us/app/waggle-pet-app-rving-with-ease/id1143805780",
   amazonStore:
     "https://www.amazon.com/stores/Waggle/page/A049B7DE-7865-43EB-B361-F520DB0AF5A6",
   press: [

@@ -17,6 +17,7 @@ import { BundleBuilder } from "@/components/shop/BundleBuilder";
 import { CompareTable } from "@/components/shop/CompareTable";
 import { Quiz } from "@/components/shop/Quiz";
 import { CustomerReviews } from "@/components/home/CustomerReviews";
+import { PetSuite } from "@/components/home/PetSuite";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { Faq } from "@/components/ui/Faq";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -75,6 +76,7 @@ export default function HomePage() {
 
       <WhyWaggle />
       <Ecosystem />
+      <PetSuite />
 
       <section
         className="bg-sand pb-16 pt-10 sm:pb-20 sm:pt-12"

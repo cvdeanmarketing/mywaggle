@@ -121,7 +121,7 @@ export const FOOTER_NAV = [
       { label: "Pet Guide", href: "/learn/section/pet-guides" },
       { label: "Subscription Plans", href: "/plans" },
       { label: "Waggle Advisory Board", href: "/advisory-board" },
-      { label: "Return Policy", href: "/returns" },
+      { label: "Easy Returns", href: "/returns" },
       { label: "Support", href: "/support" },
     ],
   },
