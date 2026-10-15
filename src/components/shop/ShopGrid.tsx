@@ -185,7 +185,10 @@ export function ShopGrid({
 
       <div>
         <div className="flex items-center justify-between gap-3 border-b border-line pb-4">
-          <p className="text-sm text-muted" aria-live="polite">
+          <p
+            className="whitespace-nowrap text-sm text-muted"
+            aria-live="polite"
+          >
             {filtered.length} {filtered.length === 1 ? "product" : "products"}
           </p>
           <div className="flex items-center gap-2">

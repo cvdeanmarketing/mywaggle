@@ -96,7 +96,7 @@ export function BundleBuilder({
       <div className="space-y-8">
         {GROUPS.map((g) => (
           <fieldset key={g.title}>
-            <legend className="flex items-baseline gap-3">
+            <legend className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
               <span className="font-display text-xl font-semibold">
                 {g.title}
               </span>

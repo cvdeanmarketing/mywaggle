@@ -46,13 +46,13 @@ export default function ShopPage() {
       >
         <nav
           aria-label="Categories"
-          className="mt-8 flex gap-2 overflow-x-auto pb-1 scrollbar-none"
+          className="mt-8 flex flex-wrap gap-2 max-lg:justify-center"
         >
           {categories.map((c) => (
             <Link
               key={c.slug}
               href={c.slug === "bundles" ? "/bundles" : `/shop/${c.slug}`}
-              className="chip shrink-0 px-4 py-2 text-sm hover:border-ink"
+              className="chip px-4 py-2 text-sm hover:border-ink"
             >
               {c.navLabel}
             </Link>

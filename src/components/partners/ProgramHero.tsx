@@ -43,34 +43,34 @@ export function ProgramHero({
           />
         </div>
         <div className="mt-6 grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
-          <div>
+          <div className="max-lg:text-center">
             <p className="inline-flex rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em]">
               {tag}
             </p>
             <h1 className="mt-5 text-[40px] font-semibold leading-[1.02] sm:text-6xl">
               {title} <span className="text-signal">{accent}</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75 max-lg:mx-auto">
               {intro}
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mx-auto mt-8 flex max-w-[320px] flex-col items-center gap-3 sm:max-w-none sm:flex-row sm:justify-center lg:justify-start lg:mx-0 lg:gap-4">
               <a
                 href={primary.href}
-                className="inline-flex items-center gap-2 rounded-full bg-signal px-7 py-3.5 text-base font-bold text-white transition-colors hover:bg-signal-700"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-signal px-7 py-3.5 sm:w-auto text-base font-bold text-white transition-colors hover:bg-signal-700"
               >
                 {primary.label} <ArrowRight className="size-4" aria-hidden />
               </a>
               {secondary && (
                 <a
                   href={secondary.href}
-                  className="inline-flex items-center rounded-full border border-white/25 px-7 py-3.5 text-base font-bold transition-colors hover:bg-white/10"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 sm:w-auto text-base font-bold transition-colors hover:bg-white/10"
                 >
                   {secondary.label}
                 </a>
               )}
             </div>
             {pills && (
-              <ul className="mt-8 flex flex-wrap gap-2 text-sm font-bold">
+              <ul className="mt-8 flex flex-wrap justify-center gap-2 text-sm font-bold lg:justify-start">
                 {pills.map((p) => (
                   <li
                     key={p}

@@ -167,7 +167,7 @@ export default function PartnersPage() {
             />
           </div>
           <div className="mt-6 grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
-            <div>
+            <div className="max-lg:text-center">
               <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em]">
                 <PawPrint className="size-4 text-signal" aria-hidden />{" "}
                 Ambassadors wanted
@@ -176,27 +176,27 @@ export default function PartnersPage() {
                 Join the pack that keeps pets{" "}
                 <span className="text-signal">safe on the road.</span>
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75 max-lg:mx-auto">
                 RVers, pet parents, trainers and creators: represent Waggle at
                 events, share your story, shape new products and earn perks
                 along the way.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mx-auto mt-8 flex max-w-[320px] flex-col items-center gap-3 sm:max-w-none sm:flex-row sm:justify-center lg:justify-start lg:mx-0 lg:gap-4">
                 <a
                   href="#ambassador"
-                  className="inline-flex items-center gap-2 rounded-full bg-signal px-7 py-3.5 text-base font-bold text-white transition-colors hover:bg-signal-700"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-signal px-7 py-3.5 sm:w-auto text-base font-bold text-white transition-colors hover:bg-signal-700"
                 >
                   Become an ambassador{" "}
                   <ArrowRight className="size-4" aria-hidden />
                 </a>
                 <a
                   href="#refer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-bold transition-colors hover:bg-white/10"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 sm:w-auto text-base font-bold transition-colors hover:bg-white/10"
                 >
                   Refer a friend
                 </a>
               </div>
-              <ul className="mt-8 flex flex-wrap gap-2 text-sm font-bold">
+              <ul className="mt-8 flex flex-wrap justify-center gap-2 text-sm font-bold lg:justify-start">
                 {[
                   "Event rep",
                   "Brand advocate",

@@ -457,7 +457,7 @@ export function Education() {
   return (
     <section className="py-12 sm:py-20" aria-labelledby="learn-title">
       <div className="container-page">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-6 max-md:items-center md:flex-row md:items-end">
           <SectionHeading
             id="learn-title"
             align="left"
@@ -510,7 +510,7 @@ export function Education() {
         </ul>
 
         <div className="mt-6 grid overflow-hidden rounded-[var(--radius-card)] bg-sand lg:grid-cols-[1fr_1.4fr]">
-          <div className="p-8 sm:p-10">
+          <div className="p-8 max-lg:text-center sm:p-10">
             <p className="eyebrow">Waggle Live</p>
             <h3 className="mt-3 text-3xl font-semibold">
               Free expert sessions. Real answers.

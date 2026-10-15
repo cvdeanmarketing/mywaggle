@@ -83,7 +83,7 @@ export default function HomePage() {
         aria-labelledby="compare-title"
       >
         <div className="container-page">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-6 max-md:items-center md:flex-row md:items-end">
             <SectionHeading
               id="compare-title"
               align="left"

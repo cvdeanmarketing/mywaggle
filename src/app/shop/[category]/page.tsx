@@ -91,7 +91,10 @@ export default async function CategoryPage({
           aria-labelledby="guides-title"
         >
           <div className="container-page">
-            <h2 id="guides-title" className="text-2xl font-semibold">
+            <h2
+              id="guides-title"
+              className="text-center text-2xl font-semibold md:text-left"
+            >
               Helpful guides
             </h2>
             <ul className="mt-6 grid gap-3 md:grid-cols-2">

@@ -29,7 +29,7 @@ export function BundleHero({ maxSaving }: { maxSaving: number }) {
         className="pointer-events-none absolute -bottom-48 left-1/4 size-[28rem] rounded-full bg-signal/10 blur-3xl"
       />
       <div className="container-page relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-        <div>
+        <div className="max-lg:text-center">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-paper/90">
             <Sparkles className="size-3.5 text-signal" aria-hidden /> Bundle
             builder
@@ -41,7 +41,7 @@ export function BundleHero({ maxSaving }: { maxSaving: number }) {
             Build your own bundle.
             <span className="block text-signal">Pick. Pair. Save.</span>
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-dark">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-dark max-lg:mx-auto">
             Choose the monitors and cameras you need. When your picks match a
             published Waggle bundle, the bundle price applies automatically
             {maxSaving > 0 ? (
@@ -52,7 +52,7 @@ export function BundleHero({ maxSaving }: { maxSaving: number }) {
             ) : null}
             .
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 lg:justify-start">
             <Link
               href="/bundles#build-a-bundle"
               className="inline-flex items-center gap-2 rounded-full bg-signal px-7 py-3.5 text-base font-bold text-paper transition-colors hover:bg-signal-700"
@@ -102,7 +102,7 @@ export function BundleHero({ maxSaving }: { maxSaving: number }) {
                 </div>
               ))}
             </div>
-            <div className="mt-5 flex items-center justify-between gap-3 rounded-2xl bg-white/10 px-4 py-3 text-sm">
+            <div className="mt-5 flex flex-col items-center gap-1 rounded-2xl bg-white/10 px-4 py-3 text-center text-sm sm:flex-row sm:justify-between sm:gap-3 sm:text-left">
               <span className="text-paper/85">Your setup, one app</span>
               <span className="font-bold text-signal">
                 Bundle price applies automatically

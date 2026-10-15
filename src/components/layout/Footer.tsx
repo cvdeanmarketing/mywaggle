@@ -29,13 +29,16 @@ export function Footer() {
         </ul>
       </div>
       <div className="container-page grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr]">
-        <div>
-          <Logo tone="light" className="h-8 w-auto" />
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-dark">
+        <div className="max-lg:text-center">
+          <Logo
+            tone="light"
+            className="h-8 w-auto max-lg:mx-auto max-lg:block"
+          />
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-dark max-lg:mx-auto">
             Connected pet safety for home, travel and the open road. Built for
             pets, trusted by pet parents.
           </p>
-          <div className="mt-6 max-w-sm">
+          <div className="mt-6 max-w-sm max-lg:mx-auto">
             <p className="text-sm font-bold">
               Pet safety tips and product news
             </p>

@@ -342,11 +342,11 @@ export default async function ProductPage({
 
       {/* Connectivity explained */}
       <section className="bg-sand py-16 sm:py-20" aria-labelledby="conn-title">
-        <div className="container-page">
+        <div className="container-page max-md:text-center">
           <p className="eyebrow">How it connects</p>
           <h2
             id="conn-title"
-            className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl"
+            className="mt-3 max-w-2xl text-3xl font-semibold max-md:mx-auto sm:text-4xl"
           >
             {p.connectivityNote}
           </h2>
@@ -357,7 +357,7 @@ export default async function ProductPage({
                 <li
                   key={key}
                   className={cn(
-                    "rounded-2xl p-5",
+                    "rounded-2xl p-5 max-md:text-left",
                     on ? "bg-ink text-paper" : "bg-paper text-ink/60",
                   )}
                 >
@@ -460,7 +460,10 @@ export default async function ProductPage({
           aria-labelledby="pfaq-title"
         >
           <div className="container-page grid gap-10 lg:grid-cols-[0.7fr_1.6fr]">
-            <h2 id="pfaq-title" className="text-3xl font-semibold">
+            <h2
+              id="pfaq-title"
+              className="text-center text-3xl font-semibold lg:text-left"
+            >
               Questions about {p.name}
             </h2>
             <Faq items={faqs} withSchema />

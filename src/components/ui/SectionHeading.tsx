@@ -20,7 +20,9 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        align === "center" && "mx-auto text-center",
+        align === "center"
+          ? "mx-auto text-center"
+          : "max-md:mx-auto max-md:text-center",
         "max-w-4xl",
         className,
       )}
@@ -43,6 +45,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 max-w-2xl text-lg leading-relaxed",
+            "max-md:mx-auto",
             align === "center" && "mx-auto",
             tone === "dark" ? "text-muted-dark" : "text-muted",
           )}

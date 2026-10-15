@@ -116,17 +116,17 @@ export default function LearnPage() {
         <div className="container-page pb-12 pt-8 sm:pb-16">
           <Breadcrumbs items={[{ name: "Wag Reads", path: "/learn" }]} />
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
-            <div>
+            <div className="max-lg:text-center">
               <p className="eyebrow text-signal">The Waggle Blog</p>
               <h1 className="mt-3 text-4xl font-semibold leading-[1.05] sm:text-[52px]">
                 RV Tips, Pet Safety &amp; Expert Guides for Life on the Road
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted max-lg:mx-auto">
                 From campground picks to vet-backed pet health guides —
                 everything that makes RV life better for you and your animals,
                 in one place.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <Link
                   href="/learn/section/rving-with-pets"
                   className="btn-primary px-6 py-3"
