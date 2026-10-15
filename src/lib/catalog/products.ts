@@ -1,0 +1,1460 @@
+import { SRC } from "./sources";
+import type { Price, Product, SourceRef, VerificationStatus } from "./types";
+
+function usd(
+  amount: number,
+  sources: SourceRef[],
+  opts: { compareAt?: number; status?: VerificationStatus; note?: string } = {},
+): Price {
+  return {
+    amount,
+    compareAt: opts.compareAt,
+    currency: "USD",
+    status: opts.status ?? "verified",
+    note: opts.note,
+    sources,
+  };
+}
+
+const NO_BOOSTER = "Not compatible with cellphone signal boosters.";
+const OWN_PLAN =
+  "Uses Waggle's built-in cellular service. Your existing phone plan can't be linked.";
+
+export const products: Product[] = [
+  // ───────────────────────── Pet temperature & safety monitors ─────────────────────────
+  {
+    handle: "pet-monitor-pro-plus",
+    kind: "device",
+    name: "Pet Monitor Pro+",
+    headline:
+      "Know the moment it gets too hot, too cold, or the power goes out.",
+    tagline:
+      "Temperature, humidity, geofence and power-loss alerts over built-in 4G.",
+    description:
+      "Waggle's flagship monitor watches temperature and humidity around your pet and alerts you by app, text and email the moment conditions cross your limits, with no WiFi required. Pro+ adds a GPS geofence (RVSentry), an on-device display, and hub mode for Waggle smart sensors.",
+    badge: "Best Seller",
+    categories: ["pet-safety", "travel-adventure", "rv-solutions", "no-wifi"],
+    connectivity: ["cellular"],
+    connectivityNote:
+      "Built-in 4G on three U.S. networks. It works anywhere there's cell coverage, with no WiFi or hotspot needed.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "gps-geofence",
+      "on-device-display",
+      "sensor-hub",
+    ],
+    useCases: [
+      "Pets left in an RV, van or car",
+      "Pets at home during heat waves or power outages",
+      "Anywhere without WiFi",
+    ],
+    features: [
+      {
+        title: "Temperature & humidity",
+        detail:
+          "Set your own safe range. Alerts go out by app, text and email at the same time.",
+      },
+      {
+        title: "Power-loss alerts",
+        detail:
+          "Know if shore power or your home's power drops, so the AC doesn't fail silently.",
+      },
+      {
+        title: "RVSentry geofence",
+        detail: "GPS boundary alerts if your RV or vehicle moves.",
+      },
+      {
+        title: "On-device display",
+        detail: "Read the current temperature and humidity at a glance.",
+      },
+      {
+        title: "Hub mode",
+        detail:
+          "Connects compatible Waggle smart sensors, such as door and water-leak sensors.",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "Built-in 4G on 3 networks",
+        status: "verified",
+      },
+      {
+        label: "Monitors",
+        value: "Temperature, humidity, power status",
+        status: "verified",
+      },
+      {
+        label: "Location",
+        value: "GPS geofence (RVSentry)",
+        status: "verified",
+      },
+      {
+        label: "Backup battery",
+        value: "Yes",
+        status: "conflicting",
+        note: "Published runtimes range from 24 to 96 hours depending on page and model generation.",
+      },
+      { label: "WiFi required", value: "No", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "pro-plus-default",
+        title: "Pet Monitor Pro+",
+        available: true,
+        price: usd(169, [SRC.petMonitor, SRC.store], { compareAt: 339 }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: [
+      "Works with the Waggle Pet app (iOS & Android)",
+      "Pairs with any Waggle camera in the same app",
+      NO_BOOSTER,
+      OWN_PLAN,
+    ],
+    related: ["rv-4g-mini-camera", "wagglecam-pro", "rv-wifi-mini-cam"],
+    art: "monitor-pro",
+    images: [],
+    faqs: [
+      {
+        q: "Do I need WiFi?",
+        a: "No. Pro+ has its own built-in 4G connection, so it works in your home, vehicle or RV anywhere there's cell coverage.",
+      },
+      {
+        q: "Is a subscription required?",
+        a: "Yes. A Waggle 4G Network Plan activates the device's cellular connection. Plan prices are shown on this page before you buy.",
+      },
+      {
+        q: "Can I use my own phone plan?",
+        a: "No. Waggle devices use Waggle's built-in cellular service. Your existing phone plan can't be linked.",
+      },
+    ],
+    sourceUrl: SRC.petMonitor.url,
+    sources: [SRC.petMonitor, SRC.store, SRC.home, SRC.petMonitorHelp],
+    merchRank: 1,
+  },
+  {
+    handle: "pet-monitor-lite-plus",
+    kind: "device",
+    name: "Pet Monitor Lite+",
+    headline: "Essential temperature protection, without needing WiFi.",
+    tagline: "Temperature, humidity and power-loss alerts over 4G.",
+    description:
+      "The simplest way to know your pet's space is safe. Lite+ tracks temperature and humidity and warns you about power loss over its own 4G connection, with a backup battery that keeps it reporting during an outage.",
+    categories: [
+      "pet-safety",
+      "travel-adventure",
+      "rv-solutions",
+      "no-wifi",
+      "home-property",
+    ],
+    connectivity: ["cellular"],
+    connectivityNote:
+      "Built-in 4G. Works anywhere there's cell coverage, with no WiFi or hotspot needed.",
+    capabilities: ["temperature", "humidity", "power-loss-alerts"],
+    useCases: [
+      "Home pet safety during the workday",
+      "Pets in an RV or campsite",
+      "Places with unreliable or no WiFi",
+    ],
+    features: [
+      {
+        title: "Temperature & humidity",
+        detail: "Custom thresholds with app, text and email alerts.",
+      },
+      {
+        title: "Power-loss alerts",
+        detail: "Get notified the moment power drops.",
+      },
+      {
+        title: "96-hour backup battery",
+        detail: "Keeps alerting through power outages.",
+      },
+      {
+        title: "Plug-and-play",
+        detail: "Peel-and-stick mount, running in about 5 minutes.",
+      },
+      {
+        title: "Alerts for your whole list",
+        detail:
+          "Text, email and app alerts go to everyone on your list at once.",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "Built-in 4G on 3 networks",
+        status: "verified",
+      },
+      {
+        label: "Monitors",
+        value: "Temperature, humidity, power status",
+        status: "verified",
+      },
+      { label: "Backup battery", value: "Up to 96 hours", status: "verified" },
+      {
+        label: "Geofence",
+        value: "Not included (see Pro+)",
+        status: "verified",
+      },
+      { label: "WiFi required", value: "No", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "lite-plus-default",
+        title: "Pet Monitor Lite+",
+        available: true,
+        price: usd(99, [SRC.petMonitor, SRC.store], {
+          compareAt: 199,
+          note: "Pet Monitor product page lists $99 (compare $199). An exclusive-deals landing page separately lists $79.",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: [
+      "Works with the Waggle Pet app (iOS & Android)",
+      "Pairs with any Waggle camera in the same app",
+      NO_BOOSTER,
+      OWN_PLAN,
+    ],
+    related: ["wagglecam-pro", "rv-wifi-mini-cam", "rv-4g-mini-camera"],
+    art: "monitor-lite",
+    images: [],
+    faqs: [
+      {
+        q: "What's the difference between Lite+ and Pro+?",
+        a: "Both monitor temperature, humidity and power over 4G. Pro+ adds a GPS geofence, an on-device display and hub mode for smart sensors.",
+      },
+      {
+        q: "Is a subscription required?",
+        a: "Yes. A 4G Network Plan is required to activate Lite+.",
+      },
+    ],
+    sourceUrl: SRC.petMonitor.url,
+    sources: [SRC.petMonitor, SRC.store, SRC.chooseBundle],
+    merchRank: 3,
+  },
+  {
+    handle: "pet-monitor-pro-plus-satellite",
+    kind: "device",
+    name: "Pet Monitor Pro+ Satellite",
+    headline: "Critical alerts that keep going past the last cell tower.",
+    tagline: "Everything in Pro+, with satellite backup for critical alerts.",
+    description:
+      "For travel beyond reliable coverage. Pro+ Satellite uses 4G when it can and switches critical alerts to a satellite path when cell signal drops, so a temperature emergency still reaches you.",
+    badge: "New Launch",
+    categories: ["pet-safety", "travel-adventure", "rv-solutions", "no-wifi"],
+    connectivity: ["cellular", "satellite"],
+    connectivityNote:
+      "Built-in 4G for everyday monitoring. When cell signal drops, critical alerts are sent over satellite. Live data and routine updates still rely on cellular.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "gps-geofence",
+      "on-device-display",
+      "satellite-alerts",
+    ],
+    useCases: [
+      "Boondocking and remote campsites",
+      "Long-haul travel through dead zones",
+      "Anyone who can't risk a missed alert",
+    ],
+    features: [
+      {
+        title: "Satellite-backed critical alerts",
+        detail:
+          "Switches to satellite for critical alerts when cell signal drops.",
+      },
+      {
+        title: "Everything in Pro+",
+        detail:
+          "Temperature, humidity, power loss, geofence and on-device display.",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "4G LTE + satellite backup for critical alerts",
+        status: "verified",
+      },
+      {
+        label: "Monitors",
+        value: "Temperature, humidity, power status",
+        status: "verified",
+      },
+      { label: "WiFi required", value: "No", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "pro-plus-sat-default",
+        title: "Pet Monitor Pro+ Satellite",
+        available: true,
+        price: usd(299, [SRC.shopCollection, SRC.petMonitor], {
+          status: "conflicting",
+          note: "Sale price $299 is consistent. Strike-through price varies ($399 vs $599), so no compare-at price is shown.",
+        }),
+      },
+    ],
+    planId: "satellite",
+    compatibility: [
+      "Works with the Waggle Pet app (iOS & Android)",
+      "Requires the Pro+ Satellite Plan (covers cellular and satellite)",
+      OWN_PLAN,
+    ],
+    related: ["rv-4g-mini-camera", "solar-panel-4g-mini"],
+    art: "monitor-satellite",
+    images: [],
+    faqs: [
+      {
+        q: "Does satellite stream live data?",
+        a: "Satellite is a backup path for critical alerts. Everyday monitoring and app data use 4G.",
+      },
+      {
+        q: "Which plan do I need?",
+        a: "The Pro+ Satellite Plan, which covers both cellular and satellite-backed critical alerts.",
+      },
+    ],
+    sourceUrl: SRC.shopCollection.url,
+    sources: [SRC.shopCollection, SRC.petMonitor, SRC.home],
+    merchRank: 5,
+  },
+
+  // ───────────────────────── Cameras ─────────────────────────
+  {
+    handle: "wagglecam-pro",
+    kind: "device",
+    name: "WaggleCam Pro",
+    headline: "See them, talk to them, and toss a treat from anywhere.",
+    tagline: "Home WiFi pet camera with 360° tracking and a treat tosser.",
+    description:
+      "A home pet camera built around connection. WaggleCam Pro rotates 360° and auto-tracks your pet, supports two-way talk and color night vision, and tosses treats on demand or on a schedule from the app.",
+    categories: ["pet-cameras", "home-property"],
+    connectivity: ["wifi"],
+    connectivityNote:
+      "Uses your home WiFi (dual-band 2.4 GHz or 5 GHz). Best for homes with reliable internet.",
+    capabilities: [
+      "live-video",
+      "two-way-audio",
+      "night-vision",
+      "pan-tilt-tracking",
+      "treat-tossing",
+      "local-recording",
+    ],
+    useCases: [
+      "Checking in on pets at home",
+      "Separation-anxiety moments",
+      "Rewarding good behavior remotely",
+    ],
+    features: [
+      {
+        title: "360° auto-tracking",
+        detail: "Follows your pet around the room.",
+      },
+      {
+        title: "Treat tossing",
+        detail: "Toss on demand or schedule treats in the app.",
+      },
+      {
+        title: "Two-way talk",
+        detail: "Hear and speak to your pet in real time.",
+      },
+      { title: "Color night vision", detail: "See clearly after dark." },
+      {
+        title: "SD card recording",
+        detail: "Records locally with no cloud fee required.",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "Dual-band WiFi (2.4 / 5 GHz)",
+        status: "verified",
+      },
+      {
+        label: "Rotation",
+        value: "360° with auto-tracking",
+        status: "verified",
+      },
+      {
+        label: "Resolution",
+        value: "2K per retail listings, 1080p per Waggle blog",
+        status: "conflicting",
+      },
+      {
+        label: "Placement",
+        value: "Tabletop (not wall or ceiling mounted)",
+        status: "verified",
+      },
+      { label: "Storage", value: "SD card", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "wagglecam-pro-default",
+        title: "WaggleCam Pro",
+        available: true,
+        price: usd(99, [SRC.store], { compareAt: 199 }),
+      },
+    ],
+    planId: "wagglecam-cloud",
+    compatibility: [
+      "Requires home WiFi (2.4 or 5 GHz)",
+      "Works in the same Waggle app as Waggle monitors",
+    ],
+    related: ["pet-monitor-lite-plus", "rv-wifi-mini-cam"],
+    art: "wagglecam-pro",
+    images: [],
+    faqs: [
+      {
+        q: "Does it need a subscription?",
+        a: "No. Live view and SD recording work without a plan. An optional cloud plan adds cloud features.",
+      },
+      {
+        q: "Will it work in an RV?",
+        a: "Only with a reliable WiFi connection. For places without WiFi, choose a 4G camera.",
+      },
+    ],
+    sourceUrl: SRC.wagglecam.url,
+    sources: [SRC.store, SRC.wagglecam, SRC.wagglecamHelp, SRC.wagglecamSub],
+    merchRank: 4,
+  },
+  {
+    handle: "rv-wifi-mini-cam",
+    kind: "device",
+    name: "RV WiFi Mini Cam",
+    headline:
+      "A compact AI camera that follows your pet wherever there's WiFi.",
+    tagline: "Pan & tilt AI camera with pet detection and two-way audio.",
+    description:
+      "Small enough for a camper shelf or a bookcase. The RV WiFi Mini Cam pans and tilts for full-room coverage, auto-tracks movement, and lets you talk to your pet over WiFi, at home or anywhere with a reliable connection.",
+    categories: ["pet-cameras", "home-property", "rv-solutions"],
+    connectivity: ["wifi"],
+    connectivityNote:
+      "Uses WiFi (dual-band 2.4 / 5 GHz). Needs a reliable WiFi network at home, in the RV or at the campground.",
+    capabilities: [
+      "live-video",
+      "two-way-audio",
+      "night-vision",
+      "pan-tilt-tracking",
+      "local-recording",
+    ],
+    useCases: [
+      "Indoor pet monitoring at home",
+      "RVs and campers with WiFi",
+      "A second room view alongside a WaggleCam",
+    ],
+    features: [
+      {
+        title: "AI auto-tracking",
+        detail: "Pans and tilts to follow movement in view.",
+      },
+      { title: "Two-way audio", detail: "Talk to your pet from the app." },
+      { title: "Night vision", detail: "Visibility up to 10 m in the dark." },
+      {
+        title: "Local storage",
+        detail: "SD card up to 128 GB (64 GB card included in this version).",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "Dual-band WiFi (2.4 / 5 GHz)",
+        status: "verified",
+      },
+      {
+        label: "Field of view",
+        value: "110° with pan & tilt",
+        status: "verified",
+      },
+      { label: "Resolution", value: "Up to 3 MP", status: "verified" },
+      { label: "Night vision", value: "Up to 10 m", status: "verified" },
+      { label: "Power", value: "USB-C", status: "verified" },
+      { label: "Use", value: "Indoor only", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "wifi-mini-64",
+        title: "64 GB",
+        available: true,
+        price: usd(59, [SRC.store, SRC.rvMiniCam], { compareAt: 119 }),
+      },
+    ],
+    planId: "wifi-mini-cloud",
+    compatibility: [
+      "Requires WiFi (2.4 or 5 GHz)",
+      "Indoor use only",
+      "Works in the same Waggle app as Waggle monitors",
+    ],
+    related: ["pet-monitor-lite-plus", "pet-monitor-pro-plus"],
+    art: "wifi-mini-cam",
+    images: [],
+    faqs: [
+      {
+        q: "Can I mount it outside?",
+        a: "No. It's designed for indoor use. For outdoor or no-WiFi monitoring, see the RV 4G Mini Camera.",
+      },
+    ],
+    sourceUrl: SRC.rvMiniCam.url,
+    sources: [SRC.rvMiniCam, SRC.rvMiniCamFaq, SRC.home],
+    merchRank: 6,
+  },
+  {
+    handle: "rv-4g-mini-camera",
+    kind: "device",
+    name: "RV 4G Mini Camera",
+    headline: "Live video anywhere there's cell signal. No WiFi, no outlet.",
+    tagline: "Portable 4G camera with months-long battery and a solar option.",
+    description:
+      "A battery-powered camera with its own 4G connection, built for places WiFi can't reach. Mount it inside an RV, at a campsite, a cabin or a property gate, then check in live, talk through it, and get AI person alerts.",
+    badge: "Most Popular",
+    categories: [
+      "pet-cameras",
+      "travel-adventure",
+      "rv-solutions",
+      "no-wifi",
+      "home-property",
+    ],
+    connectivity: ["cellular"],
+    connectivityNote:
+      "Built-in multi-carrier 4G (AT&T, Verizon and T-Mobile). No WiFi needed. Works anywhere with cell coverage.",
+    capabilities: [
+      "live-video",
+      "two-way-audio",
+      "night-vision",
+      "battery-powered",
+      "solar-option",
+      "weather-resistant",
+      "local-recording",
+    ],
+    useCases: [
+      "RVs and campers",
+      "Cabins, sheds and properties without WiFi",
+      "Portable monitoring while traveling",
+    ],
+    features: [
+      {
+        title: "Built-in 4G",
+        detail: "Streams live video over cellular, with no WiFi needed.",
+      },
+      {
+        title: "Up to 3 months per charge",
+        detail: "9,000 mAh battery, with an optional solar panel.",
+      },
+      {
+        title: "2K video & color night vision",
+        detail: "Sharp video day and night, with two-way audio.",
+      },
+      {
+        title: "Solar option",
+        detail: "Add the solar panel for continuous power.",
+      },
+      {
+        title: "AI human detection",
+        detail: "Person alerts, plus siren and spotlight deterrence.",
+      },
+      {
+        title: "Weather resistant",
+        detail: "IP65 rated for indoor and outdoor use.",
+      },
+    ],
+    specs: [
+      {
+        label: "Connectivity",
+        value: "4G LTE on AT&T, Verizon & T-Mobile",
+        status: "verified",
+      },
+      {
+        label: "Video",
+        value: "2K HD, color night vision",
+        status: "verified",
+      },
+      {
+        label: "Battery",
+        value: "9,000 mAh, up to 3 months per charge",
+        status: "verified",
+      },
+      {
+        label: "Solar",
+        value: "Optional solar panel ($29 add-on)",
+        status: "verified",
+      },
+      { label: "Weather rating", value: "IP65", status: "verified" },
+      { label: "Storage", value: "microSD", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "4g-mini-1",
+        title: "1 camera",
+        available: true,
+        price: usd(99, [SRC.rv4gMini, SRC.store], {
+          compareAt: 199,
+          note: "Multi-pack prices are not shown until confirmed (one snapshot showed $269, compare $539).",
+        }),
+      },
+    ],
+    planId: "cellular-camera",
+    compatibility: [
+      "Works with the Waggle Pet app (iOS & Android)",
+      "Pairs with Waggle Pet Monitors in the same app",
+      "Solar panel sold separately",
+      OWN_PLAN,
+    ],
+    related: [
+      "solar-panel-4g-mini",
+      "tripod",
+      "pet-monitor-pro-plus",
+      "pet-monitor-lite-plus",
+    ],
+    art: "mini-cam-4g",
+    images: [],
+    gallery: [
+      {
+        src: "/images/lifestyle/rv-4g-mini-cams.webp",
+        alt: "RV 4G Mini Cam mounted on a wooden post beside the new RV 4G Mini Cam Lite",
+        width: 1400,
+        height: 1150,
+      },
+    ],
+    faqs: [
+      {
+        q: "What happens without a subscription?",
+        a: "The camera still records to its SD card, but live view and alerts need the 4G Camera Plan.",
+      },
+      {
+        q: "Is there a trial?",
+        a: "Yes. A 3-day free trial with no credit card required, per Waggle's product page.",
+      },
+    ],
+    reviews: {
+      rating: 4.2,
+      count: 30,
+      source: "Verified reviews on mywaggle.com",
+      sourceUrl: SRC.rv4gMini.url,
+    },
+    sourceUrl: SRC.rv4gMini.url,
+    sources: [
+      SRC.rv4gMini,
+      SRC.rv4gMiniHelp,
+      SRC.rvSecurityCamera,
+      SRC.store,
+      SRC.home,
+    ],
+    merchRank: 2,
+  },
+  {
+    handle: "rv-4g-camera",
+    kind: "device",
+    name: "RV 4G Camera",
+    headline: "Solar-powered 4G security for your rig and your site.",
+    tagline:
+      "Solar 4G pan-and-tilt camera with 2K video and always-on recording.",
+    description:
+      "A solar-powered cellular security camera for watching over your RV, campsite or property where there's no WiFi. It rotates 350°, streams 2K video day and night, detects motion and people, and can sound an alarm and switch on a spotlight.",
+    categories: ["rv-solutions", "home-property", "no-wifi"],
+    connectivity: ["cellular"],
+    connectivityNote: "Built-in 4G LTE. No WiFi needed. Solar-powered.",
+    capabilities: [
+      "live-video",
+      "two-way-audio",
+      "night-vision",
+      "pan-tilt-tracking",
+      "battery-powered",
+      "solar-option",
+      "weather-resistant",
+    ],
+    useCases: [
+      "RV and campsite security",
+      "Remote property monitoring",
+      "Outdoor monitoring without WiFi",
+    ],
+    features: [
+      {
+        title: "Built-in 4G",
+        detail: "Streams over cellular, with no WiFi needed.",
+      },
+      {
+        title: "Solar powered",
+        detail: "Keeps itself charged for longer, uninterrupted monitoring.",
+      },
+      {
+        title: "Always-on video",
+        detail: "AOV recording, with a power-saving mode when you need it.",
+      },
+      {
+        title: "Smart detection",
+        detail:
+          "Motion and human detection, with alarm and spotlight deterrence.",
+      },
+      {
+        title: "350° rotation & 2K",
+        detail: "Pan around your site in sharp detail, day and night.",
+      },
+      {
+        title: "Two-way audio",
+        detail: "Talk through the camera from your phone.",
+      },
+    ],
+    specs: [
+      { label: "Connectivity", value: "4G LTE", status: "verified" },
+      {
+        label: "Video",
+        value: "2K, 350° rotation, day & night mode",
+        status: "verified",
+      },
+      {
+        label: "Detection",
+        value: "Motion & human, alarm & spotlight",
+        status: "verified",
+      },
+      {
+        label: "Battery",
+        value: "Up to 15 days, solar-powered",
+        status: "verified",
+      },
+      { label: "Weather rating", value: "IP65", status: "verified" },
+      { label: "Use", value: "Indoor & outdoor", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "4g-camera-default",
+        title: "RV 4G Camera",
+        available: true,
+        price: usd(149, [SRC.store], { compareAt: 299 }),
+      },
+    ],
+    planId: "cellular-camera",
+    compatibility: ["Works with the Waggle Pet app (iOS & Android)", OWN_PLAN],
+    related: ["pet-monitor-pro-plus", "rv-observation-system"],
+    art: "camera-4g",
+    images: [],
+    gallery: [
+      {
+        src: "/images/lifestyle/rv-4g-camera-on-rv.webp",
+        alt: "RV 4G Camera mounted on the corner of a motorhome parked in the mountains",
+        width: 914,
+        height: 596,
+      },
+    ],
+    faqs: [
+      {
+        q: "How is this different from the RV 4G Mini Camera?",
+        a: "Both use built-in 4G. The 4G Camera is solar-powered out of the box. The Mini is battery-first and smaller, with an optional solar panel.",
+      },
+    ],
+    sourceUrl: SRC.rv4gCamera.url,
+    sources: [SRC.store, SRC.rv4gCamera, SRC.rv4gCameraHelp],
+    merchRank: 8,
+  },
+  {
+    handle: "waggle-4g-travelcam",
+    kind: "device",
+    name: "Waggle 4G TravelCam",
+    headline: "A grab-and-go 4G camera for every trip.",
+    tagline:
+      "Compact 2K 4G camera with a magnetic mount and 30–45 day battery.",
+    description:
+      "The most portable way to see your pet on the road. TravelCam connects over built-in 4G, snaps onto metal surfaces with a magnetic mount, and runs for weeks on a charge, so it moves from the car to the hotel to the campsite with you.",
+    categories: ["pet-cameras", "travel-adventure", "no-wifi"],
+    connectivity: ["cellular"],
+    connectivityNote:
+      "Built-in 4G. No WiFi needed. Works anywhere with cell coverage.",
+    capabilities: ["live-video", "battery-powered"],
+    useCases: [
+      "Road trips and hotel stays",
+      "Vehicles and campers",
+      "Temporary setups without WiFi",
+    ],
+    features: [
+      {
+        title: "Built-in 4G",
+        detail: "Streams over cellular, with no WiFi needed.",
+      },
+      { title: "30–45 day battery", detail: "Weeks of use between charges." },
+      {
+        title: "Magnetic mount",
+        detail: "Place it in seconds, move it just as fast.",
+      },
+      { title: "2K video", detail: "Clear live view from the Waggle app." },
+    ],
+    specs: [
+      { label: "Connectivity", value: "Built-in 4G", status: "verified" },
+      { label: "Video", value: "2K", status: "verified" },
+      { label: "Battery", value: "30–45 days", status: "verified" },
+      { label: "Mount", value: "Magnetic", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "travelcam-default",
+        title: "Waggle 4G TravelCam",
+        available: true,
+        price: usd(79, [SRC.cameras], { compareAt: 129 }),
+      },
+    ],
+    planId: "cellular-camera",
+    compatibility: [
+      "Works with the Waggle Pet app (iOS & Android)",
+      "Pairs with Waggle Pet Monitors in the same app",
+      OWN_PLAN,
+    ],
+    related: ["pet-monitor-pro-plus", "pet-monitor-lite-plus"],
+    art: "travelcam",
+    images: [],
+    faqs: [
+      {
+        q: "TravelCam or RV 4G Mini Camera?",
+        a: "TravelCam is the most portable, with a magnetic mount and a 30–45 day battery. The RV 4G Mini Camera has a longer battery (up to 3 months), a solar option and IP65 weather resistance for longer-term placement.",
+      },
+    ],
+    sourceUrl: SRC.cameras.url,
+    sources: [SRC.cameras],
+    merchRank: 9,
+  },
+  {
+    handle: "rv-observation-system",
+    kind: "device",
+    name: "RV Observation System",
+    headline: "See what's behind you before you back in.",
+    tagline: 'Wireless 1080p solar camera with a dedicated 7" display.',
+    description:
+      "A wireless backup and observation camera for your rig. The 1080p camera runs on its own battery and solar panel, and the 7-inch HD display plugs into 12 V power in the cab, with no app or WiFi needed while you drive.",
+    badge: "New Launch",
+    categories: ["rv-solutions", "travel-adventure"],
+    connectivity: ["local-wireless"],
+    connectivityNote:
+      "Camera and display talk directly over a dedicated wireless link (up to 50 m). No WiFi, cellular or subscription involved.",
+    capabilities: [
+      "driving-visibility",
+      "live-video",
+      "battery-powered",
+      "solar-option",
+      "weather-resistant",
+    ],
+    useCases: [
+      "Backing up and parking an RV",
+      "Watching a towed vehicle or trailer",
+      "Hitching",
+    ],
+    features: [
+      {
+        title: '7" HD display',
+        detail:
+          "1024 × 600, real-time view with no streaming lag and no internet needed.",
+      },
+      {
+        title: "Records to SD card",
+        detail: "Continuous on-device recording, stored right on the display.",
+      },
+      {
+        title: "Solar-powered 1080p camera",
+        detail:
+          "9,600 mAh battery with an integrated solar panel. No power wiring from your trailer.",
+      },
+      {
+        title: "Multi-camera switching",
+        detail: "Switch between camera views from the display.",
+      },
+      {
+        title: "Night vision & IP67",
+        detail: "Infrared night vision in a rugged, weatherproof housing.",
+      },
+    ],
+    specs: [
+      {
+        label: "Display",
+        value: '7" 1024 × 600 HD, 12 V DC plug-and-play',
+        status: "verified",
+      },
+      {
+        label: "Recording",
+        value: "SD card on the display",
+        status: "verified",
+      },
+      {
+        label: "Camera",
+        value: "1080p, IP67, infrared night vision",
+        status: "verified",
+      },
+      {
+        label: "Multi-camera",
+        value: "Camera switching on the display",
+        status: "verified",
+      },
+      { label: "Range", value: "Up to 50 m wireless", status: "verified" },
+      {
+        label: "Camera power",
+        value: "9,600 mAh battery + solar",
+        status: "verified",
+      },
+      { label: "Warranty", value: "1 year", status: "verified" },
+    ],
+    variants: [
+      {
+        id: "observation-default",
+        title: 'Camera + 7" monitor',
+        available: true,
+        price: usd(349, [SRC.observation, SRC.store], { compareAt: 699 }),
+      },
+    ],
+    planId: null,
+    compatibility: [
+      "Standalone system with no app or subscription listed",
+      "Display requires 12 V DC power",
+    ],
+    related: ["pet-monitor-pro-plus", "rv-4g-mini-camera"],
+    art: "observation-system",
+    images: [],
+    gallery: [
+      {
+        src: "/images/lifestyle/rv-observation-quad-view.webp",
+        alt: "Overhead view of an RV with cameras covering the rear, both sides and the front",
+        width: 1600,
+        height: 646,
+      },
+      {
+        src: "/images/products/rv-observation-display.webp",
+        alt: "RV Observation System 7-inch display showing a camera view",
+        width: 421,
+        height: 443,
+        fit: "contain",
+      },
+      {
+        src: "/images/products/rv-observation-camera.webp",
+        alt: "RV Observation System solar-powered 1080p wireless camera",
+        width: 308,
+        height: 525,
+        fit: "contain",
+      },
+    ],
+    faqs: [
+      {
+        q: "Does it need a subscription?",
+        a: "No plan is listed. The camera transmits directly to the included display.",
+      },
+      {
+        q: "Can I view it on my phone?",
+        a: "It's designed around the included 7\" display. For phone viewing, pair your rig with a Waggle 4G camera.",
+      },
+    ],
+    sourceUrl: SRC.observation.url,
+    sources: [SRC.observation, SRC.store, SRC.home],
+    merchRank: 7,
+  },
+
+  // ───────────────────────── Accessories ─────────────────────────
+  {
+    handle: "solar-panel-4g-mini",
+    kind: "accessory",
+    name: "Solar Panel for RV 4G Mini Camera",
+    headline: "Keep your 4G Mini Camera charged by the sun.",
+    tagline: "Solar add-on for continuous power.",
+    description:
+      "An add-on solar panel for the RV 4G Mini Camera, offered as a $29 add-on on Waggle's product page.",
+    categories: ["rv-solutions", "no-wifi"],
+    connectivity: [],
+    connectivityNote: "No connectivity. Power accessory.",
+    capabilities: [],
+    useCases: ["Outdoor or long-term camera placement"],
+    features: [
+      {
+        title: "Continuous charging",
+        detail: "Tops up the camera's battery in daylight.",
+      },
+    ],
+    specs: [
+      {
+        label: "Compatible with",
+        value: "RV 4G Mini Camera",
+        status: "verified",
+      },
+    ],
+    variants: [
+      {
+        id: "solar-default",
+        title: "Solar panel",
+        available: true,
+        price: usd(29, [SRC.rv4gMini]),
+      },
+    ],
+    planId: null,
+    compatibility: ["RV 4G Mini Camera"],
+    related: ["rv-4g-mini-camera"],
+    art: "solar-panel",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.rv4gMini.url,
+    sources: [SRC.rv4gMini],
+    merchRank: 20,
+  },
+
+  // ───────────────────────── Published bundles ─────────────────────────
+  {
+    handle: "home-and-roam-bundle",
+    kind: "bundle",
+    name: "Home & Roam Bundle",
+    headline: "Protection at home and on the road, in one app.",
+    tagline: "Pet Monitor Lite+, WaggleCam Pro and RV WiFi Mini Cam.",
+    description:
+      "Temperature safety that goes anywhere, plus two cameras: WaggleCam Pro for treat-tossing check-ins at home and the RV WiFi Mini Cam for a second room or your camper.",
+    badge: "Bundle",
+    categories: ["bundles", "pet-safety", "pet-cameras", "home-property"],
+    connectivity: ["cellular", "wifi"],
+    connectivityNote: "Lite+ uses built-in 4G. Both cameras use WiFi.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "live-video",
+      "two-way-audio",
+      "treat-tossing",
+      "pan-tilt-tracking",
+      "night-vision",
+    ],
+    useCases: ["Households that travel with pets", "Whole-home pet monitoring"],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "home-roam-default",
+        title: "Home & Roam Bundle",
+        available: true,
+        price: usd(219, [SRC.homeAndRoam, SRC.chooseBundle], {
+          compareAt: 439,
+          status: "conflicting",
+          note: "Bundle and chooser pages list $219. One page shows $199/$249. A similar listing (with 64 GB Mini Cam) shows $229 (compare $427).",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: ["Lite+ requires a 4G Network Plan", "Cameras require WiFi"],
+    includes: ["pet-monitor-lite-plus", "wagglecam-pro", "rv-wifi-mini-cam"],
+    related: ["rv-4g-mini-camera"],
+    art: "bundle-home-and-roam",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.homeAndRoam.url,
+    sources: [SRC.homeAndRoam, SRC.chooseBundle],
+    merchRank: 10,
+  },
+  {
+    handle: "rv-4g-scout-bundle",
+    kind: "bundle",
+    name: "RV 4G Scout Bundle",
+    headline: "Temperature and live video with zero WiFi.",
+    tagline: "Pet Monitor Lite+ and RV 4G Mini Camera.",
+    description:
+      "The no-WiFi starter kit: Lite+ for temperature and power alerts, plus the RV 4G Mini Camera for live video, both on built-in 4G.",
+    badge: "Bundle",
+    categories: ["bundles", "rv-solutions", "travel-adventure", "no-wifi"],
+    connectivity: ["cellular"],
+    connectivityNote: "Both devices use built-in 4G. No WiFi needed.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "live-video",
+      "two-way-audio",
+      "battery-powered",
+      "solar-option",
+    ],
+    useCases: ["RVs and campsites", "Anywhere without WiFi"],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "rv-4g-scout-default",
+        title: "RV 4G Scout Bundle",
+        available: true,
+        price: usd(169, [SRC.store, SRC.chooseBundle], {
+          compareAt: 339,
+          note: "Store lists $169 (compare $339). A product page with the same title describes it under a different name, so confirm contents before launch.",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: ["Each device requires its own 4G plan"],
+    includes: ["pet-monitor-lite-plus", "rv-4g-mini-camera"],
+    related: ["solar-panel-4g-mini"],
+    art: "bundle-rv-4g-scout",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.rv4gScout.url,
+    sources: [SRC.chooseBundle, SRC.rv4gScout],
+    merchRank: 11,
+  },
+  {
+    handle: "pet-scout-bundle",
+    kind: "bundle",
+    name: "Pet Scout Bundle",
+    headline: "Temperature safety plus a WiFi camera.",
+    tagline: "Pet Monitor Lite+ and RV WiFi Mini Cam.",
+    description:
+      "Lite+ watches conditions over 4G while the RV WiFi Mini Cam gives you live video wherever you have WiFi.",
+    badge: "Bundle",
+    categories: ["bundles", "pet-safety", "pet-cameras"],
+    connectivity: ["cellular", "wifi"],
+    connectivityNote:
+      "Lite+ uses built-in 4G. The Mini Cam needs WiFi for live video.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "live-video",
+      "two-way-audio",
+      "pan-tilt-tracking",
+      "night-vision",
+    ],
+    useCases: ["Home pet owners", "RVers with reliable WiFi"],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "pet-scout-default",
+        title: "Pet Scout Bundle",
+        available: true,
+        price: usd(149, [SRC.store, SRC.chooseBundle, SRC.petScout], {
+          compareAt: 299,
+          note: "Store lists $149 (compare $299). Another page describes a 4G camera under this name.",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: [
+      "Lite+ requires a 4G Network Plan",
+      "Mini Cam requires WiFi",
+    ],
+    includes: ["pet-monitor-lite-plus", "rv-wifi-mini-cam"],
+    related: ["wagglecam-pro"],
+    art: "bundle-pet-scout",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.petScout.url,
+    sources: [SRC.chooseBundle, SRC.petScout],
+    merchRank: 12,
+  },
+  {
+    handle: "tripod",
+    kind: "accessory",
+    name: "Tripod",
+    headline: "Stand for any Waggle camera",
+    tagline: "Stand for any Waggle camera",
+    description:
+      "A tripod stand for Waggle cameras, listed as an add-on on the store page.",
+    categories: ["rv-solutions", "travel-adventure"],
+    connectivity: [],
+    connectivityNote: "No connectivity. Mounting accessory.",
+    capabilities: [],
+    useCases: ["Placing a camera where there is no shelf or wall"],
+    features: [
+      {
+        title: "Stand for any Waggle camera",
+        detail:
+          "A tripod stand for Waggle cameras, listed as an add-on on the store page.",
+      },
+    ],
+    specs: [
+      {
+        label: "Compatible with",
+        value: "Waggle cameras",
+        status: "unverified",
+        note: "Store lists it as an add-on for Waggle cameras. Confirm exact camera compatibility.",
+      },
+    ],
+    variants: [
+      {
+        id: "tripod-default",
+        title: "Tripod",
+        available: true,
+        price: usd(59, [SRC.store], { compareAt: 149 }),
+      },
+    ],
+    planId: null,
+    compatibility: ["Add-on for Waggle cameras"],
+    related: ["rv-4g-mini-camera", "waggle-4g-travelcam", "wagglecam-pro"],
+    art: "tripod",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 21,
+  },
+  {
+    handle: "vacuum-rubber-mount",
+    kind: "accessory",
+    name: "Vacuum Rubber Mounting",
+    headline: "Mount on glass or smooth surfaces",
+    tagline: "Mount on glass or smooth surfaces",
+    description:
+      "A vacuum rubber mount for glass and other smooth surfaces, listed as an add-on on the store page.",
+    categories: ["rv-solutions", "travel-adventure"],
+    connectivity: [],
+    connectivityNote: "No connectivity. Mounting accessory.",
+    capabilities: [],
+    useCases: ["Mounting a camera on a window or smooth panel"],
+    features: [
+      {
+        title: "Mount on glass or smooth surfaces",
+        detail:
+          "A vacuum rubber mount for glass and other smooth surfaces, listed as an add-on on the store page.",
+      },
+    ],
+    specs: [
+      {
+        label: "Compatible with",
+        value: "Waggle cameras",
+        status: "unverified",
+        note: "Store lists it as an add-on for Waggle cameras. Confirm exact camera compatibility.",
+      },
+    ],
+    variants: [
+      {
+        id: "vacuum-rubber-mount-default",
+        title: "Vacuum Rubber Mounting",
+        available: true,
+        price: usd(69, [SRC.store], { compareAt: 139 }),
+      },
+    ],
+    planId: null,
+    compatibility: ["Add-on for Waggle cameras"],
+    related: ["rv-4g-mini-camera", "waggle-4g-travelcam", "wagglecam-pro"],
+    art: "vacuum-mount",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 22,
+  },
+  {
+    handle: "clamp-mount",
+    kind: "accessory",
+    name: "Clamp Mount",
+    headline: "Clamp to rails and shelves",
+    tagline: "Clamp to rails and shelves",
+    description:
+      "A clamp mount that grips rails and shelves, listed as an add-on on the store page.",
+    categories: ["rv-solutions", "travel-adventure"],
+    connectivity: [],
+    connectivityNote: "No connectivity. Mounting accessory.",
+    capabilities: [],
+    useCases: ["Mounting a camera on a rail, shelf or tube"],
+    features: [
+      {
+        title: "Clamp to rails and shelves",
+        detail:
+          "A clamp mount that grips rails and shelves, listed as an add-on on the store page.",
+      },
+    ],
+    specs: [
+      {
+        label: "Compatible with",
+        value: "Waggle cameras",
+        status: "unverified",
+        note: "Store lists it as an add-on for Waggle cameras. Confirm exact camera compatibility.",
+      },
+    ],
+    variants: [
+      {
+        id: "clamp-mount-default",
+        title: "Clamp Mount",
+        available: true,
+        price: usd(49, [SRC.store], { compareAt: 119 }),
+      },
+    ],
+    planId: null,
+    compatibility: ["Add-on for Waggle cameras"],
+    related: ["rv-4g-mini-camera", "waggle-4g-travelcam", "wagglecam-pro"],
+    art: "clamp-mount",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 23,
+  },
+  {
+    handle: "rv-watch-bundle",
+    kind: "bundle",
+    name: "RV Watch Bundle",
+    headline: "Complete RV visibility: see inside and behind.",
+    tagline: "RV Observation System and RV 4G Mini Camera.",
+    description:
+      "Safer driving and parking with the RV Observation System, plus live video from the RV 4G Mini Camera.",
+    badge: "Bundle",
+    categories: ["bundles", "rv-solutions", "travel-adventure"],
+    connectivity: ["cellular", "local-wireless"],
+    connectivityNote:
+      "The Observation System links its camera to its own display. The Mini Camera uses built-in 4G.",
+    capabilities: [
+      "live-video",
+      "driving-visibility",
+      "two-way-audio",
+      "battery-powered",
+      "solar-option",
+    ],
+    useCases: [],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "rv-watch-bundle-default",
+        title: "RV Watch Bundle",
+        available: true,
+        price: usd(399, [SRC.store], {
+          compareAt: 799,
+          note: "Store lists $399 (compare $799). Contents shown in the store photo; confirm before launch.",
+        }),
+      },
+    ],
+    planId: "cellular-camera",
+    compatibility: ["Each cellular device needs its own plan"],
+    includes: ["rv-observation-system", "rv-4g-mini-camera"],
+    related: [],
+    art: "bundle-rv-watch",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 13,
+  },
+  {
+    handle: "anti-anxiety-cam-bundle",
+    kind: "bundle",
+    name: "Anti-anxiety Cam Bundle",
+    headline: "Talk, toss treats, and check in from the road.",
+    tagline: "WaggleCam Pro and RV 4G Mini Cam.",
+    description:
+      "Talk to your pet and toss treats with WaggleCam Pro at home, with a 4G camera for the road.",
+    badge: "Bundle",
+    categories: ["bundles", "pet-cameras", "travel-adventure"],
+    connectivity: ["wifi", "cellular"],
+    connectivityNote:
+      "WaggleCam Pro uses home WiFi. The RV 4G Mini Cam uses built-in 4G.",
+    capabilities: [
+      "live-video",
+      "two-way-audio",
+      "treat-tossing",
+      "pan-tilt-tracking",
+      "night-vision",
+      "battery-powered",
+    ],
+    useCases: [],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "anti-anxiety-cam-bundle-default",
+        title: "Anti-anxiety Cam Bundle",
+        available: true,
+        price: usd(199, [SRC.store], {
+          compareAt: 399,
+          note: "Store lists $199 (compare $399).",
+        }),
+      },
+    ],
+    planId: "cellular-camera",
+    compatibility: ["Each cellular device needs its own plan"],
+    includes: ["wagglecam-pro", "rv-4g-mini-camera"],
+    related: [],
+    art: "bundle-anti-anxiety",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 14,
+  },
+  {
+    handle: "rv-4g-scout-pro-bundle",
+    kind: "bundle",
+    name: "RV 4G Scout Bundle (Pro)",
+    headline: "Pro monitoring plus a 4G camera, no WiFi.",
+    tagline: "Pet Monitor Pro+ and RV 4G Mini Cam.",
+    description:
+      "Pro monitoring features, including geofence and the on-device display, with a 4G camera included.",
+    badge: "Bundle",
+    categories: ["bundles", "rv-solutions", "travel-adventure", "no-wifi"],
+    connectivity: ["cellular"],
+    connectivityNote: "Both devices use built-in 4G. No WiFi needed.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "gps-geofence",
+      "on-device-display",
+      "live-video",
+      "two-way-audio",
+      "battery-powered",
+    ],
+    useCases: [],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "rv-4g-scout-pro-bundle-default",
+        title: "RV 4G Scout Bundle (Pro)",
+        available: true,
+        price: usd(169, [SRC.store], {
+          compareAt: 339,
+          note: "Store lists $169 (compare $339). The chooser page names the Pro+ Air monitor; confirm the exact monitor model.",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: ["Each cellular device needs its own plan"],
+    includes: ["pet-monitor-pro-plus", "rv-4g-mini-camera"],
+    related: [],
+    art: "bundle-rv-4g-scout-pro",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 15,
+  },
+  {
+    handle: "roadsafe-bundle",
+    kind: "bundle",
+    name: "RoadSafe Bundle",
+    headline: "Pet safety and a backup camera in one order.",
+    tagline: "Pet Monitor Pro+ and RV Observation System.",
+    description:
+      "Temperature and power alerts for your pet, with the RV Observation System for backing up and parking.",
+    badge: "Bundle",
+    categories: ["bundles", "rv-solutions", "travel-adventure"],
+    connectivity: ["cellular", "local-wireless"],
+    connectivityNote:
+      "The monitor uses built-in 4G. The Observation System links its camera to its own display.",
+    capabilities: [
+      "temperature",
+      "humidity",
+      "power-loss-alerts",
+      "gps-geofence",
+      "on-device-display",
+      "driving-visibility",
+      "live-video",
+      "solar-option",
+    ],
+    useCases: [],
+    features: [],
+    specs: [],
+    variants: [
+      {
+        id: "roadsafe-bundle-default",
+        title: "RoadSafe Bundle",
+        available: true,
+        price: usd(399, [SRC.store], {
+          compareAt: 799,
+          note: "Store lists $399 (compare $799). The monitor shown in the photo is the red Pro+ model; confirm before launch.",
+        }),
+      },
+    ],
+    planId: "cellular",
+    compatibility: ["Each cellular device needs its own plan"],
+    includes: ["pet-monitor-pro-plus", "rv-observation-system"],
+    related: [],
+    art: "bundle-roadsafe",
+    images: [],
+    faqs: [],
+    sourceUrl: SRC.store.url,
+    sources: [SRC.store],
+    merchRank: 16,
+  },
+];
